@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="row" style="direction:rtl">
+      <div class="col-xl-7 b-center bg-size" style="background-image: url(/assets/images/logo/login.png); background-size: cover; background-position: center center; display: block;"><img class="bg-img-cover bg-center" src="../assets/images/login/2.jpg" alt="looginpage" style="display: none;"></div>
+       <div class="col-xl-5 p-0">
+        <div class="login-card">
+          <div> 
+             <div class="login-main"> 
+              <div class="text-center my-4 logoImg">  <img class="img-fluid " src="../../../../assets/images/logo/verify.png" alt="looginpage" height="100px" width="100px">  </div>
+              <form class="theme-form" [formGroup]='form' >
+                <div class="heading my-4"> 
+                <h4 class="text-center">Verify your Email</h4>
+                 <p  class="text-center">Enter the code sent to  <br>
+                  Teacherapp@gmail.com </p> 
+                </div>
+                  <div class="position-relative"> 
+                     <div class="  p-2 text-center">
+                        <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
+                            <input class="m-2 text-center form-control verifyIn" type="text" id="first"  maxlength="1"  formControlName="x" #inputBox1 style="background-color: white; border-top: none ; border-right: none; border-left: none; border-bottom-color:#37B673; border-bottom-width:medium; border-radius: 0px;" /> 
+                            <input class="m-2 text-center form-control verifyIn" type="text" id="second" maxlength="1"  formControlName="y" #inputBox2 style="background-color: white; border-top: none ; border-right: none; border-left: none; border-bottom-color:#37B673; border-bottom-width:medium; border-radius: 0px;"/>
+                            <input class="m-2 text-center form-control verifyIn" type="text" id="third"  maxlength="1"  formControlName="z" #inputBox3 style="background-color: white; border-top: none ; border-right: none; border-left: none; border-bottom-color:#37B673; border-bottom-width:medium; border-radius: 0px;"/>
+                            <input class="m-2 text-center form-control verifyIn" type="text" id="fourth" maxlength="1"  formControlName="m" #inputBox4 style="background-color: white; border-top: none ; border-right: none; border-left: none; border-bottom-color:#37B673; border-bottom-width:medium; border-radius: 0px;"/>
+                         </div> 
+                      </div> 
+                   </div>
+                 
+                <div class="form-group my-4 text-center">
+                  <p class="text-muted">Resend code in <span> {{timeLeftMinutes}} </span> secs </p> 
+                  <a class="recode" href="" >Resend code</a>
+                   <div class="my-3"> 
+                     
+                     <button *ngIf="this.fromPage == 'signup'" class="btn btn-primary btn-block" (click)="submitSignup()">Send</button> 
+                    <button *ngIf="this.fromPage == 'reset'" class="btn btn-primary btn-block" (click)="submitReset()">Send</button> 
+                    <button *ngIf="this.fromPage == 'mail'" class="btn btn-primary btn-block" (click)="submitMail()">Send</button> 
+                  
+                  </div> 
+                 
+                </div>
+                
+               
+              </form>
+            </div>
+            <div>
+              <a class="logo text-left" href="javascript:void(0)">
+            <img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt="looginpage">
+            </a>
+          </div>
+          
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>

@@ -3,8 +3,24 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+  production: false,
+    endpoint:'https://elmo3lem.scarksa.com/public/api',
+    baseURL:'https://elmo3lem.scarksa.com/public',
+    currentUserKey:'CurrentUser',
+    mapboxToken:'pk.eyJ1IjoiYmFzZW0xMjEyMTk5NCIsImEiOiJja3g1dTJrYnQxYXB6MzBvMWdrcjd5MXFmIn0.YtJZRMq7vvX4T3PGiHj70Q',
+  
+  
+    
+      firebaseConfig: {
+        apiKey: "xxx",
+        authDomain: "xxx.firebaseapp.com",
+        databaseURL: "https://xxx.firebaseio.com",
+        projectId: "xxx",
+        storageBucket: "xxx.appspot.com",
+        messagingSenderId: "xxx",
+        appId: "xxx"
+        }
+  };
 
 /*
  * For easier debugging in development mode, you can import the following file

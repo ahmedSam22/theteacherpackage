@@ -1,0 +1,129 @@
+h6{
+    margin:20px auto ;
+    max-width: 100px;
+    text-align: center;
+    color: #a39999;
+}
+
+h6:before {
+  content:"";
+  display: block;
+  width: 150px;
+  height: 2px;
+  background:  #e1dfdf;
+  position: absolute;
+  left: 0px;
+  top:5%; 
+  z-index: 2 ;
+}
+h6:after{
+   content:"";
+   display: block;
+   width: 150px;
+   height: 2px;
+   background: #e1dfdf;
+   position: absolute;
+   right: 0px;
+   top:5%; 
+    z-index: 2 ;
+}
+span{
+    background: #fff;
+}
+
+.orstyle{
+    background-color:#F9F9F9;
+     height:20px;
+     width:20px;
+     font-size: 10px ; 
+     padding:5px 11px ;
+     border-radius:50%;
+}
+.termsamdconditions{
+    text-decoration:underline ;
+     color:#37B673;
+     font-size: 14px; 
+  }
+.teacherPackage{
+    color:#37B673;
+    font-weight: 500;
+}
+.phoneCountry{
+    padding-left:45px ;
+}
+.countryFlag{
+    display:inline-block ; 
+    position: absolute;
+    top:45px;
+    left:15px;
+    width: 15px;
+}
+@media (max-width: 575.98px) { 
+   h6:before { 
+       width: 100px;
+   }
+   h6:after{
+       width: 100px;
+   }
+ }
+.carouseleto {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    direction: ltr;
+}
+.projectImgContainer {
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    display: flex;
+    justify-content: center;
+    height: 100%;
+
+}
+ .carousel-cells .carousel-cell img{
+    position: absolute;
+    object-fit:cover;
+}
+.goSign{
+    color:#37B673
+}
+// .carousel-item {
+//     height: 100vh;
+//     min-height: 350px;
+//     background: no-repeat center center scroll;
+//     -webkit-background-size: cover;
+//     -moz-background-size: cover;
+//     -o-background-size: cover;
+//     background-size: cover;
+//   }
+ 
+.fixedbackground{
+    display: none;
+}
+.logoImg{
+    display: none; 
+}
+@media (max-width: 1199.98px) { 
+    .fixedbackground{
+        display: flex;
+        z-index: -10;
+        opacity: 1;
+    }  
+    
+.caroSlider{
+    display: none;
+}
+ .logoImg{
+    display: block;
+ }
+}
+
+@media (max-width: 767.98px) { 
+    .heading h3{
+        font-size:20px
+    }
+    .heading h4{
+        font-size:18px
+    }
+  }

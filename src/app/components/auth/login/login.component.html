@@ -1,0 +1,155 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-5 p-0">
+      <div class="login-card">
+        <div>
+          <div class="login-main">
+            <div class="text-center my-4 logoImg">  <img class="img-fluid " src="../../../../assets/images/logo/logoo.png" alt="looginpage" height="100px" width="100px">  </div>
+          <form class="theme-form" [formGroup]="form" (ngSubmit)="submit()">
+              <h3 class="text-left my-4">  Welcome Back !</h3>
+           
+              <div class="form-group text-muted text-left">
+                <label class="col-form-label"> Mobile number or Email</label>
+
+                <input
+                  class="form-control"
+                  dir="ltr"
+                  type="email"
+                  required=""
+                  placeholder="example@gmail.com"
+                  formControlName="email_or_phone"
+                  [ngClass]="{
+                    'is-invalid': submitted && f.email_or_phone.errors
+                  }"
+                />
+                <div
+                  *ngIf="submitted && f.email_or_phone.errors"
+                  class="errors-container mt-2"
+                >
+                  <p
+                    class="error-element"
+                    *ngIf="f.email_or_phone.errors.required"
+                  >
+                    *this is required field
+                  </p>
+                </div>
+              </div>
+              <div class="form-group text-muted text-left"  >
+              
+                <label class="col-form-label">Password</label>
+                <input
+                  class="form-control text-left"
+                  type="password"
+                  [type]="togglePassword ? 'text' : 'password'"
+                  name="login[password]"
+                  required=""
+                  placeholder="*********"
+                  formControlName="password"
+                  />
+                  <div class="show-hide text-right"><span (click)="togglePassword = !togglePassword" [ngClass]="{'show': !togglePassword}"></span></div>
+                <div
+                  *ngIf="submitted && f.password.errors"
+                  class="errors-container mt-2" >
+                  <p class="error-element" *ngIf="f.password.errors.required">
+                    *this is required field
+                  </p>
+                </div>
+              </div>
+              <div class="form-group mb-4 ">
+                <div class="text-right">  <a class="text-muted my-4 " href="" [routerLink]="['/auth/forgetpassword']" >forget password ?</a></div>
+                 
+                <button class="btn btn-primary btn-block my-4" type="submit"> Sign in  </button>
+
+                <div class=" text-center"> <span class="text-muted">Don't have an account ?<a href="" class="goSign" [routerLink]="['auth/signup']"> Sign Up </a> </span></div> 
+              </div>
+
+              <!-- <div class="dropdown-divider"> </div>  -->
+             
+              <!-- <div class="dropdown-divider"> </div> -->
+              <div class="form-group my-4">
+                <h6 class="text-center"><span class="orstyle">OR</span></h6>
+                <button
+                  class="btn btn-block"
+                  type="submit"
+                  style="background-color: #3b5998"
+                  
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-facebook"
+                    viewBox="0 0 16 16"
+                    style="position: relative; top: 4px"
+                  >
+                    <path
+                      d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
+                    />
+                  </svg>
+                  Sign in with Facebook
+                </button>
+                <button
+                  class="btn btn-block"
+                  type="submit"
+                  style="background-color: #dd4b39"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-google"
+                    viewBox="0 0 16 16"
+                    style="position: relative; top: 4px"
+                  >
+                    <path
+                      d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"
+                    />
+                  </svg>
+                  Sign in with Google
+                </button>
+              </div>
+
+              <!-- <p class="mt-4 mb-0">ليس لديك حساب؟<a class="ml-2" href="javascript:void(0)">إنشاء حساب الآن</a></p> -->
+            </form>
+          </div>
+          <div>
+            <a class="logo text-left" href="javascript:void(0)">
+              <img
+                class="img-fluid for-dark"
+                src="../assets/images/logo/logo_dark.png"
+                alt="looginpage"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+    <div class= "col-xl-7 b-center bg-size caroSlider"> 
+      <carousel 
+      style="height:100% ; z-index:-1000"
+      [cellsToShow]="1"
+      [counter]="false"
+      [dots]="true"
+      [loop]="true"
+      [lightDOM]="true"
+      [autoplay]="true"
+      [autoplayInterval]="2000"
+      [pauseOnHover]="true"
+      [transitionDuration]="2000"
+      [transitionTimingFunction]="'ease-in-out'"
+      [arrows]="false"
+      [arrowsOutside]="false"
+      [arrowsTheme]="'light'">
+      <div class="carousel-cell" *ngFor="let project of imageSources">
+          <a class="projectImgContainer" >
+               <div style="display:flex;justify-content: center;"><img [src]="project.path" class="img-fluid rightMokap" height="auto" width="100%" style="object-fit:cover; position: absolute;"></div>
+            </a>
+      </div>
+     </carousel>
+      </div>
+      <div class="col-xl-7 b-center bg-size fixedbackground" style="background-color:#F9F9F9;"><img class="bg-img-cover bg-center" src="../assets/images/login/2.jpg" alt="looginpage" style="display: none;"></div>  </div>
+</div>
