@@ -8,6 +8,9 @@ import { AuthenticationService } from 'src/app/components/auth/authentication.se
 })
 export class NavbarComponent implements OnInit {
   user:any;
+  collapsed=true;
+  selected:any;
+  element:any;
   public dark = false
   constructor(private authentication:AuthenticationService) { 
     this.authentication.currentUser.subscribe(currentUserSubject => this.user = currentUserSubject)
@@ -15,10 +18,24 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  // darkMode(){
-  //   $('body').toggleClass('dark-only')
-  // }
+  
   logOut(){
     this.authentication.logout()
   }
+  toggleCollapsed(): void {
+    this.collapsed = !this.collapsed;
+  }
+  select(item:any) {
+    this.selected = item;
+      this.hideNavBar();
+     
+  };
+  hideNavBar(){
+    this.element = document.getElementById('navbarSupportedContent');
+    this.element.style.transition='transform ease-out 3s'; 
+    this.element.classList.add("collapse");
+   
+  }
+ 
+ 
 }

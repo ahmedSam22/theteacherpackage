@@ -24974,7 +24974,8 @@ body[class*='dark-'] .for-light {
   .page-wrapper.compact-wrapper .page-body-wrapper.sidebar-icon .page-body {
     min-height: calc(100vh - 80px);
     margin-top: 80px;
-    margin-left: 280px; }
+    /* margin-left: 280px;  */
+  }
 
 @-webkit-keyframes pagebody {
   from {

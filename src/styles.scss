@@ -111,3 +111,10 @@ border-color:#37B673 !important;
  
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-left:2rem ;
+    padding-right:2rem ;
+  }
+} 

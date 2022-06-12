@@ -1,69 +1,69 @@
-<div class="header-wrapper row m-0">
-    <form class="form-inline search-full" action="javascript:void(0)" method="get">
-      <div class="form-group w-100">
-        <div class="Typeahead Typeahead--twitterUsers">
-          <div class="u-posRelative">
-            <input class="demo-input Typeahead-input form-control-plaintext w-100" type="text" placeholder="Search makin .." name="q" title="" autofocus="" data-original-title="">
-            <div class="spinner-border Typeahead-spinner" role="status"><span class="sr-only">Loading...</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x close-search"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-          </div>
-          <div class="Typeahead-menu"></div>
-        </div>
-      </div>
-    </form>
-    <div class="header-logo-wrapper">
-      <div class="logo-wrapper"><a href="index.html" ><img class="img-fluid" src="assets/images/logo/logo.png" alt="" ></a></div>
-      <div class="toggle-sidebar" checked="checked"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sliders status_toggle middle sidebar-toggle"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg></div>
-    </div>
-    <div class="left-header col horizontal-wrapper pl-0">
-      <ul class="horizontal-menu">
-        <li class="level-menu outside">
-            <a class="nav-link" href="javascript:void(0)">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg>
-                <span> أبرز المسارات</span>
-            </a>
-          <ul class="header-level-menu menu-to-be-close" style="display: none;">
-            <!-- <li>
-              <a [routerLink]="['/app/users/create']" href="javascript:void(0)">                               
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                  <span> إضافة مستخدم</span>
-              </a>
+<nav id="mainNavbar" class="navbar navbar-expand-lg  fixed-top">
+  <a class="navbar-brand" href="#"><img src="assets/images/logo/logoo.png" height="auto" width="50%" class="img-fluid" alt="" srcset=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+     aria-expanded="false" aria-label="Toggle navigation"
+     (click)="toggleCollapsed()" style="color:#B1B1B1">
+  
+     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+    </svg>
+  </button>
+
+  <div id="navbarSupportedContent" class="text-center" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+      <ul class="navbar-nav mx-auto mt-2 mt-lg-0 " >
+         
+          <li class="nav-item active">
+            <!-- [routerLink]="['/home']" -->
+              <a  #home (click)="select(home.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/home']">Classes<span class="sr-only">(current)</span></a>
           </li>
-          <li>
-            <a [routerLink]="['/app/ads/create']" href="javascript:void(0)">                               
-              <svg _ngcontent-rrj-c89="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon _ngcontent-rrj-c89="" points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                              <span>إضافة إعلان  </span>
-            </a>
+          <li class="nav-item">
+              <a  #reports (click)="select(reports.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['reports']">Reports</a>
+          </li>
+          <li class="nav-item">
+              <a  #about (click)="select(about.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['teachers']">Teachers</a>
+          </li>
+          <li class="nav-item">
+              <a #contact (click)="select(contact.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['students']">Students</a>
+          </li>
+          <li class="nav-item">
+            <a #contact (click)="select(contact.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['weekly-schedule']">Weekly Schedule</a>
         </li>
-        <li>
-          <a [routerLink]="['/app/categories/create-main-categories']" href="javascript:void(0)">                               
-            <svg _ngcontent-qhe-c89="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon _ngcontent-qhe-c89="" points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline _ngcontent-qhe-c89="" points="2 17 12 22 22 17"></polyline><polyline _ngcontent-qhe-c89="" points="2 12 12 17 22 12"></polyline></svg>              <span>إضافة فئة</span>
-          </a>
-      </li>
-      <li>
-        <a [routerLink]="['/app/countries/create-countries']" href="javascript:void(0)">                               
-          <svg _ngcontent-qhe-c89="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle"><circle _ngcontent-qhe-c89="" cx="12" cy="12" r="10"></circle><path _ngcontent-qhe-c89="" d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line _ngcontent-qhe-c89="" x1="12" y1="17" x2="12" y2="17"></line></svg>            <span>إضافة دولة</span>
-        </a>
-    </li> -->
            
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="nav-right col-8 pull-right right-header p-0">
-      <ul class="nav-menus">
-       
         
-        <li class="profile-nav onhover-dropdown p-0 mr-0">
-          <div class="media profile-media"><img class="b-r-10" src="https://secure.gravatar.com/avatar/a552dc12d8811a2a98f133698d23820a?s=160&d=retro&r=pg" width="40" alt="" >
-            <!-- <div class="media-body"><span> {{user.data.name}} </span> -->
-              <div class="media-body"><span> Admin </span>
-              <p class="mb-0 font-roboto">مسؤول <i class="middle fa fa-angle-down"></i></p>
-            </div>
-          </div>
-          <ul class="profile-dropdown onhover-show-div">
-            <li><a href="javascript:void(0)" (click)="logOut()" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-in"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg><span> خروج</span></a></li>
-          </ul>
-        </li>
       </ul>
-    </div>
+      <!-- form-inline  -->
+      <ul class="navbar-nav mr-0 mt-2 mt-lg-0 " >
+        <li class="nav-item">
+           <div class="dropdown">
+              <button class="dropbtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+              </svg>
+             </button>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+          </div>
+        </li>
+        <li class="nav-item ">
+          <!-- style="padding:12px ; border-radius: 50%;"  -->
+ 
+        <div class="dropdown">
+          <button class="dropbtn">
+            <img src="../../../assets/images/user-avatar.jpg " class="img-fluid rounded-circle " height="auto" width="15%"  >
+         </button>
+            <div class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+      </div>
+      </li>
+      </ul>
   </div>
+  
+</nav>

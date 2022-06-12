@@ -26,6 +26,15 @@ import { environment } from 'src/environments/environment';
 import { VerifycodeComponent } from './components/auth/verifycode/verifycode.component';
 import { ForgetpasswordComponent } from './components/auth/forgetpassword/forgetpassword.component';
 import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
+import { ClassComponent } from './components/home/home.component';
+import { ReportsComponent } from './components/reports/reports.component';
+import { TeachersComponent } from './components/teachers/teachers.component';
+import { StudentsComponent } from './components/students/students.component';
+import { WeeklyscheduleComponent } from './components/weeklyschedule/weeklyschedule.component';
+import { ClassStudentComponent } from './components/class-student/class-student.component';
+import { ClassDetailsComponent } from './components/class-student/class-details/class-details.component';
+ 
+ 
 
 @NgModule({
   declarations: [
@@ -35,7 +44,16 @@ import { ChangepasswordComponent } from './components/auth/changepassword/change
     SignupComponent,
     VerifycodeComponent,
     ForgetpasswordComponent,
-    ChangepasswordComponent
+    ChangepasswordComponent,
+    ClassComponent,
+    ReportsComponent,
+    TeachersComponent,
+    StudentsComponent,
+    WeeklyscheduleComponent,
+    ClassStudentComponent,
+    ClassDetailsComponent,
+    
+   
   ],
   imports: [
     BrowserModule,
