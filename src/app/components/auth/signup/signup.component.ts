@@ -101,4 +101,19 @@ export class SignupComponent implements OnInit {
       console.log("sa code",this.form.value.country_code);
     }
   }
+  
+
+  googleLogin(){
+    return this.service.GoogleAuth().then(_=>{
+   this.router.navigate(["/home"])
+    });
+
+  }
+  
+  facebookLogin(){
+    return this.service.FacebookAuth().then(_=>{
+       this.router.navigate(["/home"])
+    });
+
+  }
 }

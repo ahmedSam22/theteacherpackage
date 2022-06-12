@@ -84,10 +84,16 @@ export class LoginComponent implements OnInit {
 
 
   googleLogin(){
-    return this.service.GoogleAuth()
+    return this.service.GoogleAuth().then(_=>{
+      this.router.navigate(["/home"])
+       });
+   
   }
   
   facebookLogin(){
-    return this.service.FacebookAuth()
+    return this.service.FacebookAuth().then(_=>{
+      this.router.navigate(["/home"])
+       });
+   
   }
 }
