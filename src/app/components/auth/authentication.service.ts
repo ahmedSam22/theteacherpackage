@@ -156,12 +156,50 @@ export class AuthenticationService {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        console.log('You have been successfully logged in!');
-        const user = result.user;
+        console.log(result , 'You have been successfully logged in!');
+        let uid:any = result.user?.uid;
+        let name:any = result.user?.displayName;
+        let email:any = result.user?.email;
+        let phone:any = result.user?.phoneNumber;
+        let photo:any = result.user?.photoURL;
+
+        const formControl: FormData = new FormData();
+        formControl.append("uid" , uid)
+        formControl.append("name" , name)
+        formControl.append("email" , email)
+        formControl.append("phone" , phone)
+        formControl.append("image" , photo)
+        // formControl.append("phone" , phone)
+        this.forSocial(formControl).subscribe(res=>{
+          console.log(res);
+          
+        });
       })
       .catch((error) => {
         console.log(error);
       });
+  }
+
+
+
+  forSocial(form:any) {
+
+    return this.http
+      .post(`${environment.endpoint}/social/signin`, form)
+      .pipe(
+        map((user?: any) => {
+          console.log("userrrrrrrr", user);
+
+          if (user && user.data?.access_token) {
+            localStorage.setItem(
+              `${environment.currentUserKey}`,
+              JSON.stringify(user)
+            );
+            this.currentUserSubject.next(user);
+          }
+          return user;
+        })
+      );
   }
 
 }
