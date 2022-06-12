@@ -22,6 +22,8 @@ export class SignupComponent implements OnInit {
   public togglePassword2: boolean = false;
   selectedCountryCode = "sa";
   countryCodes = ["sa", "us"];
+  // selectedCountryCode = 'us';
+  // countryCodes = ['us', 'lu', 'de', 'bs', 'br', 'pt'];
   country_code = "sa";
   imageSources:any;
   constructor(
@@ -42,7 +44,7 @@ export class SignupComponent implements OnInit {
     this.form = this.formbuilder.group({
       name: ["", Validators.required],
       email: ["", Validators.required],
-      country_code: ["", Validators.required],
+      country_code: ["+966", Validators.required],
       phone: ["", Validators.required],
       password: ["", Validators.required],
       confirm_password: ["", Validators.required],
@@ -87,13 +89,16 @@ export class SignupComponent implements OnInit {
   changeSelectedCountryCode(value: string): void {
     this.selectedCountryCode = value;
   }
+  // changeSelectedCountryCode(value: string): void {
+  //   this.selectedCountryCode = value;
+  // }
   changeLang() {
     if (this.selectedCountryCode === "us") {
       this.form.controls.country_code.setValue("+1");
-      console.log("us code", this.country_code);
+      console.log("us code", this.form.value.country_code);
     } else if (this.selectedCountryCode === "sa") {
       this.form.controls.country_code.setValue("+966");
-      console.log("sa code", this.country_code);
+      console.log("sa code",this.form.value.country_code);
     }
   }
 }
