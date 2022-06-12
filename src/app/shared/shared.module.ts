@@ -1,3 +1,4 @@
+import { DashboardLayoutComponent } from './../layouts/dashboard-layout/dashboard-layout.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -17,7 +18,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
-  declarations: [SidebarComponent, NavbarComponent, FooterComponent, JumbotronComponent],
+  declarations: [SidebarComponent, NavbarComponent, FooterComponent, JumbotronComponent,DashboardLayoutComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -47,7 +48,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSelectModule,
     HttpClientModule,
     ToastrModule,
-    RouterModule
+    RouterModule,
+    DashboardLayoutComponent
   ],  
   providers:[
     

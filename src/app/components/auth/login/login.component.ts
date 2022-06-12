@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import Swal from 'sweetalert2'
+import { getAuth } from "firebase/auth";
 
 
 @Component({

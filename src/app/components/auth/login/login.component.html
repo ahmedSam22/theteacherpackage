@@ -5,7 +5,7 @@
         <div>
           <div class="login-main">
             <div class="text-center my-4 logoImg">  <img class="img-fluid " src="../../../../assets/images/logo/logoo.png" alt="looginpage" height="100px" width="100px">  </div>
-          <form class="theme-form" [formGroup]="form" (ngSubmit)="submit()">
+          <form class="theme-form" [formGroup]="form" >
               <h3 class="text-left my-4">  Welcome Back !</h3>
            
               <div class="form-group text-muted text-left">
@@ -58,7 +58,7 @@
               <div class="form-group mb-4 ">
                 <div class="text-right">  <a class="text-muted my-4 " href="" [routerLink]="['/auth/forgetpassword']" >forget password ?</a></div>
                  
-                <button class="btn btn-primary btn-block my-4" type="submit"> Sign in  </button>
+                <button class="btn btn-primary btn-block my-4" type="submit" (click)="submit()"> Sign in  </button>
 
                 <div class=" text-center"> <span class="text-muted">Don't have an account ?<a href="" class="goSign" [routerLink]="['auth/signup']"> Sign Up </a> </span></div> 
               </div>

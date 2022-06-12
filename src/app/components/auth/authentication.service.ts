@@ -144,6 +144,7 @@ export class AuthenticationService {
   
   GoogleAuth() {
     return this.AuthLogin(new GoogleAuthProvider());
+
   }
 
 
@@ -156,6 +157,7 @@ export class AuthenticationService {
       .signInWithPopup(provider)
       .then((result) => {
         console.log('You have been successfully logged in!');
+        const user = result.user;
       })
       .catch((error) => {
         console.log(error);
