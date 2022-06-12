@@ -21,6 +21,11 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { NgxFlagPickerModule } from 'ngx-flag-picker';
+import {AngularFireModule} from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { VerifycodeComponent } from './components/auth/verifycode/verifycode.component';
+import { ForgetpasswordComponent } from './components/auth/forgetpassword/forgetpassword.component';
+import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +33,9 @@ import { NgxFlagPickerModule } from 'ngx-flag-picker';
     LoginComponent,
     // WrongRouteComponent,
     SignupComponent,
-    // VerifycodeComponent,
-    // ForgetpasswordComponent,
-    // ChangepasswordComponent
+    VerifycodeComponent,
+    ForgetpasswordComponent,
+    ChangepasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,9 @@ import { NgxFlagPickerModule } from 'ngx-flag-picker';
     NgbModule,
     IvyCarouselModule,
     NgxSpinnerModule,
-    NgxFlagPickerModule
+    NgxFlagPickerModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+
     
   ],
   providers: [

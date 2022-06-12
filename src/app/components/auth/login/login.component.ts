@@ -79,4 +79,14 @@ export class LoginComponent implements OnInit {
 
         // })
   }
+
+
+
+  googleLogin(){
+    return this.service.GoogleAuth()
+  }
+  
+  facebookLogin(){
+    return this.service.FacebookAuth()
+  }
 }

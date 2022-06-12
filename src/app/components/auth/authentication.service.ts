@@ -4,6 +4,9 @@ import { Router } from "@angular/router";
 import { BehaviorSubject, Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
+import { GoogleAuthProvider } from 'firebase/auth';
+import { FacebookAuthProvider } from 'firebase/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Injectable({
   providedIn: "root",
@@ -12,7 +15,7 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(private router: Router, private http: HttpClient, public afAuth: AngularFireAuth) {
     this.currentUserSubject = new BehaviorSubject<any>(
       JSON.parse(localStorage.getItem(`${environment.currentUserKey}`) || "{}")
     );
@@ -137,25 +140,26 @@ export class AuthenticationService {
     this.currentUserSubject.next(null);
     this.router.navigate([""]);
   }
-  // register(form:any){
-  //     const formData: FormData = new FormData();
-  //     formData.append("type", '2'); /* 1 for user 2 for owner */
-  //     formData.append("name", form.name);
-  //     formData.append("storename", form.storename);
-  //     formData.append("email", form.email);
-  //     formData.append("phone", form.phone);
-  //     formData.append("password", form.password);
-  //     for (var i = 0; i < form.registry.length; i++) {
-  //         formData.append("registry[" + i + "]", form.registry[i]);
-  //     }
-  //     new Response(formData).text().then(console.log)
-  //     return this.http.post(`${environment.endpoint}/users/register`, formData)
-  //     .pipe( map((user:any) => {
-  //         if (user && user.token) {
-  //             localStorage.setItem(`${environment.currentUserKey}`, JSON.stringify(user));
-  //             this.currentUserSubject.next(user);
-  //         } return user;
-  //     })
-  //     );
-  // }
+
+  
+  GoogleAuth() {
+    return this.AuthLogin(new GoogleAuthProvider());
+  }
+
+
+  FacebookAuth() {
+    return this.AuthLogin(new FacebookAuthProvider());
+  }
+  // Auth logic to run auth providers
+  AuthLogin(provider:any) {
+    return this.afAuth
+      .signInWithPopup(provider)
+      .then((result) => {
+        console.log('You have been successfully logged in!');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
 }

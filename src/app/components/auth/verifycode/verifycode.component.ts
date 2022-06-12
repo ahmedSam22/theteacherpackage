@@ -11,10 +11,10 @@ import Swal from "sweetalert2";
 })
 export class VerifycodeComponent implements OnInit {
   public submitted = false;
-  public form: FormGroup;
+  public form: FormGroup | any;
   public togglePassword: boolean = false;
-  fromPage;
-  @ViewChild("inputBox") _el: ElementRef;
+  fromPage:any;
+  // @ViewChild("inputBox") _el: ElementRef;
   timeLeftMinutes: number = 23;
 
   interval: any;
@@ -51,9 +51,9 @@ export class VerifycodeComponent implements OnInit {
     return this.form.controls;
   }
   submitSignup() {
-    let country = JSON.parse(localStorage.getItem("CurrentUser")).data.user
+    let country = JSON.parse(localStorage.getItem("CurrentUser") || "{}").data.user
       .country_code;
-    let number = JSON.parse(localStorage.getItem("CurrentUser")).data.user
+    let number = JSON.parse(localStorage.getItem("CurrentUser") || "{}").data.user
       .phone;
     let code = [
       this.form.controls.x.value,
@@ -88,7 +88,7 @@ export class VerifycodeComponent implements OnInit {
   }
 
   submitReset() {
-   let phone = localStorage.getItem("reset")
+   let phone:any = localStorage.getItem("reset")
     let code = [
       this.form.controls.x.value,
       this.form.controls.y.value,
@@ -117,7 +117,7 @@ export class VerifycodeComponent implements OnInit {
 
   
   submitMail() {
-    let mail = localStorage.getItem("mail")
+    let mail:any = localStorage.getItem("mail") || "{}"
      let code = [
        this.form.controls.x.value,
        this.form.controls.y.value,
@@ -144,10 +144,10 @@ export class VerifycodeComponent implements OnInit {
      });
    }
 
-  setFocus() {
-    this._el.nativeElement.focus();
-  }
-  ngAfterViewInit() {
-    this._el.nativeElement.focus();
-  }
+  // setFocus() {
+  //   this._el.nativeElement.focus();
+  // }
+  // ngAfterViewInit() {
+  //   this._el.nativeElement.focus();
+  // }
 }

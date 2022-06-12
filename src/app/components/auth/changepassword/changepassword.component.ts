@@ -13,13 +13,13 @@ import Swal from 'sweetalert2'
 export class ChangepasswordComponent implements OnInit {
 
   public submitted = false;
-  public form:FormGroup;
+  public form:FormGroup | any;
   public togglePassword: boolean = false;
   public togglePassword2: boolean = false;
   selectedCountryCode = 'sa';
   countryCodes = ['sa','us'];
   country_code="";
-  imageSources;
+  imageSources:any;
   constructor(private router: Router,private formbuilder:FormBuilder,private service:AuthenticationService,private spinner: NgxSpinnerService) {}
 
   ngOnInit(): void {
