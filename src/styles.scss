@@ -1,0 +1,120 @@
+@import '~ngx-toastr/toastr';
+
+@font-face {
+    font-family: 'Noto Sans Kufi Arabic';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/assets/fonts/custom/ArbFONTS-NotoKufiArabic-Regular.ttf);
+  }
+  @font-face {
+    font-family: 'Noto Sans Kufi Arabic';
+    font-style: normal;
+    font-weight: 700;
+    src: url(/assets/fonts/custom/ArbFONTS-NotoKufiArabic-Bold.ttf);
+  }
+  html:lang(ar){
+    body,html,mat-form-field{
+        font-family: 'Noto Sans Kufi Arabic', Courier, monospace !important;
+        direction: ltr;
+        // text-align: right ;
+      }
+      .toast-error{
+        background-color: #f04d64 !important;
+        color: #fff !important;
+      }
+      form{
+        mat-form-field{
+          width: 100%;
+          .mat-form-field-wrapper{
+            padding-bottom: 5px !important;
+          }
+          .password-icons,.show-hide{
+            position: absolute;
+            left: 5px;
+            top: 10px;
+            span{
+              margin: 3px;
+              color: #2b2b2b;
+            }
+          }
+ 
+        }
+        // in login component
+        .show-hide{
+          left: auto;
+          right: 20px ;
+          & > span.show:before{
+            content: "عرض";
+          }
+          & > span:before{
+            content: "إخفاء";
+          }
+ 
+        }
+ 
+        div.errors-container{
+          p.error-element{
+            font-size: 75%;
+            color: #f44336;
+            &::before{
+              font-family: "Font Awesome 5 Free"; font-weight: 600; content: "\f06a";
+              margin-left: 3px;
+            }
+          }
+        }
+      }
+      
+      .page-wrapper.compact-wrapper .page-body-wrapper.sidebar-icon .according-menu i{
+          transform: rotate(180deg);
+      }
+     
+  }
+  .dropzone{
+    &.is-invalid{
+      border-color: red ;
+      margin-bottom: 20px;
+      // i{
+      //   color: red;
+      // }
+    }
+  }
+table{
+  a{
+    span.icon{
+      font-size: 20px;
+    }
+  }
+}
+
+.btn-primary{
+background-color: #37B673 !important;
+border-color:#37B673 !important;
+}
+
+
+.btn-primary:hover{
+  background-color: #37B673 !important;
+  border-color:#37B673 !important;
+  }
+
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
+    background-color: #37B673 !important;
+    border-color:#37B673 !important;
+  }
+  .show-hide span{
+     color: #37B673 !important;
+  }
+ 
+  .theme-form{
+    color: black;
+}
+ 
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-left:2rem ;
+    padding-right:2rem ;
+  }
+} 
