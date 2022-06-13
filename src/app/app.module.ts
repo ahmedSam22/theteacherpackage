@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/auth/login/login.component';
-// import { WrongRouteComponent } from './components/auth/errors/wrong-route/wrong-route.component';
+import { WrongRouteComponent } from './components/auth/errors/wrong-route/wrong-route.component';
 // import { ForgetpasswordComponent } from './components/auth/forgetpassword/forgetpassword.component';
 // import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
 // import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -27,8 +27,8 @@ import { VerifycodeComponent } from './components/auth/verifycode/verifycode.com
 import { ForgetpasswordComponent } from './components/auth/forgetpassword/forgetpassword.component';
 import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
 import { ClassComponent } from './components/home/home.component';
-import { ReportsComponent } from './components/reports/reports.component';
-import { TeachersComponent } from './components/teachers/teachers.component';
+import { ReportsComponent } from './components/teachers/reports/reports.component';
+import { TeachersComponent } from './components/teachers/teacher-main/teachers.component';
 import { StudentsComponent } from './components/students/students.component';
 import { WeeklyscheduleComponent } from './components/weeklyschedule/weeklyschedule.component';
 import { ClassStudentComponent } from './components/class-student/class-student.component';
@@ -40,7 +40,7 @@ import { ClassDetailsComponent } from './components/class-student/class-details/
   declarations: [
     AppComponent,
     LoginComponent,
-    // WrongRouteComponent,
+    WrongRouteComponent,
     SignupComponent,
     VerifycodeComponent,
     ForgetpasswordComponent,

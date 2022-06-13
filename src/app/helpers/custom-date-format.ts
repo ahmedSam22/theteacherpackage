@@ -1,5 +1,5 @@
 
-export function convertDate(date) {
+export function convertDate(date:any) {
     var yyyy = date.getFullYear().toString();
     var mm = (date.getMonth()+1).toString();
     var dd  = date.getDate().toString();

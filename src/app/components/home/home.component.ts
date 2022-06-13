@@ -1,3 +1,4 @@
+import { TeacherService } from './../teachers/teacher.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassComponent implements OnInit {
 
-  constructor() { }
+  constructor(private teacher :TeacherService ) { }
 
   ngOnInit(): void {
+    this.teacher.getAllClasses().subscribe((res:any)=>{
+      console.log("res is here",res.data);
+      
+    })
   }
 
 }

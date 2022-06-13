@@ -9,9 +9,9 @@ import { ForgetpasswordComponent } from './components/auth/forgetpassword/forget
 import { VerifycodeComponent } from './components/auth/verifycode/verifycode.component';
 import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
 import { ClassComponent } from './components/home/home.component';
-import { ReportsComponent } from './components/reports/reports.component';
+import { ReportsComponent } from './components/teachers/reports/reports.component';
 import { StudentsComponent } from './components/students/students.component';
-import { TeachersComponent } from './components/teachers/teachers.component';
+import { TeachersComponent } from './components/teachers/teacher-main/teachers.component';
 import { WeeklyscheduleComponent } from './components/weeklyschedule/weeklyschedule.component';
 import { ClassStudentComponent } from './components/class-student/class-student.component';
 import { ClassDetailsComponent } from './components/class-student/class-details/class-details.component';
