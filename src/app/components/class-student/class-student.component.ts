@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 @Component({
   selector: 'app-class-student',
   templateUrl: './class-student.component.html',

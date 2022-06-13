@@ -29,9 +29,9 @@ const routes: Routes = [
     {path:'',component:ClassComponent},
     {path:'class-student',component:ClassStudentComponent , children: [
       {path:'details',component:ClassDetailsComponent},
-      {path:'reports',component:ReportsComponent},
+      
       ]},
-    
+    {path:'reports',component:ReportsComponent},
     {path:'teachers',component:TeachersComponent},
     {path:'students',component:StudentsComponent},
     {path:'weekly-schedule',component:WeeklyscheduleComponent},
