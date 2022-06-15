@@ -1,60 +1,411 @@
-  <section class="vh-100" >
-                    <div class="container h-100">
-                      <div class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col-xl-8">
-                   
-                  
-                          <div class="card" style="border-radius: 15px;">
-                            
-                          <h1 class="card-header text-center  mb-4  ">Apply for a job</h1>
-                            <div class="card-body">
-                              
-                              <div class="row justify-content-center pt-4 pb-3">
-                                  <div class="col-md-8">
-                                    <label> Full name</label>
-                                    <input type="text" class="form-control form-control-lg" />
-                                   </div>
-                              </div>
-                   
-                  
-                              <div class="row justify-content-center py-3">
-                              
-                                <div class="col-md-8">
-                                    <label>Email address</label>
-                                  <input type="email" class="form-control form-control-lg" placeholder="example@example.com" />
-                  
-                                </div>
-                              </div>
-                  
-                          
-                              <!-- <hr class="mx-n3"> -->
-                  
-                              <!-- <div class="row align-items-center py-3">
-                                <div class="col-md-3 ps-5">
-                  
-                                  <h6 class="mb-0">Upload CV</h6>
-                  
-                                </div>
-                                <div class="col-md-9 pe-5">
-                  
-                                  <input class="form-control form-control-lg" id="formFileLg" type="file" />
-                                  <div class="small text-muted mt-2">Upload your CV/Resume or any other relevant file. Max file
-                                    size 50 MB</div>
-                  
-                                </div>
-                              </div> -->
-                  
-                              
-                  
-                              <div class="px-5 py-4 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Send application</button>
-                              </div>
-                  
-                            </div>
-                          </div>
-                  
-                        </div>
-                      </div>
-                    </div>
-                  </section>
- 
+<section class="">
+  <div class="container h-100">
+    <div
+      class="row d-flex justify-content-center align-items-center h-100"
+      *ngIf="!this.allClasses"
+    >
+      <div class="col-xl-8">
+        <div class="" style="border-radius: 15px; background-color: inherit">
+          <div class="card-body d-flex justify-content-center flex-column">
+            <img
+              src="../../../assets/images/classes/Classroom-cuate.png"
+              alt=""
+            />
+            <h3 class="text-center">No Classes Added</h3>
+
+            <div class="px-5 text-center">
+              <button type="submit" class="btn btn-primary btn-lg" (click)="addNewClass()">
+                Add Class
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-5" *ngIf="this.allClasses">
+      <div class="col-12">
+        <div class="head d-flex justify-content-between">
+          <h4>CLASSES</h4>
+          <div class="head__right d-flex align-items-center">
+            <form class="example-form">
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>
+                  <mat-icon matSuffix>mode_edit</mat-icon> Search</mat-label
+                >
+                <input type="text" matInput placeholder="" />
+              </mat-form-field>
+            </form>
+            <button class="btn ms-3">
+              <img
+                src="../../../assets/images/classes/plus.png"
+                alt=""
+                srcset=""
+              />
+              Add Class
+            </button>
+          </div>
+        </div>
+        <!-- <div class="card" style="border-radius: 15px">
+          <h1 class="card-header text-center mb-4">Apply for a job</h1>
+          <div class="card-body">
+            <div class="row justify-content-center pt-4 pb-3">
+              <div class="col-md-8">
+                <label> Full name</label>
+                <input type="text" class="form-control form-control-lg" />
+              </div>
+            </div>
+
+            <div class="row justify-content-center py-3">
+              <div class="col-md-8">
+                <label>Email address</label>
+                <input
+                  type="email"
+                  class="form-control form-control-lg"
+                  placeholder="example@example.com"
+                />
+              </div>
+            </div>
+
+    
+
+            <div class="px-5 py-4 text-center">
+              <button type="submit" class="btn btn-primary btn-lg">
+                Send application
+              </button>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <div class="col-md-12 d-flex flex-wrap justify-content-start custom--container" *ngFor="let class of allClasses">
+        <div class="card--content d-flex flex-column  p-0 ">
+          <div
+            class="card--content__header"
+            [style.background]="class.color.hexcode"
+          ></div>
+          <div
+            class="card--content__button d-flex justify-content-end py-1 pe-2"
+          >
+            <!-- <button class=" btn" style="border-radius:50%" [style.background]="class.color.hexcode">
+            </button> -->
+
+            <button
+              mat-button
+              [matMenuTriggerFor]="menu"
+              [style.background]="class.color.hexcode"
+              class="card--content__button__drop"
+
+            >
+              <img
+                src="../../../assets/images/classes/gear.png"
+                alt=""
+                srcset=""
+              />
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Item 1</button>
+              <button mat-menu-item>Item 2</button>
+            </mat-menu>
+          </div>
+          <div
+            class="card--content__image d-flex justify-content-center flex-column"
+          >
+            <img [src]="class.teacher.imagePath" alt="" srcset="" />
+          </div>
+          <div
+            class="card--content__footer d-flex justify-content-center flex-column"
+          >
+            <p class="text-center mb-0">{{ class.name }}</p>
+          </div>
+        </div>
+
+        <div class="card--content d-flex flex-column  p-0 ">
+          <div
+            class="card--content__header"
+            [style.background]="class.color.hexcode"
+          ></div>
+          <div
+            class="card--content__button d-flex justify-content-end py-1 pe-2"
+          >
+            <!-- <button class=" btn" style="border-radius:50%" [style.background]="class.color.hexcode">
+            </button> -->
+
+            <button
+              mat-button
+              [matMenuTriggerFor]="menu"
+              [style.background]="class.color.hexcode"
+              class="card--content__button__drop"
+
+            >
+              <img
+                src="../../../assets/images/classes/gear.png"
+                alt=""
+                srcset=""
+              />
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Item 1</button>
+              <button mat-menu-item>Item 2</button>
+            </mat-menu>
+          </div>
+          <div
+            class="card--content__image d-flex justify-content-center flex-column"
+          >
+            <img [src]="class.teacher.imagePath" alt="" srcset="" />
+          </div>
+          <div
+            class="card--content__footer d-flex justify-content-center flex-column"
+          >
+            <p class="text-center mb-0">{{ class.name }}</p>
+          </div>
+        </div>
+
+        <div class="card--content d-flex flex-column  p-0 ">
+          <div
+            class="card--content__header"
+            [style.background]="class.color.hexcode"
+          ></div>
+          <div
+            class="card--content__button d-flex justify-content-end py-1 pe-2"
+          >
+            <!-- <button class=" btn" style="border-radius:50%" [style.background]="class.color.hexcode">
+            </button> -->
+
+            <button
+              mat-button
+              [matMenuTriggerFor]="menu"
+              [style.background]="class.color.hexcode"
+              class="card--content__button__drop"
+
+            >
+              <img
+                src="../../../assets/images/classes/gear.png"
+                alt=""
+                srcset=""
+              />
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Item 1</button>
+              <button mat-menu-item>Item 2</button>
+            </mat-menu>
+          </div>
+          <div
+            class="card--content__image d-flex justify-content-center flex-column"
+          >
+            <img [src]="class.teacher.imagePath" alt="" srcset="" />
+          </div>
+          <div
+            class="card--content__footer d-flex justify-content-center flex-column"
+          >
+            <p class="text-center mb-0">{{ class.name }}</p>
+          </div>
+        </div>
+
+        <div class="card--content d-flex flex-column  p-0 ">
+          <div
+            class="card--content__header"
+            [style.background]="class.color.hexcode"
+          ></div>
+          <div
+            class="card--content__button d-flex justify-content-end py-1 pe-2"
+          >
+            <!-- <button class=" btn" style="border-radius:50%" [style.background]="class.color.hexcode">
+            </button> -->
+
+            <button
+              mat-button
+              [matMenuTriggerFor]="menu"
+              [style.background]="class.color.hexcode"
+              class="card--content__button__drop"
+
+            >
+              <img
+                src="../../../assets/images/classes/gear.png"
+                alt=""
+                srcset=""
+              />
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Item 1</button>
+              <button mat-menu-item>Item 2</button>
+            </mat-menu>
+          </div>
+          <div
+            class="card--content__image d-flex justify-content-center flex-column"
+          >
+            <img [src]="class.teacher.imagePath" alt="" srcset="" />
+          </div>
+          <div
+            class="card--content__footer d-flex justify-content-center flex-column"
+          >
+            <p class="text-center mb-0">{{ class.name }}</p>
+          </div>
+        </div>
+
+        <div class="card--content d-flex flex-column  p-0 ">
+          <div
+            class="card--content__header"
+            [style.background]="class.color.hexcode"
+          ></div>
+          <div
+            class="card--content__button d-flex justify-content-end py-1 pe-2"
+          >
+            <!-- <button class=" btn" style="border-radius:50%" [style.background]="class.color.hexcode">
+            </button> -->
+
+            <button
+              mat-button
+              [matMenuTriggerFor]="menu"
+              [style.background]="class.color.hexcode"
+              class="card--content__button__drop"
+
+            >
+              <img
+                src="../../../assets/images/classes/gear.png"
+                alt=""
+                srcset=""
+              />
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Item 1</button>
+              <button mat-menu-item>Item 2</button>
+            </mat-menu>
+          </div>
+          <div
+            class="card--content__image d-flex justify-content-center flex-column"
+          >
+            <img [src]="class.teacher.imagePath" alt="" srcset="" />
+          </div>
+          <div
+            class="card--content__footer d-flex justify-content-center flex-column"
+          >
+            <p class="text-center mb-0">{{ class.name }}</p>
+          </div>
+        </div>
+
+        <div class="card--content d-flex flex-column  p-0 ">
+          <div
+            class="card--content__header"
+            [style.background]="class.color.hexcode"
+          ></div>
+          <div
+            class="card--content__button d-flex justify-content-end py-1 pe-2"
+          >
+            <!-- <button class=" btn" style="border-radius:50%" [style.background]="class.color.hexcode">
+            </button> -->
+
+            <button
+              mat-button
+              [matMenuTriggerFor]="menu"
+              [style.background]="class.color.hexcode"
+              class="card--content__button__drop"
+
+            >
+              <img
+                src="../../../assets/images/classes/gear.png"
+                alt=""
+                srcset=""
+              />
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Item 1</button>
+              <button mat-menu-item>Item 2</button>
+            </mat-menu>
+          </div>
+          <div
+            class="card--content__image d-flex justify-content-center flex-column"
+          >
+            <img [src]="class.teacher.imagePath" alt="" srcset="" />
+          </div>
+          <div
+            class="card--content__footer d-flex justify-content-center flex-column"
+          >
+            <p class="text-center mb-0">{{ class.name }}</p>
+          </div>
+        </div>
+
+        <div class="card--content d-flex flex-column  p-0 ">
+          <div
+            class="card--content__header"
+            [style.background]="class.color.hexcode"
+          ></div>
+          <div
+            class="card--content__button d-flex justify-content-end py-1 pe-2"
+          >
+            <!-- <button class=" btn" style="border-radius:50%" [style.background]="class.color.hexcode">
+            </button> -->
+
+            <button
+              mat-button
+              [matMenuTriggerFor]="menu"
+              [style.background]="class.color.hexcode"
+              class="card--content__button__drop"
+
+            >
+              <img
+                src="../../../assets/images/classes/gear.png"
+                alt=""
+                srcset=""
+              />
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Item 1</button>
+              <button mat-menu-item>Item 2</button>
+            </mat-menu>
+          </div>
+          <div
+            class="card--content__image d-flex justify-content-center flex-column"
+          >
+            <img [src]="class.teacher.imagePath" alt="" srcset="" />
+          </div>
+          <div
+            class="card--content__footer d-flex justify-content-center flex-column"
+          >
+            <p class="text-center mb-0">{{ class.name }}</p>
+          </div>
+        </div>
+
+        <div class="card--content d-flex flex-column  p-0 ">
+          <div
+            class="card--content__header"
+            [style.background]="class.color.hexcode"
+          ></div>
+          <div
+            class="card--content__button d-flex justify-content-end py-1 pe-2"
+          >
+            <!-- <button class=" btn" style="border-radius:50%" [style.background]="class.color.hexcode">
+            </button> -->
+
+            <button
+              mat-button
+              [matMenuTriggerFor]="menu"
+              [style.background]="class.color.hexcode"
+              class="card--content__button__drop"
+
+            >
+              <img
+                src="../../../assets/images/classes/gear.png"
+                alt=""
+                srcset=""
+              />
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Item 1</button>
+              <button mat-menu-item>Item 2</button>
+            </mat-menu>
+          </div>
+          <div
+            class="card--content__image d-flex justify-content-center flex-column"
+          >
+            <img [src]="class.teacher.imagePath" alt="" srcset="" />
+          </div>
+          <div
+            class="card--content__footer d-flex justify-content-center flex-column"
+          >
+            <p class="text-center mb-0">{{ class.name }}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
