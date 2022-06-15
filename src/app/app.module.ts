@@ -1,5 +1,4 @@
 import { MatIconModule } from '@angular/material/icon';
-import { AddStudentComponent } from './components/teachers/add-student/add-student.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { FormsModule } from '@angular/forms';
@@ -39,6 +38,9 @@ import { ClassDetailsComponent } from './components/teachers/class-student/class
 
  
 
+import { AddStudentComponent } from './components/teachers/add-student/add-student.component';
+import { ReactiveFormsModule } from '@angular/forms';
+ 
 @NgModule({
   declarations: [
     AppComponent,

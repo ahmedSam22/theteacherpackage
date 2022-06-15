@@ -8,7 +8,7 @@
            <div class="card">
              <h4 class="card-header text-center ">Add  Student</h4>
             <div class="card-body"> 
-              <form [formGroup]="form" (ngSubmit)="onSubmit()">  
+              <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>  
               <div class=" row justify-content-center pb-3">
                 <div class="col-xl-2"  > 
                   <div class="image"> 
@@ -27,44 +27,109 @@
               
                <div class="infoButtons rowpt-4 pb-3">
                 <div class="d-flex justify-content-center">  
-                    <div class="col-md-3 col-sm-4 my-1"> 
-                      <button class="btn btn-lg">Student Info </button>
+                    <div class="col-md-3 col-sm-4 my-1" > 
+                      <button type="button" class="btn btn-lg active" #student id="student" (click)="select(student.id);filter(0)" [ngClass]="{active: isActive(student.id)}">Student Info </button>
                     </div> 
                     <div class="col-md-3 col-sm-4 my-1"> 
-                      <button class="btn btn-lg"> Guardian Info</button>
+                      <button type="button" class="btn btn-lg" #gardian id="gardian" (click)="select(gardian.id);filter(1)" [ngClass]="{active: isActive(gardian.id)}"> Guardian Info</button>
                    </div>
                   </div>
                </div>
-              <div class="row justify-content-center pt-4 pb-3">
+             
+             <div *ngIf="showStudentInfo">  
+              <div class="form-group row justify-content-center py-2">
                   <div class="col-md-8">
-                   <input type="text" class="form-control form-control-lg" placeholder="First Name" formControlName="first_name"/>
-                   </div>
-              </div>
-              <div class="row justify-content-center pt-4 pb-3">
+                   <input type="text" class="form-control form-control-lg" placeholder="First Name" formControlName="first_name"  />
+                    <!-- <span class="text-danger" *ngIf="f_name_error" >*This data is required.</span>  -->
+                   
+                  <div *ngIf="submitted && f?.['first_name']?.errors  ">
+                    <p *ngIf="f?.['first_name']?.errors?.['required']" class="text-danger mb-3"><i class="XX fas fa-exclamation-circle"></i> This data is required.</p>
+                  </div>  
+                  </div>
+                
+                </div>
+                  <!-- <div *ngIf="form.controls['first_name'].invalid && (form.controls['first_name'].dirty || form.controls['first_name'].touched)" class="alert alert-danger">
+                    <div *ngIf="form.controls['first_name'].errors?.['required']">
+                    Name is required.
+                  </div>
+                </div> -->
+               
+              <div class="form-group row justify-content-center py-1">
                 <div class="col-md-8">
                  <input type="text" class="form-control form-control-lg" placeholder="Last Name" formControlName="last_name"/>
+                
+                 <div *ngIf="submitted && f?.['last_name']?.errors  ">
+                  <p *ngIf="f?.['last_name']?.errors?.['required']" class="text-danger mb-3"><i class="XX fas fa-exclamation-circle"></i> This data is required.</p>
+                </div>
+                  
+                     <!-- <span class="text-danger" *ngIf="email_error">*This data is required.</span> --> 
+                </div>
+              </div>
+  
+              <div class="form-group row justify-content-center py-1">
+                <div class="col-md-8">
+                    <input type="email" class="form-control form-control-lg" placeholder="Email" formControlName="email"/>
+                    <div *ngIf="submitted && f?.['email']?.errors  ">
+                      <p *ngIf="f?.['email']?.errors?.['required']" class="text-danger mb-3"><i class="XX fas fa-exclamation-circle"></i> This data is required.</p>
+                    </div> 
+                      <!-- <span class="text-danger" *ngIf="email_error">*This data is required.</span> -->
+                </div>
+              </div>
+              <div class="form-group row justify-content-center py-1">
+                <div class="col-md-8">
+                 <input type="text" class="form-control form-control-lg" placeholder="Mobile Number" formControlName="phone"/>
+                  <div *ngIf="submitted && f?.['phone']?.errors  ">
+                  <p *ngIf="f?.['phone']?.errors?.['required']" class="text-danger mb-3"><i class="XX fas fa-exclamation-circle"></i> This data is required.</p>
+                </div>
+                <!-- <span class="text-danger" *ngIf="phone_error">*This data is required.</span> -->
+                 </div>
+             </div>
+             <div class=" form-group row justify-content-center py-1">
+                <div class="col-md-8">
+                 <select class="form-control form-control-lg" formControlName="gender"> 
+                    
+                     <option value="2"> Male</option> 
+                    <option value="1"> Female</option> 
+                   
+                 </select>
+                 <div *ngIf="submitted && f?.['gender']?.errors  ">
+                  <p *ngIf="f?.['gender']?.errors?.['required']" class="text-danger mb-3"><i class="XX fas fa-exclamation-circle"></i> This data is required.</p>
+                </div> 
+                  <!-- <span class="text-danger" *ngIf="gender_error" >*This data is required.</span> -->
+                 </div>
+             </div>
+            </div>
+
+            <div *ngIf="showGardianInfo">  
+              <div class="form-group row justify-content-center py-1">
+                <div class="col-md-8">
+                 <input type="text" class="form-control form-control-lg" placeholder="Name" formControlName="guardian_name"/>
+                 <div *ngIf="submitted && f?.['guardian_name']?.errors  ">
+                  <p *ngIf="f?.['guardian_name']?.errors?.['required']" class="text-danger mb-3"><i class="XX fas fa-exclamation-circle"></i> This data is required.</p>
+                 </div> 
+                    <!-- <span class="text-danger" *ngIf="guardian_name_error" >*This data is required.</span> -->
                  </div>
              </div>
   
-              <div class="row justify-content-center py-3">
+              <div class="form-group row justify-content-center py-1">
                 <div class="col-md-8">
-                    <input type="email" class="form-control form-control-lg" placeholder="Email" formControlName="email"/>
+                    <input type="email" class="form-control form-control-lg" placeholder="Email" formControlName="guardian_email"/>
+                    <div *ngIf="submitted && f?.['guardian_email']?.errors  ">
+                      <p *ngIf="f?.['guardian_email']?.errors?.['required']" class="text-danger mb-3"><i class="XX fas fa-exclamation-circle"></i> This data is required.</p>
+                    </div> 
+                    <!-- <span class="text-danger" *ngIf="guardian_email_error" >*This data is required.</span> -->
                 </div>
               </div>
-              <div class="row justify-content-center pt-4 pb-3">
+              <div class="form-group row justify-content-center py-1">
                 <div class="col-md-8">
-                 <input type="text" class="form-control form-control-lg" placeholder="Mobile Number" formControlName="phone"/>
+                 <input type="text" class="form-control form-control-lg" placeholder="Mobile Number" formControlName="guardian_phone"/>
+                 <div *ngIf="submitted && f?.['guardian_phone']?.errors  ">
+                  <p *ngIf="f?.['guardian_phone']?.errors?.['required']" class="text-danger mb-3"><i class="XX fas fa-exclamation-circle"></i> This data is required.</p>
+                </div> 
+                 <!-- <span class="text-danger" *ngIf="guardian_phone_error" >*This data is required.</span> -->
                  </div>
              </div>
-             <div class="row justify-content-center pt-4 pb-3">
-                <div class="col-md-8">
-                 <select class="form-control form-control-lg" formControlName="gender"> 
-                    <option disabled> Gender</option> 
-                    <option> Female</option> 
-                    <option> male</option> 
-                 </select>
-                 </div>
-             </div>
+            </div>
               <!-- <hr class="mx-n3"> -->
   
               <!-- <div class="row align-items-center py-3">
@@ -82,9 +147,7 @@
                 </div>
               </div> -->
   
-              
-       
-              <div class="px-5 py-4 text-center">
+               <div class="px-5 py-4 text-center">
                 <button type="submit" class="col-md-9 btn btn-primary btn-lg">Add</button>
               </div>
             </form>

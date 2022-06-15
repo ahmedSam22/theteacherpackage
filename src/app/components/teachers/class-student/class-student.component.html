@@ -5,39 +5,39 @@
        <div class="header col-xl-12 "  >
 
               <div class="col-xl-2 header-info"  > 
-                <span> class name </span>
-                <p> Arabic Class </p>
+                <span>Class Name</span>
+                <p>{{classDetails.name}}</p>
               </div>
 
               <div class="col-xl-2 header-info"> 
-                <span> class name </span>
-                <p> Arabic Class </p>
+                <span>Class Code</span>
+                <p>{{classDetails.code}}</p>
               </div>
 
               <div class="col-xl-2 header-info"> 
-                <span> class name </span>
-                <p> Arabic Class </p>
+                <span>NO. of Students</span>
+                <p>{{classDetails.students_number}}</p>
             </div>
               <div class="col-xl-2 header-info"> 
-                <span> class name </span>
+                <span>Course </span><br>
                  <div class="dropdown">
-                  <p> Arabic Class 
+                  <p> Course
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
                       <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
                     </svg>
                   </p>
                   <div class="dropdown-content">
-                   <ul>
-                        <li> <a href=""> Tests</a> </li> 
+                   <ul *ngFor="let course of courses">
+                        <li> <a href=""> {{course.name}}</a> </li> 
                         <hr style="margin:0.25rem 0">
-                        <li> <a href=""> Tests</a> </li> 
+                       
                     </ul>
                   </div> 
               </div>
                </div>
 
               <div class="col-xl-2 header-info"> 
-                <span> Teacher’s Bag </span>
+                <span> Teacher’s Bag </span><br>
                 <div class="dropdown">
                   <p> Arabic Class 
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
@@ -48,7 +48,11 @@
                    <ul>
                         <li> <a href=""> Tests</a> </li> 
                         <hr style="margin:0.25rem 0">
-                        <li> <a href=""> Tests</a> </li> 
+                        <li> <a href=""> Class Activities</a> </li> 
+                        <hr style="margin:0.25rem 0">
+                        <li> <a href=""> Books </a> </li> 
+                        <hr style="margin:0.25rem 0">
+                        <li> <a href=""> Blackboard </a> </li> 
                     </ul>
                   </div>
                 </div>
@@ -58,7 +62,7 @@
   </div>
  
  
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -123,6 +127,6 @@
       </form>
     </div>
   </div>
-</nav> 
+</nav>   
 </section> 
  <router-outlet></router-outlet>
