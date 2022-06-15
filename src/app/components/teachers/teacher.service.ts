@@ -76,7 +76,7 @@ export class TeacherService {
     gender?: number,
     code?: number
   ) {
-    let searchParameters: string = ` /teacher/students/search?class_id=${class_id}`;
+    let searchParameters: string = `/teacher/students/search?class_id=${class_id}`;
     if (student_name) {
       searchParameters += `&student_name=${student_name}`;
     } else if (gender) {

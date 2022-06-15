@@ -34,7 +34,8 @@ import { WeeklyscheduleComponent } from './components/weeklyschedule/weeklysched
 import { ClassDetailsComponent } from './components/teachers/class-student/class-details/class-details.component';
 import { ClassStudentComponent } from './components/teachers/class-student/class-student.component';
 import { AddStudentComponent } from './components/teachers/add-student/add-student.component';
-   
+import { ReactiveFormsModule } from '@angular/forms';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,8 +68,8 @@ import { AddStudentComponent } from './components/teachers/add-student/add-stude
     NgxSpinnerModule,
     NgxFlagPickerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-
-    
+    ReactiveFormsModule,
+   
   ],
   providers: [
 
