@@ -26,7 +26,9 @@ const routes: Routes = [
   {path:'auth/forgetpassword',component:ForgetpasswordComponent},
   {path:'auth/changepassword',component:ChangepasswordComponent},
 
-  {path:'home',component:DashboardLayoutComponent, children: [
+  {path:'home',component:DashboardLayoutComponent, 
+  // canActivateChild: [],
+  children: [
     {path:'',component:ClassComponent},
     {path:'class-student',component:ClassStudentComponent , children: [
       {path:'details',component:ClassDetailsComponent},
