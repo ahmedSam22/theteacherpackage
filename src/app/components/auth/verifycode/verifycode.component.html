@@ -25,7 +25,7 @@
                  
                 <div class="form-group my-4 text-center">
                   <p class="text-muted">Resend code in <span> {{timeLeftMinutes}} </span> secs </p> 
-                  <a class="recode" href="" >Resend code</a>
+                  <h5 class="recode" href="" (click)="resendCode()">Resend code</h5>
                    <div class="my-3"> 
                      
                      <button *ngIf="this.fromPage == 'signup'" class="btn btn-primary btn-block" (click)="submitSignup()">Send</button> 

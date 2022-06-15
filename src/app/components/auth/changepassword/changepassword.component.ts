@@ -45,11 +45,12 @@ export class ChangepasswordComponent implements OnInit {
       this.spinner.hide()
    
         if(response.status === false){
-          Swal.fire(
-            ` فشللل `,
-            response.errors[0],
-            `warning`
-            )
+          Swal.fire({  title: '',
+          text: response.errors[0],
+          icon: 'error',
+          confirmButtonColor: '#4AB673',
+  
+        });
         }else{
               Swal.fire(
           `password changed`,

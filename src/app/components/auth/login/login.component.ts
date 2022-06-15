@@ -47,11 +47,12 @@ export class LoginComponent implements OnInit {
       this.spinner.hide()
    
         if(response.status === false){
-          Swal.fire(
-            ` فشللل `,
-            response.errors[0],
-            `warning`
-            )
+          Swal.fire({  title: '',
+        text: response.errors[0],
+        icon: 'error',
+        confirmButtonColor: '#4AB673',
+
+      });
             if(response.errors[0] == 'email is not verified'){
               localStorage.setItem("mail",this.form.controls["email_or_phone"].value)
               const qq: FormData = new FormData();
@@ -66,8 +67,8 @@ export class LoginComponent implements OnInit {
 
         }else{
           Swal.fire(
-          `نجاح تسجيل الدخول`,
-          `مرحباً بعودتك, يا أدمن`,
+          `login successful`,
+          ``,
           `success`
           )
           this.router.navigate(["/home"])
