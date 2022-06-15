@@ -30,6 +30,9 @@ export class NavbarComponent implements OnInit {
       this.hideNavBar();
      
   };
+  isActive(item:any) {
+    return this.selected === item;
+    }
   hideNavBar(){
     this.element = document.getElementById('navbarSupportedContent');
     this.element.style.transition='transform ease-out 3s'; 

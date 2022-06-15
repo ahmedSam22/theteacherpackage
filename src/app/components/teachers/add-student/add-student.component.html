@@ -1,0 +1,97 @@
+ <section >
+    <div class="container ">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <a class="my-5" (click)="back()"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+          </svg> Back </a> 
+           <div class="col-xl-8">
+           <div class="card">
+             <h4 class="card-header text-center ">Add  Student</h4>
+            <div class="card-body"> 
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">  
+              <div class=" row justify-content-center pb-3">
+                <div class="col-xl-2"  > 
+                  <div class="image"> 
+                   <img *ngIf="showImg" class="user-image-avatar hideEmptyImg" src="../../../../assets/images/cat1.jpeg "  alt="wrong">
+                        <img *ngIf="base64Image" class="user-image-avatar" src="{{base64Image}}" alt="noo">
+                        <svg style="cursor: pointer;" (click)="image.click();" xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45"><defs><style>.a{fill:none;stroke:#333;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g transform="translate(5.157 5.156)"><path class="a" d="M13.363,0C6.156,0,0,1.089,0,5.454s6.116,5.494,13.363,5.494c7.208,0,13.363-1.091,13.363-5.454S20.61,0,13.363,0Z" transform="translate(0 23.356)"/><path class="a" d="M8.565,17.13A8.565,8.565,0,1,0,0,8.565,8.535,8.535,0,0,0,8.565,17.13Z" transform="translate(4.798 0)"/><path class="a" d="M.5,0V7.519" transform="translate(30.351 11.099)"/><path class="a" d="M7.669.5H0" transform="translate(27.018 14.358)"/></g></svg>
+                        <input type="file" hidden #image (change)="base64($event)" accept="image/*"> 
+                      </div>
+                </div>
+                <!-- <div class="col-xl-2"> 
+                  <div class="image"> 
+                    <img class="user-image-avatar hideEmptyImg "  src="../../../../assets/images/cat1.jpeg "  alt="wrong">
+                  </div>
+                </div>   -->
+               </div>
+              
+               <div class="infoButtons rowpt-4 pb-3">
+                <div class="d-flex justify-content-center">  
+                    <div class="col-md-3 col-sm-4 my-1"> 
+                      <button class="btn btn-lg">Student Info </button>
+                    </div> 
+                    <div class="col-md-3 col-sm-4 my-1"> 
+                      <button class="btn btn-lg"> Guardian Info</button>
+                   </div>
+                  </div>
+               </div>
+              <div class="row justify-content-center pt-4 pb-3">
+                  <div class="col-md-8">
+                   <input type="text" class="form-control form-control-lg" placeholder="First Name" formControlName="first_name"/>
+                   </div>
+              </div>
+              <div class="row justify-content-center pt-4 pb-3">
+                <div class="col-md-8">
+                 <input type="text" class="form-control form-control-lg" placeholder="Last Name" formControlName="last_name"/>
+                 </div>
+             </div>
+  
+              <div class="row justify-content-center py-3">
+                <div class="col-md-8">
+                    <input type="email" class="form-control form-control-lg" placeholder="Email" formControlName="email"/>
+                </div>
+              </div>
+              <div class="row justify-content-center pt-4 pb-3">
+                <div class="col-md-8">
+                 <input type="text" class="form-control form-control-lg" placeholder="Mobile Number" formControlName="phone"/>
+                 </div>
+             </div>
+             <div class="row justify-content-center pt-4 pb-3">
+                <div class="col-md-8">
+                 <select class="form-control form-control-lg" formControlName="gender"> 
+                    <option disabled> Gender</option> 
+                    <option> Female</option> 
+                    <option> male</option> 
+                 </select>
+                 </div>
+             </div>
+              <!-- <hr class="mx-n3"> -->
+  
+              <!-- <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+  
+                  <h6 class="mb-0">Upload CV</h6>
+  
+                </div>
+                <div class="col-md-9 pe-5">
+  
+                  <input class="form-control form-control-lg" id="formFileLg" type="file" />
+                  <div class="small text-muted mt-2">Upload your CV/Resume or any other relevant file. Max file
+                    size 50 MB</div>
+  
+                </div>
+              </div> -->
+  
+              
+       
+              <div class="px-5 py-4 text-center">
+                <button type="submit" class="col-md-9 btn btn-primary btn-lg">Add</button>
+              </div>
+            </form>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>

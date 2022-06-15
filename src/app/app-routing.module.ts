@@ -15,6 +15,7 @@ import { TeachersComponent } from './components/teachers/teacher-main/teachers.c
 import { WeeklyscheduleComponent } from './components/weeklyschedule/weeklyschedule.component';
 import { ClassStudentComponent } from './components/teachers/class-student/class-student.component';
 import { ClassDetailsComponent } from './components/teachers/class-student/class-details/class-details.component';
+import { AddStudentComponent } from './components/teachers/add-student/add-student.component';
    
 // import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
 
@@ -31,6 +32,7 @@ const routes: Routes = [
     {path:'class-student',component:ClassStudentComponent , children: [
       {path:'details',component:ClassDetailsComponent},
        ]},
+    {path:'class-student-add',component:AddStudentComponent},
     {path:'reports',component:ReportsComponent},
     {path:'teachers',component:TeachersComponent},
     {path:'students',component:StudentsComponent},

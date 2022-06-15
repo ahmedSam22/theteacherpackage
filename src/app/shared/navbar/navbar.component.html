@@ -1,4 +1,6 @@
+ 
 <nav id="mainNavbar" class="navbar navbar-expand-lg  fixed-top">
+  <div class="container ">  
   <a class="navbar-brand" href="#"><img src="assets/images/logo/logoo.png" height="auto" width="50%" class="img-fluid" alt="" srcset=""></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse"
      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -13,21 +15,21 @@
   <div id="navbarSupportedContent" class="text-center" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
       <ul class="navbar-nav mx-auto mt-2 mt-lg-0 " >
          
-          <li class="nav-item active">
+          <li class="nav-item  ">
             <!-- [routerLink]="['/home']" -->
-              <a  #home (click)="select(home.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/home']">Classes<span class="sr-only">(current)</span></a>
+              <a  #classes id="classes" (click)="select(classes.id)"  [ngClass]="{active: isActive(classes.id)}" class="nav-link" routerLinkActive="active-nav" [routerLink]="['/home']">Classes<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-              <a  #reports (click)="select(reports.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['reports']">Reports</a>
+              <a  #reports id="reports" (click)="select(reports.id)"  [ngClass]="{active: isActive(reports.id)}" class="nav-link" routerLinkActive="active-nav" [routerLink]="['reports']">Reports</a>
           </li>
           <li class="nav-item">
-              <a  #about (click)="select(about.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['teachers']">Teachers</a>
+              <a  #teachers id="teachers" (click)="select(teachers.id)" [ngClass]="{active: isActive(teachers.id)}" class="nav-link" routerLinkActive="active-nav" [routerLink]="['teachers']">Teachers</a>
           </li>
           <li class="nav-item">
-              <a #contact (click)="select(contact.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['students']">Students</a>
+              <a #students id="students" (click)="select(students.id)" [ngClass]="{active: isActive(students.id)}"class="nav-link" routerLinkActive="active-nav" [routerLink]="['students']">Students</a>
           </li>
           <li class="nav-item">
-            <a #contact (click)="select(contact.id)" class="nav-link" routerLinkActive="active-nav" [routerLink]="['weekly-schedule']">Weekly Schedule</a>
+            <a #schedule id="schedule" (click)="select(schedule.id)" [ngClass]="{active: isActive(schedule.id)}" class="nav-link" routerLinkActive="active-nav" [routerLink]="['weekly-schedule']">Weekly Schedule</a>
         </li>
            
         
@@ -50,11 +52,12 @@
           </ul>
  
         </li>
-        <li class="nav-item ">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="../../../assets/images/user-avatar.jpg " class="img-fluid rounded-circle " height="auto" width="15%"  >
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li class="nav-item" >
+          <!-- class="img-fluid rounded-circle " height="auto" width="15%"  -->
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="../../../assets/images/user-avatar.jpg " style="height:40px ; border-radius:50%;" >
+           </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
@@ -63,5 +66,6 @@
       </li>
       </ul>
   </div>
-  
+</div> 
 </nav>
+ 

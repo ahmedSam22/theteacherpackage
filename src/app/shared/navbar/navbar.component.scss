@@ -6,6 +6,12 @@
     display: inline-block;
     vertical-align: middle;
     float: none;
+
+    .active{
+        color:#37B673;
+        //  text-decoration: underline;
+        border-bottom: 4px solid #37B673;
+     }
     }
  
 .navbar-toggler-icon{

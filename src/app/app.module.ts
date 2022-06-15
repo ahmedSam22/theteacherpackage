@@ -33,6 +33,7 @@ import { StudentsComponent } from './components/students/students.component';
 import { WeeklyscheduleComponent } from './components/weeklyschedule/weeklyschedule.component';
 import { ClassDetailsComponent } from './components/teachers/class-student/class-details/class-details.component';
 import { ClassStudentComponent } from './components/teachers/class-student/class-student.component';
+import { AddStudentComponent } from './components/teachers/add-student/add-student.component';
    
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ClassStudentComponent } from './components/teachers/class-student/class
     WeeklyscheduleComponent,
     ClassStudentComponent,
     ClassDetailsComponent,
+    AddStudentComponent,
     
    
   ],
