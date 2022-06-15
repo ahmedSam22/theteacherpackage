@@ -78,9 +78,13 @@ export class VerifycodeComponent implements OnInit {
       console.log(response, "test response");
       this.spinner.hide();
       if (response.status === false) {
-        Swal.fire(` فشللل `, response.errors[0], `warning`);
-      } else {
-        Swal.fire(`نجاح تسجيل الدخول`, `مرحباً بعودتك, يا أدمن`, `success`);
+        Swal.fire({  title: '',
+        text: response.errors[0],
+        icon: 'error',
+        confirmButtonColor: '#4AB673',
+
+      });      } else {
+        Swal.fire('welcome');
      
         this.router.navigate(["/home"]);
       }
@@ -139,11 +143,32 @@ export class VerifycodeComponent implements OnInit {
        } else {
          Swal.fire(`verified`, `verified`, `success`);
       
-         this.router.navigate(["/"]);
+         this.router.navigate(["/home"]);
        }
      });
    }
 
+   resendCode(){
+ 
+
+      
+    const num: FormData = new FormData();
+    if(this.fromPage == 'signup'){
+      let country = JSON.parse(localStorage.getItem("CurrentUser") || "{}").data.user
+      .country_code;
+    let number = JSON.parse(localStorage.getItem("CurrentUser") || "{}").data.user
+      .phone;
+      num.append("email_or_phone", country + " " + number);
+    }else if(this.fromPage == 'mail'){
+    let mail:any = localStorage.getItem("mail") || "{}"
+
+      num.append("email_or_phone", mail);
+    }
+    return this.service.verify(num).subscribe(e=>{
+      alert("done")
+    })
+
+   }
   // setFocus() {
   //   this._el.nativeElement.focus();
   // }

@@ -70,11 +70,12 @@
                 <div class="form-group mb-4"  >
                
                    <div class="text-left my-3" >
-                    <input id="checkbox1" type="checkbox">
+                    <input id="checkbox1" type="checkbox" #agree>
                    <a class="termsamdconditions" > Agree to the terms and conditions </a>    &nbsp;
                      
                   </div>
-                  <button class="btn btn-primary btn-block my-3" type="submit" (click)="submit()"> Signup </button> 
+                  <button class="btn btn-primary btn-block my-3" type="submit" [disabled]="
+                  !agree.checked" (click)="submit()"> Signup </button> 
 
                   <span class="text-muted"> Already have an account ? <a href="" class="goSign" [routerLink]="['/']">  Sign In </a> </span>
                 </div>
@@ -121,6 +122,4 @@
      </carousel>
       </div>
       <!-- background-image: url(/assets/images/logo/login.png); background-size: cover; background-position: center center; display: block;  -->
-   <div class="col-xl-7 b-center bg-size fixedbackground" style="background-color:#F9F9F9;"><img class="bg-img-cover bg-center" src="../assets/images/login/2.jpg" alt="looginpage" style="display: none;"></div>
-    </div>
   </div>

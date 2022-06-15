@@ -64,13 +64,17 @@ export class SignupComponent implements OnInit {
       return;
     }
     this.spinner.show();
-    alert(this.form.controls.phone.value);
     this.service.signUp(this.form.value).subscribe((response: any) => {
       console.log(response, "test response");
       this.spinner.hide();
 
       if (response.status === false) {
-        Swal.fire(` فشللل `, response.errors[0], `warning`);
+        Swal.fire({  title: '',
+        text: response.errors[0],
+        icon: 'error',
+        confirmButtonColor: '#4AB673',
+
+      });
       } else {
         Swal.fire(`signup success`, `signup success`, `success`);
         const qq: FormData = new FormData();
