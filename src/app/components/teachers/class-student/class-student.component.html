@@ -6,17 +6,17 @@
 
               <div class="col-xl-2 header-info"  > 
                 <span>Class Name</span>
-                <p>{{classDetails.name}}</p>
+                <p>{{classname}}</p>
               </div>
 
               <div class="col-xl-2 header-info"> 
                 <span>Class Code</span>
-                <p>{{classDetails.code}}</p>
+                <p>{{classcode}}</p>
               </div>
 
               <div class="col-xl-2 header-info"> 
                 <span>NO. of Students</span>
-                <p>{{classDetails.students_number}}</p>
+                <p>{{studentnum}}</p>
             </div>
               <div class="col-xl-2 header-info"> 
                 <span>Course </span><br>
@@ -68,7 +68,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" #students id="students" (click)="select(students.id);type(0)" [ngClass]="{active: isActive(students.id)}">
+          <a class="nav-link" aria-current="page" #students id="students" (click)="select(students.id);type(0)" [ngClass]="{active: isActive(students.id)}"  [routerLink]="['../class-student','search']">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
               <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
               <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
@@ -108,7 +108,7 @@
      
       </ul>
       <form class="d-flex">
-         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #search (blur)="studentFilter()">
          <div class="dropdown me-1">
           <button type="button" class="btn dropdown-toggle" id="dropdownMenuOffset" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-sort-down" viewBox="0 0 16 16">
@@ -116,17 +116,19 @@
             </svg>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-            <li><a class="dropdown-item" href="#">Sort By Name</a></li>
-            <li><a class="dropdown-item" href="#">Sort By Gender</a></li>
+            <li><a class="dropdown-item" (click)="SortByName()">Sort By Name</a></li>
+            <li><a class="dropdown-item" (click)="SortByGender()">Sort By Gender</a></li>
            </ul>
         </div>
          <button class="btn btn-primary" type="button" [routerLink]="['../class-student-add']"> 
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
             <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
           </svg> Add Student</button>  
+          <!-- <button [routerLink]="['../class-student','search']"> navigate</button> -->
       </form>
     </div>
   </div>
 </nav>   
+ 
 </section> 
  <router-outlet></router-outlet>

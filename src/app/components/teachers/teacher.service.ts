@@ -9,6 +9,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class TeacherService {
+  public sortname=[] ; 
+  public sortgender=[];
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
 
@@ -89,7 +91,7 @@ export class TeacherService {
 
   sortStudents(
     class_id: number,
-    student_name: string,
+    student_name: number,
     gender: number,
     highest_degree: number
   ) {

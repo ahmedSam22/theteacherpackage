@@ -92,7 +92,7 @@ export class AddStudentComponent implements OnInit {
   onSubmit() {
     let form = {
       ...this.form.value ,
-      class_id:25,
+      class_id:151,
       
     }
   

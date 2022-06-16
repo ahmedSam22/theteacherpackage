@@ -1,26 +1,14 @@
 <section  >
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="studentsIcons col-xl-12">
-        
-        <a href=""> 
+      <div  class="studentsIcons col-xl-12">
+         <a *ngFor="let student of classStudents"> 
          <div class="studentProfileIcon text-center" > 
-            <img  src="../../../../assets/images/home.png">
-            <p class="text-center">Mohamed Farag</p>
+            <img src="{{student.imagePath}}">
+            <p class="text-center">{{student.full_name}}</p>
           </div>
         </a>
-        <a href=""> 
-          <div class="studentProfileIcon text-center" > 
-             <img  src="../../../../assets/images/cat1.jpeg">
-             <p class="text-center">Ahmed Mostafa</p>
-           </div>
-         </a>
-         <a href=""> 
-          <div class="studentProfileIcon text-center" > 
-             <img  src="../../../../assets/images/cat2.jpeg">
-             <p class="text-center">Wael Elbialy</p>
-           </div>
-         </a>
+        
       
          <!-- <div class="card" style="border-radius: 15px;">
           
