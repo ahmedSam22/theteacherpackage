@@ -31,9 +31,11 @@ const routes: Routes = [
   // canActivateChild: [],
   children: [
     {path:'',component:ClassComponent},
-    {path:'class-student',component:ClassStudentComponent , children: [
-      {path:'details',component:ClassDetailsComponent},
-       ]},
+    {path:'class-student',component:ClassStudentComponent , children:[
+      {path:':search',component:ClassDetailsComponent},
+    ] },  
+     
+     
     {path:'class-student-add',component:AddStudentComponent},
     {path:'reports',component:ReportsComponent},
     {path:'teachers',component:TeachersComponent},
@@ -42,7 +44,7 @@ const routes: Routes = [
     ] },
  
 ];
-
+// {path:'student/:id',component: },
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
