@@ -14,7 +14,7 @@
             <h3 class="text-center">No Classes Added</h3>
 
             <div class="px-5 text-center">
-              <button type="submit" class="btn btn-primary btn-lg" (click)="addNewClass()">
+              <button type="submit" class="btn btn-primary btn-lg" routerLink="class-add">
                 Add Class
               </button>
             </div>
@@ -35,9 +35,9 @@
                 <input type="text" matInput placeholder="" />
               </mat-form-field>
             </form>
-            <button class="btn ms-3">
-              <img
-                src="../../../assets/images/classes/plus.png"
+            <button class="btn ms-3"  routerLink="class-add">
+            <img
+            src="../../../assets/images/classes/plus.png"
                 alt=""
                 srcset=""
               />

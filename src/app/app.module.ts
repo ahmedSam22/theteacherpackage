@@ -35,11 +35,13 @@ import { StudentsComponent } from './components/students/students.component';
 import { WeeklyscheduleComponent } from './components/weeklyschedule/weeklyschedule.component';
 import { ClassStudentComponent } from './components/teachers/class-student/class-student.component';
 import { ClassDetailsComponent } from './components/teachers/class-student/class-details/class-details.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
  
 
 import { AddStudentComponent } from './components/teachers/add-student/add-student.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddClassComponent } from './components/teachers/class-student/add-class/add-class.component';
  
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     WeeklyscheduleComponent,
     ClassStudentComponent,
     ClassDetailsComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    AddClassComponent
     
    
   ],
@@ -74,7 +77,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgxFlagPickerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatDatepickerModule
     
   ],
   providers: [

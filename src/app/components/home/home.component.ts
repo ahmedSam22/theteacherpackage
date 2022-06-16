@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { TeacherService } from './../teachers/teacher.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,14 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassComponent implements OnInit {
 public allClasses:any;
-  constructor(private service:TeacherService) { }
+  constructor(private service:TeacherService,private router : Router) { }
 
   ngOnInit(): void {
       this.service.getAllClasses().subscribe((res:any)=>{
         this.allClasses = res.data
       })
   }
-addNewClass(){
-
-}
 }
