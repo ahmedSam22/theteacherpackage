@@ -1,3 +1,5 @@
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -10,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/auth/login/login.component';
-import { WrongRouteComponent } from './components/auth/errors/wrong-route/wrong-route.component';
+// import { WrongRouteComponent } from './components/auth/errors/wrong-route/wrong-route.component';
 // import { ForgetpasswordComponent } from './components/auth/forgetpassword/forgetpassword.component';
 // import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
 // import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -27,20 +29,25 @@ import { VerifycodeComponent } from './components/auth/verifycode/verifycode.com
 import { ForgetpasswordComponent } from './components/auth/forgetpassword/forgetpassword.component';
 import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
 import { ClassComponent } from './components/home/home.component';
-import { ReportsComponent } from './components/teachers/reports/reports.component';
-import { TeachersComponent } from './components/teachers/teacher-main/teachers.component';
+import { ReportsComponent } from './components/reports/reports.component';
+import { TeachersComponent } from './components/teachers/teachers.component';
 import { StudentsComponent } from './components/students/students.component';
 import { WeeklyscheduleComponent } from './components/weeklyschedule/weeklyschedule.component';
-import { ClassDetailsComponent } from './components/teachers/class-student/class-details/class-details.component';
 import { ClassStudentComponent } from './components/teachers/class-student/class-student.component';
+import { ClassDetailsComponent } from './components/teachers/class-student/class-details/class-details.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+ 
+
 import { AddStudentComponent } from './components/teachers/add-student/add-student.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddClassComponent } from './components/teachers/class-student/add-class/add-class.component';
  
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    WrongRouteComponent,
+    // WrongRouteComponent,
     SignupComponent,
     VerifycodeComponent,
     ForgetpasswordComponent,
@@ -53,6 +60,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ClassStudentComponent,
     ClassDetailsComponent,
     AddStudentComponent,
+    AddClassComponent
     
    
   ],
@@ -68,8 +76,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgxSpinnerModule,
     NgxFlagPickerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    ReactiveFormsModule,
-   
+    MatMenuModule,
+    MatIconModule,
+    MatDatepickerModule
+    
   ],
   providers: [
 

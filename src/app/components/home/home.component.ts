@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { TeacherService } from './../teachers/teacher.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,14 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class ClassComponent implements OnInit {
-
-  constructor(private teacher :TeacherService ) { }
+public allClasses:any;
+  constructor(private service:TeacherService,private router : Router) { }
 
   ngOnInit(): void {
-    this.teacher.getAllClasses().subscribe((res:any)=>{
-      console.log("res is here",res.data);
-      
-    })
+      this.service.getAllClasses().subscribe((res:any)=>{
+        this.allClasses = res.data
+      })
   }
-
 }
