@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { FormGroup,FormBuilder, Validators, FormArray } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PublicService } from 'src/app/pubilc/public.service';
 import Swal from 'sweetalert2';
 import { TeacherService } from '../../teacher.service';
 
@@ -17,6 +18,7 @@ export class AddClassComponent implements OnInit {
   file:File[]=[];
   showImg=true ;
   images : string[] = [];
+  colors : any[] = [];
   imagePath :string[]= [];
   @ViewChild("image") image: any;
   @ViewChild("student") s : any;
@@ -25,7 +27,7 @@ export class AddClassComponent implements OnInit {
   selected:any;
   showStudentInfo:boolean=true ;
   showGardianInfo:boolean=false ;
-  constructor(private router:Router , private route:ActivatedRoute ,private formbuilder:FormBuilder ,private teacherservice:TeacherService, private renderer: Renderer2 ,private elementRef: ElementRef ) {
+  constructor(private router:Router , private route:ActivatedRoute ,private formbuilder:FormBuilder ,private teacherservice:TeacherService, private renderer: Renderer2 ,private elementRef: ElementRef,private pservice :PublicService ) {
   }
 
  
@@ -33,17 +35,38 @@ export class AddClassComponent implements OnInit {
 
 ngOnInit(): void {
   this.form = this.formbuilder.group({
-    first_name: ['', Validators.required],
-    last_name: ['', Validators.required],
-    email: ['', Validators.required],
-    phone: ['', Validators.required],
-    gender: ['', Validators.required],
-    guardian_name: ['', Validators.required],
-    guardian_email: ['', Validators.required],
-    guardian_phone: ['', Validators.required],
+    name: ['', Validators.required],
+    code: ['', Validators.required],
+    courses : this.formbuilder.array([
+      this.formbuilder.control("")
+    ]),
+    start_date: ['', Validators.required],
+    end_date: ['', Validators.required],
+    color_id: ['', Validators.required],
   });
 
   this.select('student');
+  this.pservice.getAllColors().subscribe((res:any)=>{
+    
+    this.colors = res.data
+    console.log(this.colors);
+  })
+  
+}
+
+
+
+get getCourses():any {
+  return this.form.get("courses") as FormArray
+}
+
+addCourse() {
+  this.getCourses.push(this.formbuilder.control(""))
+  "tamam"
+}
+
+setColor(selectedColor:any){
+  this.form.controls["color_id"].setValue(selectedColor)
 }
  
 back(){
@@ -81,74 +104,24 @@ isActive(item:any) {
   return this.form.controls
   }
 onSubmit() {
-  let form = {
-    ...this.form.value ,
-    class_id:25,
-    
-  }
-
-// if( form.first_name==undefined ||  form.first_name==""){
-//     this.f_name_error=true;
-// }
-// else if (form.last_name==undefined || form.last_name==""){
-//   this.l_name_error=true;
-// }
-// else if (form.email==undefined || form.email=="") {
-//   this.email_error=true ;
-// }
-// else if (form.phone==undefined || form.phone=="") {
-//    this.phone_error=true;
-// }
-// else if (form.gender==undefined || form.gender=="") {
-//   this.gender_error=true; 
-// }
-// else if (form.guardian_name==undefined || form.guardian_name=="") {
-//   this.guardian_name_error=true; 
-// }
-// else if (form.guardian_email==undefined || form.guardian_email=="") {
-//   this.guardian_email_error=true; 
-// }
-// else if (form.guardian_phone==undefined || form.guardian_phone=="") {
-//   this.guardian_phone_error=true; 
-// }
-// else {
-
-// console.log("kolo tamammmmm")
-//   this.f_name_error=false;
-//   this.l_name_error=false;
-//   this.email_error=false;
-//   this.phone_error=false ;
-//   this.gender_error=false; 
-//   this.guardian_name_error=false; 
-//   this.guardian_email_error=false; 
-//   this.guardian_phone_error=false; 
- 
-// }
-this.submitted=true;
-if(this.form.invalid){return}
-    console.log("Form",form)
-    this.teacherservice.addStudentToClass(form).subscribe((res:any)=>{
-
-      if(res.status==true){
-        console.log("success add student", res) ;
-        Swal.fire({
-          title: 'Success',
-          text: res.message,
-          icon: 'success',
-          confirmButtonColor: '#4AB673',
-        }) 
-      }
-   else {
-    console.log("fail add student", res) ;
-    Swal.fire({
-      title: 'Fail',
+  this.teacherservice.createClass(this.form.value).subscribe((res:any)=>{
+    console.log(res);
+    if (res.status === false) {
+      Swal.fire({  title: '',
       text: res.errors[0],
       icon: 'error',
       confirmButtonColor: '#4AB673',
-    }) 
-   }
-    }) 
+
+    });      } else {
+      Swal.fire('class added successfully');
    
+      this.router.navigate(["/home"]);
+    }
+  })
+  console.log(this.form.value);
+
+this.submitted=true;
+
 
 }
 }

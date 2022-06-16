@@ -42,6 +42,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AddStudentComponent } from './components/teachers/add-student/add-student.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddClassComponent } from './components/teachers/class-student/add-class/add-class.component';
+import { MatNativeDateModule } from '@angular/material/core';
  
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { AddClassComponent } from './components/teachers/class-student/add-class
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatMenuModule,
     MatIconModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatNativeDateModule
     
   ],
   providers: [

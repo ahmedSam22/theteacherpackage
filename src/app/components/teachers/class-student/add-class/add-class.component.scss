@@ -1,75 +1,57 @@
 .card {
-    border-radius:15px;
-    .card-body{  
+  border-radius: 15px;
+  .card-body {
+    input::placeholder {
+      font-size: 12px;
+    }
+    select {
+      color: #fafafa;
+      font-size: 12px;
+    }
 
-    input::placeholder  {
-     font-size: 12px;
-    }
-    select  {
-        color :#FAFAFA;
-        font-size: 12px;
-    }
-    
-    input ,select  {
-      background-color:#FAFAFA;
+    input,
+    select {
+      background-color: #fafafa;
       color: grey;
     }
-    option{
+    option {
       background-color: white;
       font-size: 12px;
-      color:grey;
+      color: grey;
     }
-  .infoButtons   {
-    .active {
-      border-color: #37B673;
-        color:#37B673
-    }
-    button{
-          border-color: #B1B1B1;
-          color: #B1B1B1;
-        } 
-    // div:nth-of-type(1) button {
-    //     border-color: #37B673;
-    //     color:#37B673
-    //   }
-    //   div:nth-of-type(2) button{
-    //     border-color: #B1B1B1;
-    //     color: #B1B1B1;
-    //   } 
-  }
-   
-  }
-
-   
-   
-    .image{
-      position: relative;
-      overflow: hidden;
-      height: 100px;
-      width:300px;
-      
-    }
-      img.user-image-avatar{
-          position: absolute;
-          width: 35%;
-          height: 100%;
-          top: 0;
-          left: 0;
-          z-index: 2;
-          opacity: 0.4;
-          border-radius: 50%;
+    .infoButtons {
+      .active {
+        border-color: #37b673;
+        color: #37b673;
       }
-      svg{
-          position: absolute;
-          z-index:  3;
-           left: 11%;
-           top:25%
+      button {
+        border-color: #b1b1b1;
+        color: #b1b1b1;
       }
-      .hideEmptyImg[src=""] {
-          visibility: hidden;
-       }
+      // div:nth-of-type(1) button {
+      //     border-color: #37B673;
+      //     color:#37B673
+      //   }
+      //   div:nth-of-type(2) button{
+      //     border-color: #B1B1B1;
+      //     color: #B1B1B1;
+      //   }
+    }
   }
- 
- 
+}
 
- 
+.colorContainer{
+    border:1px solid #E9EAEC;
+    background-color: #FAFAFA;
+    border-radius: 10px;
+&__circle {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    :focus{
+        content: "hhhhh";
+    }
+  }
+}
+

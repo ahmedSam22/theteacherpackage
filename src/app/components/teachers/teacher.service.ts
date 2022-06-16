@@ -115,7 +115,6 @@ export class TeacherService {
     );
   }
 
-  //   /teacher/student/delete?students_ids[0]=63&students_ids[1]=64&
   deleteStudent(...deletedId: [number]) {
     let deletedParameters: string = ``;
     for (let i = 0; i <= deletedId.length; i++) {
