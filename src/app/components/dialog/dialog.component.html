@@ -1,0 +1,9 @@
+<h1 class="text-center text-danger" mat-dialog-title>Hi {{data.name}}</h1>
+<div class="col-xl-12 m-auto" mat-dialog-content>
+    <button class="col-xl-12 btn  " mat-button (click)="onNoClick()">Yes</button>
+    <hr class="col-xl-9 my-1"/>
+    <button class="col-xl-12 btn  " mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>No</button>
+</div>
+<!-- <div mat-dialog-actions>
+   
+</div> -->

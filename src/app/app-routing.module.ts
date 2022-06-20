@@ -17,6 +17,7 @@ import { WeeklyscheduleComponent } from './components/weeklyschedule/weeklysched
 import { ClassStudentComponent } from './components/teachers/class-student/class-student.component';
 import { ClassDetailsComponent } from './components/teachers/class-student/class-details/class-details.component';
 import { AddStudentComponent } from './components/teachers/add-student/add-student.component';
+import { ClassScheduleComponent } from './components/teachers/class-student/class-schedule/class-schedule.component';
    
 // import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
 
@@ -33,17 +34,17 @@ const routes: Routes = [
   children: [
     {path:'',component:ClassComponent},
     {path:'class-student',component:ClassStudentComponent , children:[
+      {path:'class-schedual',component:ClassScheduleComponent},
       {path:':search',component:ClassDetailsComponent},
-    ] },  
-     
-     
+    ]},  
     {path:'class-student-add',component:AddStudentComponent},
     {path:'class-add',component:AddClassComponent},
+ 
     {path:'reports',component:ReportsComponent},
     {path:'teachers',component:TeachersComponent},
     {path:'students',component:StudentsComponent},
     {path:'weekly-schedule',component:WeeklyscheduleComponent},
-
+     
     ] },
  
 ];

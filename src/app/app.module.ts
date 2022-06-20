@@ -36,13 +36,15 @@ import { WeeklyscheduleComponent } from './components/weeklyschedule/weeklysched
 import { ClassStudentComponent } from './components/teachers/class-student/class-student.component';
 import { ClassDetailsComponent } from './components/teachers/class-student/class-details/class-details.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-
+import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
  
-
 import { AddStudentComponent } from './components/teachers/add-student/add-student.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddClassComponent } from './components/teachers/class-student/add-class/add-class.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ClassScheduleComponent } from './components/teachers/class-student/class-schedule/class-schedule.component';
+import { DialogComponent } from './components/dialog/dialog.component';
  
 @NgModule({
   declarations: [
@@ -61,8 +63,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     ClassStudentComponent,
     ClassDetailsComponent,
     AddStudentComponent,
-    AddClassComponent
-    
+    AddClassComponent,
+    ClassScheduleComponent,
+    DialogComponent,
+ 
    
   ],
   imports: [
@@ -80,7 +84,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatMenuModule,
     MatIconModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatCardModule,
+    MatDialogModule
     
   ],
   providers: [
