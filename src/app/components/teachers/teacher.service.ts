@@ -162,6 +162,8 @@ getLessonsByDate(course_id:number,date:string){
 deleteLesson(id:number){
   return this.http.delete(`${environment.endpoint}/teacher/lesson/delete?lesson_id=${id}`);
 }
+ /* ---------- Attendance -----------*/
 
 
+  /* ---------- Behavior -----------*/
 }

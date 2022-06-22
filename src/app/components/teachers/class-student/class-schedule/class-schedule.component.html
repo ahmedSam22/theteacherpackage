@@ -5,7 +5,10 @@
        <h2 class="my-4"> Today , <span> {{currentDate}} </span></h2>
        
        <div class="studentsIcons d-flex col-xl-12">
-            <div class="col-xl-7 d-block">
+        <div class=" d-flex col-xl-7"   *ngIf="showNoContent">
+          <h5 class="text-danger my-5"> No Lessons In This Date </h5> 
+        </div>
+            <div class="col-xl-7 d-block" *ngIf="showContent">
               <div class="schedule row mb-3" *ngFor="let lesson of lessons">
                 <div class="col-xl-12 d-flex">
                     <p class="col-xl-3"> {{lesson.name}} </p>

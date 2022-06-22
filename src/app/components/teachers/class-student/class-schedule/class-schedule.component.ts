@@ -24,7 +24,8 @@ export class ClassScheduleComponent implements OnInit {
 
   fullLongDate!:string;
   longMonth!:string;
-
+  showNoContent:boolean=true;
+  showContent:boolean=false;
   lessons!:any;
   constructor(public dialog: MatDialog ,private router:Router,private formbuilder:FormBuilder,private teacherservice:TeacherService,) {}
 
@@ -121,7 +122,16 @@ export class ClassScheduleComponent implements OnInit {
     this.teacherservice.getLessonsByDate(396,this.fullLongDate).subscribe((res:any)=>{
       this.lessons=res['data']
       console.log("Lessons By Date", this.lessons)
-    })
+     })
+     
+    if ( this.lessons == [] ) {
+      this.showContent= false ; 
+      this.showNoContent=true ; 
+      }
+      else {
+      this.showContent= true ; 
+      this.showNoContent=false ; 
+      }
   }
   
 }
