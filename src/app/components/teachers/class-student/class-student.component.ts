@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TeacherService } from '../teacher.service';
 @Component({
@@ -21,12 +22,15 @@ export class ClassStudentComponent implements OnInit {
  class_id=25
  sort=0;
 
+ 
+ showstudents:boolean =true; 
+ showschedule:boolean=false;
 
 sortedByName:any;
 sortedByGender:any;
 
   @ViewChild('search')search!:ElementRef;
-  constructor(private router:Router , private route:ActivatedRoute ,private formbuilder:FormBuilder ,private teacherservice:TeacherService ,private elementRef: ElementRef ) {
+  constructor(public dialog: MatDialog ,private router:Router , private route:ActivatedRoute ,private formbuilder:FormBuilder ,private teacherservice:TeacherService ,private elementRef: ElementRef ) {
   }
 
   ngOnInit(): void {
@@ -48,6 +52,18 @@ sortedByGender:any;
     // console.log(this.courses);
    })
    
+
+  //  class-schedual
+
+
+   }
+   studentfunc(){
+    this.showstudents=true; 
+    this.showschedule= false;
+   }
+   schedulefunc(){
+    this.showstudents=false; 
+    this.showschedule= true;
    }
    SortByName(){
     this.sort=1;
@@ -93,4 +109,14 @@ sortedByGender:any;
   isActive(item:any) {
   return this.selected === item;
   }
+
+
+  // addLesson(){
+  //   const dialogRef = this.dialog.open(DialogComponent, {
+  //     data:{id:id, name:'Are you sure you want to delete ?'},
+  //     });
+  //    dialogRef.afterClosed().subscribe(result => {
+  //       //  console.log(result);
+  //     });
+  // }
 }

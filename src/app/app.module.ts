@@ -45,7 +45,11 @@ import { AddClassComponent } from './components/teachers/class-student/add-class
 import { MatNativeDateModule } from '@angular/material/core';
 import { ClassScheduleComponent } from './components/teachers/class-student/class-schedule/class-schedule.component';
 import { DialogComponent } from './components/dialog/dialog.component';
- 
+import { AddComponent } from './components/teachers/lessons/add/add.component';
+import { EditComponent } from './components/teachers/lessons/edit/edit.component';
+import { TimePickerModule } from '@syncfusion/ej2-angular-calendars';
+  // import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
+  import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +70,9 @@ import { DialogComponent } from './components/dialog/dialog.component';
     AddClassComponent,
     ClassScheduleComponent,
     DialogComponent,
+    AddComponent,
+    EditComponent,
+ 
  
    
   ],
@@ -86,8 +93,9 @@ import { DialogComponent } from './components/dialog/dialog.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
-    MatDialogModule
-    
+    MatDialogModule,
+    TimePickerModule,
+    NgxMaterialTimepickerModule
   ],
   providers: [
 

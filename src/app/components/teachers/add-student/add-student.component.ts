@@ -56,7 +56,7 @@ export class AddStudentComponent implements OnInit {
   }
  
   back(){
-    this.router.navigate(['../home/class-student/details']);
+    this.router.navigate(['../home/class-student/search']);
   }
   base64(event:any) {
     this.file= event.target.files;

@@ -1,10 +1,56 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xl-12 p-0 my-5">
-            <div class="weekly-schedule-card">
-               
-                <p> hello weekly-schedule</p>
+<!-- <button class="btn btn-lg btn-primary col-xl-4" (click)="print()"> print </button> -->
+ <!-- <div id="lesson">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-25">
+         <div class="mx-auto col-xl-12">
+         <div class="class-student text-center my-5 col-xl-12" >  
+             <img class="img-fluid" src="../../../assets/images/schedule.png"  >
+             <p class="my-3 text-muted"> No Lessons Added</p>
+             <button class="btn btn-lg btn-primary col-xl-4"> Add Lesson </button>
          </div>
+         </div>
+       </div>
+    </div>
+  </div> -->
+  <section id="lesson">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-25" *ngIf="hideScehedule">
+        <div class="mx-auto col-xl-12">
+        <div class="class-student text-center my-5 col-xl-12" >  
+            <img class="img-fluid" src="../../../assets/images/schedule.png"  >
+            <p class="my-3 text-muted"> No Lessons Added</p>
+            <button class="btn btn-lg btn-primary col-xl-4"> Add Lesson </button>
         </div>
-     </div>
- </div>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center align-items-center h-25" *ngIf="showScehedule">
+         <div class="weekly-schedule mt-5 mb-3 col-xl-10" >
+            <h4 class="col-xl-6 pb-5" style="display: inline"> Weekly Schedule</h4>
+             <button class="btn col-xl-1 float-right mb-2 " (click)="print()">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
+              <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+              <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+            </svg>
+            &nbsp;Print </button>  
+            </div>
+            <div class="col-xl-10">
+              <div class="d-flex my-3" style=" min-height:40px"  *ngFor="let lesson of lessons"> 
+                  <div class="col-xl-2 mr-4"style="width:100% ;  ">
+                      <p class="py-1"> {{lesson.date}} <span> {{lesson.lesson_day}} </span> </p>
+                  </div>
+
+                  <div class="col-xl-7 mr-4 d-flex" [style.border-left]="'5px solid '+lesson.course.class.color.hexcode" style="width:100% ; background-color:white;"> 
+                      <p class="py-1 mr-2">{{lesson.course.class.name}}</p>
+                      <p class="py-1"> {{lesson.name}} </p> 
+                  </div>
+
+                  <div class="col-xl-3 "  [style.border-left]="'5px solid '+lesson.course.class.color.hexcode" style="width:100% ; background-color:white;"> 
+                      <p class="py-1">{{lesson.start_time}} - {{lesson.end_time}}</p>
+                  </div>
+                  <!-- <div class="col-xl-12 " style="color:black ; height: 5px; width: 100%; background-color: aqua; display: inline-block;"> </div> -->
+              </div>
+          
+         </div>
+       </div>
+    </div>
+  </section>

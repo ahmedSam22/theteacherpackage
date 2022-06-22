@@ -1,0 +1,43 @@
+.addLesson{
+  // overflow-y: auto;
+  // height:90vh;
+ 
+.card {
+    border-radius:15px;
+    .card-body{  
+
+    input::placeholder  {
+     font-size: 12px;
+    }
+    select  {
+        color :#FAFAFA;
+        font-size: 12px;
+    }
+    
+    input ,select  {
+      background-color:#FAFAFA;
+      color: grey;
+    }
+    option{
+      background-color: white;
+      font-size: 12px;
+      color:grey;
+    }
+  .infoButtons   {
+    .active {
+      border-color: #37B673;
+        color:#37B673
+    }
+    button{
+          border-color: #B1B1B1;
+          color: #B1B1B1;
+        } 
+   
+  }
+   
+  }
+ 
+    
+}
+ 
+}

@@ -2,7 +2,7 @@
   <div class="container h-100">
     <div
       class="row d-flex justify-content-center align-items-center h-100"
-      *ngIf="!this.allClasses"
+      *ngIf="hideClass"
     >
       <div class="col-xl-8">
         <div class="" style="border-radius: 15px; background-color: inherit">
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div class="row my-5" *ngIf="this.allClasses">
+    <div class="row my-5" *ngIf="showClass">
       <div class="col-12">
         <div class="head d-flex justify-content-between">
           <h4>CLASSES</h4>
@@ -30,8 +30,7 @@
             <form class="example-form">
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>
-                  <mat-icon matSuffix>mode_edit</mat-icon> Search</mat-label
-                >
+                  <mat-icon matSuffix>mode_edit</mat-icon> Search</mat-label>
                 <input type="text" matInput placeholder="" />
               </mat-form-field>
             </form>
@@ -77,15 +76,14 @@
         </div> -->
       </div>
       <!-- <div class="col-md-12 d-flex flex-wrap justify-content-start custom--container"> -->
-        <a class="col-md-12 d-flex flex-wrap justify-content-start custom--container " [routerLink]="['./class-student','search']"  >  
+        <!-- <a class="col-md-12 d-flex flex-wrap justify-content-start custom--container " [routerLink]="['./class-student','search']"  >   -->
         <div class="card--content d-flex flex-column  p-0 " *ngFor="let class of allClasses" >
+          <!-- <p> {{class.id}}</p> -->
           <div
             class="card--content__header"
-            [style.background]="class.color.hexcode"
-          ></div>
-          <div
-            class="card--content__button d-flex justify-content-end py-1 pe-2"
-          >
+            [style.background]="class.color.hexcode">
+        </div>
+          <div class="card--content__button d-flex justify-content-end py-1 pe-2">
             <!-- <button class=" btn" style="border-radius:50%" [style.background]="class.color.hexcode">
             </button> -->
 
@@ -103,22 +101,31 @@
               />
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item>Item 1</button>
-              <button mat-menu-item>Item 2</button>
+              <button mat-menu-item (click)="editClass()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                </svg>
+                Edit Class</button>
+              <button mat-menu-item  (click)="deleteClass()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                </svg>
+                Delete Class</button>
             </mat-menu>
           </div>
           <div
             class="card--content__image d-flex justify-content-center flex-column"
           >
-            <img [src]="class.teacher.imagePath" alt="" srcset="" />
+            <img [src]="class.teacher.imagePath" alt="" srcset="" (click)="goToStudents()"/>
           </div>
           <div
             class="card--content__footer d-flex justify-content-center flex-column"
           >
-            <p class="text-center mb-0">{{ class.name }}</p>
+            <p class="text-center mb-0"  (click)="goToStudents()">{{ class.name }}</p>
           </div>
         </div>
-      </a>
+      <!-- </a> -->
       <!-- </div> -->
     </div>
   </div>

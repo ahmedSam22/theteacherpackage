@@ -18,6 +18,8 @@ import { ClassStudentComponent } from './components/teachers/class-student/class
 import { ClassDetailsComponent } from './components/teachers/class-student/class-details/class-details.component';
 import { AddStudentComponent } from './components/teachers/add-student/add-student.component';
 import { ClassScheduleComponent } from './components/teachers/class-student/class-schedule/class-schedule.component';
+import { AddComponent } from './components/teachers/lessons/add/add.component';
+import { EditComponent } from './components/teachers/lessons/edit/edit.component';
    
 // import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
 
@@ -38,8 +40,11 @@ const routes: Routes = [
       {path:':search',component:ClassDetailsComponent},
     ]},  
     {path:'class-student-add',component:AddStudentComponent},
+    {path:'class-lesson-add',component:AddComponent},
+    {path:'class-lesson-edit',component:EditComponent},
     {path:'class-add',component:AddClassComponent},
- 
+    
+     
     {path:'reports',component:ReportsComponent},
     {path:'teachers',component:TeachersComponent},
     {path:'students',component:StudentsComponent},

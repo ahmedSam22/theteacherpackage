@@ -117,7 +117,6 @@ export class TeacherService {
     );
   }
 
-  //   /teacher/student/delete?students_ids[0]=63&students_ids[1]=64&
   deleteStudent(...deletedId: [number]) {
     let deletedParameters: string = ``;
     for (let i = 0; i <= deletedId.length; i++) {
@@ -128,7 +127,7 @@ export class TeacherService {
     );
   }
 
-  deleteAllClass(id: number) {
+  deleteAllClass(id:number) {
     return this.http.delete(
       `${environment.endpoint}/teacher/students/all/delete?class_id=${id}`
     );
@@ -139,4 +138,30 @@ export class TeacherService {
       `${environment.endpoint}/teacher/student/course/details?student_id=${student_id}&course_id=${course_id}`
     );
   }
+
+ /* ---------- Lessons -----------*/
+
+ createLesson(form: any) {
+  return this.http.post(`${environment.endpoint}/teacher/lesson/create`,form);
+}
+updateLesson(form:any){
+  return this.http.post(`${environment.endpoint}/teacher/lesson/update`,form);
+}
+
+getLessonById(id:number){
+  return this.http.get(`${environment.endpoint}/teacher/lesson/show?lesson_id=${id}`); 
+}
+ getWeeklySchedule() {
+  return this.http.get(`${environment.endpoint}/teacher/weekly/schedule`);
+}
+
+getLessonsByDate(course_id:number,date:string){
+  return this.http.get(`${environment.endpoint}/teacher/lessons/all?course_id=${course_id}&date=${date}`);
+}
+ 
+deleteLesson(id:number){
+  return this.http.delete(`${environment.endpoint}/teacher/lesson/delete?lesson_id=${id}`);
+}
+
+
 }

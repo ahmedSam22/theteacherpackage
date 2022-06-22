@@ -52,3 +52,41 @@
             }
         }
 }
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  
+ }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px ;
+    z-index: 1;
+    border-radius: 10px;
+    ul {
+        padding:0px ; 
+
+          li {
+            height:25px;
+            margin: 5px;
+            padding:1px 4px;
+
+           a {
+            text-decoration:none;
+            color:black;
+            
+           }
+         
+        }
+         
+    }
+  }

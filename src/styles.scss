@@ -118,3 +118,55 @@ border-color:#37B673 !important;
     padding-right:1.25rem ;
   }
 } 
+
+.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical){
+  background-color :#d3f9e5
+}
+.mat-calendar-body-selected{
+  background-color :#37B673;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex{
+  background-color: white;
+}
+.mat-form-field-appearance-fill .mat-form-field-infix{
+  padding: .25em 0 .25em 0;
+}
+// .mat-form-field-wrapper{
+//   width: 92%;
+// }
+.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button .mat-datepicker-toggle-default-icon, .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button .mat-datepicker-toggle-default-icon{
+  color:#37B673;
+}
+ 
+
+.timepicker {
+
+  .timepicker__header {
+    background-color:#37B673!important;
+  }
+
+  .clock-face__clock-hand {
+    background-color: #37B673 !important;
+
+    &::after {
+      background-color: #37B673!important;
+    }
+
+    &::before {
+      border-color: #37B673!important;
+    }
+  }
+
+  .clock-face__number {
+    > span.active {
+      background-color: #37B673 !important;
+    }
+  }
+
+  button:not(.timepicker-dial__item) {
+    color: #37B673 !important;
+  }
+
+ 
+}
