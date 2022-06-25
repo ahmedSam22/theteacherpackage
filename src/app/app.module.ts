@@ -95,7 +95,8 @@ import { TimePickerModule } from '@syncfusion/ej2-angular-calendars';
     MatCardModule,
     MatDialogModule,
     TimePickerModule,
-    NgxMaterialTimepickerModule,ReactiveFormsModule
+    NgxMaterialTimepickerModule,
+    ReactiveFormsModule
   ],
   providers: [
 
