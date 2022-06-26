@@ -48,7 +48,7 @@ export class TeacherService {
     return this.http.post(`${environment.endpoint}/teacher/class/create`, form);
   }
 
-  editClass(form: any) {
+   editClass(form: any) {
     return this.http.post(`${environment.endpoint}/teacher/class/update`, form);
   }
 

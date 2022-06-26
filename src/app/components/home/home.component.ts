@@ -1,7 +1,8 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { TeacherService } from './../teachers/teacher.service';
 import { Component, OnInit } from '@angular/core';
-
+import { MatDialog } from '@angular/material/dialog';
+import { EditClassComponent } from '../teachers/class-student/edit-class/edit-class.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,7 +18,8 @@ export class ClassComponent implements OnInit {
     private teacherservice: TeacherService,
     private router: Router,
     private route: ActivatedRoute,
-    private service: TeacherService
+    private service: TeacherService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -37,7 +39,12 @@ export class ClassComponent implements OnInit {
       }
     });
   }
-  editClass() {}
+
+
+  editClass(lesson:any): void {
+    const dialogRef = this.dialog.open(EditClassComponent, {
+      data:lesson,
+    })};
 
   deleteClass(classId: any) {
     this.service.deleteClass(classId).subscribe((res: any) => {

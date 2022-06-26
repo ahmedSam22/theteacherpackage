@@ -51,6 +51,7 @@ import { TimePickerModule } from '@syncfusion/ej2-angular-calendars';
   // import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
   import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { BehaviorComponent } from './components/teachers/class-student/behavior/behavior.component';
+import { EditClassComponent } from './components/teachers/class-student/edit-class/edit-class.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +75,7 @@ import { BehaviorComponent } from './components/teachers/class-student/behavior/
     AddComponent,
     EditComponent,
     BehaviorComponent,
+    EditClassComponent,
  
  
    

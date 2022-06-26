@@ -1,3 +1,4 @@
+import { EditClassComponent } from './components/teachers/class-student/edit-class/edit-class.component';
 import { AddClassComponent } from './components/teachers/class-student/add-class/add-class.component';
 import { AppComponent } from './app.component';
 // import { VerifycodeComponent } from './components/auth/verifycode/verifycode.component';
@@ -49,6 +50,7 @@ const routes: Routes = [
       { path: 'class-student-add', component: AddStudentComponent },
       { path: 'class-lesson-add', component: AddComponent },
       { path: 'class-add', component: AddClassComponent },
+      { path: 'class-edit', component: EditClassComponent },
 
       { path: 'reports', component: ReportsComponent },
       { path: 'teachers', component: TeachersComponent },
