@@ -25,7 +25,7 @@ export class AddStudentComponent implements OnInit {
   selected:any;
   showStudentInfo:boolean=true ;
   showGardianInfo:boolean=false ;
-
+  class_id:any;
   // f_name_error:boolean=false ; 
   // l_name_error:boolean=false ; 
   // email_error:boolean=false ; 
@@ -53,6 +53,7 @@ export class AddStudentComponent implements OnInit {
     });
  
     this.select('student');
+    this.class_id = localStorage.getItem('class_id');
   }
  
   back(){
@@ -92,8 +93,7 @@ export class AddStudentComponent implements OnInit {
   onSubmit() {
     let form = {
       ...this.form.value ,
-      class_id:151,
-      
+      class_id:this.class_id,
     }
   
   // if( form.first_name==undefined ||  form.first_name==""){

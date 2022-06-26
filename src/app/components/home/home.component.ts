@@ -12,11 +12,13 @@ public allClasses:any;
 hideClass!:boolean;
 showClass!:boolean;
 searchParam:string='search';
-  constructor(private service:TeacherService,private router : Router , private route:ActivatedRoute ) { }
+ 
+  constructor(private teacherservice:TeacherService,private router : Router , private route:ActivatedRoute ) { }
 
   ngOnInit(): void {
-      this.service.getAllClasses().subscribe((res:any)=>{
+      this.teacherservice.getAllClasses().subscribe((res:any)=>{
         this.allClasses = res['data']
+     
         console.log("all classess" , this.allClasses)
         if(this.allClasses==[]){
           this.hideClass=true ; 
@@ -26,7 +28,13 @@ searchParam:string='search';
           this.hideClass=false ; 
           this.showClass=true ; 
         }
-      })
+      let courses;
+       for(var i=0 ; i<=this.allClasses.length ; i++){
+          courses=this.allClasses[i].courses
+         
+           }
+        })     
+        // console.log("All Courses",this.courses);
   }
   editClass(){
 
@@ -36,7 +44,10 @@ searchParam:string='search';
 
   }
 
-  goToStudents(){
-    this.router.navigate(['../home/class-student',this.searchParam],{ relativeTo: this.route})
+  goToStudents(class_id:any){
+    this.teacherservice.class_id=class_id ;
+    localStorage.setItem('class_id',class_id);
+     console.log("service",this.teacherservice.class_id)
+    this.router.navigate(['../home/class-student',this.searchParam] )
   }
 }

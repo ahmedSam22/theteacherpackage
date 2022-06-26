@@ -20,6 +20,7 @@ import { AddStudentComponent } from './components/teachers/add-student/add-stude
 import { ClassScheduleComponent } from './components/teachers/class-student/class-schedule/class-schedule.component';
 import { AddComponent } from './components/teachers/lessons/add/add.component';
 import { EditComponent } from './components/teachers/lessons/edit/edit.component';
+import { BehaviorComponent } from './components/teachers/class-student/behavior/behavior.component';
    
 // import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
 
@@ -41,7 +42,7 @@ const routes: Routes = [
     ]},  
     {path:'class-student-add',component:AddStudentComponent},
     {path:'class-lesson-add',component:AddComponent},
-    {path:'class-lesson-edit',component:EditComponent},
+    {path:'class-behavior',component:BehaviorComponent},
     {path:'class-add',component:AddClassComponent},
     
      

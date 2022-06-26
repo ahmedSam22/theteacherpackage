@@ -18,7 +18,7 @@ export class AddComponent implements OnInit {
   end:string='';
   value:any;
  
- 
+  course_id:any;
   @ViewChild('picker') picker!:ElementRef;
   constructor(private router:Router , private route:ActivatedRoute ,private formbuilder:FormBuilder ,private teacherservice:TeacherService, private renderer: Renderer2 ,private elementRef: ElementRef ) {
   
@@ -34,7 +34,8 @@ export class AddComponent implements OnInit {
       repetition: ['', Validators.required],
     
     })
-
+    this.course_id = localStorage.getItem('course_id');
+    console.log("course_id",this.course_id)
   }
  
   get f() { 
@@ -49,7 +50,7 @@ export class AddComponent implements OnInit {
      let myForm={
       ...this.form.value,
       date:this.date,
-      course_id:396
+      course_id:+this.course_id
      }
       
       // this.start=this.form.value.start_time;

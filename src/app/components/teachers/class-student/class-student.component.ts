@@ -19,10 +19,10 @@ export class ClassStudentComponent implements OnInit {
  searchResult:any;
  navigate='search';
  
- class_id=25
+ class_id:any;
  sort=0;
 
- 
+ hideCoursesAndBags:boolean=true;
  showstudents:boolean =true; 
  showschedule:boolean=false;
 
@@ -34,12 +34,13 @@ sortedByGender:any;
   }
 
   ngOnInit(): void {
-    // this.teacherservice.sortname=[];
-    // this.teacherservice.sortgender=[];
-    localStorage.removeItem("SortByName");
-    localStorage.removeItem("SortByGender");
+    let data = localStorage.getItem('class_id');
+    console.log("dfdssad",data)
+    this.class_id=data;
+    // localStorage.removeItem("SortByName");
+    // localStorage.removeItem("SortByGender");
     this.select('students');
-    this.teacherservice.getClassDetails(this.class_id).subscribe((res:any)=>{
+    this.teacherservice.getClassDetails(+this.class_id).subscribe((res:any)=>{
     this.classStudents=res['data']
     console.log("class details" , this.classStudents)
     this.classname=this.classStudents.name ; 
@@ -49,13 +50,20 @@ sortedByGender:any;
    this.studentnum=this.classStudents.students_number;
   //  console.log(this.studentnum);
   this.courses=this.classStudents.courses;
-    // console.log(this.courses);
+     console.log("courses",this.courses);
    })
    
 
-  //  class-schedual
-
-
+  //  this.teacherservice.getAllClasses().subscribe((res:any)=>{
+  //   let allClasses;
+  //   allClasses = res['data']
+  //   console.log("classess" , allClasses)
+  //   let courses;
+  //   for(var i=0 ; i<=allClasses.length ; i++){
+  //     courses=allClasses[i].courses
+  //     console.log("courses" , courses)
+  //       }
+  //     })    
    }
    studentfunc(){
     this.showstudents=true; 
@@ -67,7 +75,7 @@ sortedByGender:any;
    }
    SortByName(){
     this.sort=1;
-    this.teacherservice.sortStudents(this.class_id,this.sort,0,0).subscribe((res:any)=>{
+    this.teacherservice.sortStudents(+this.class_id,this.sort,0,0).subscribe((res:any)=>{
     this.sortedByName=res['data'];
     
     this.teacherservice.sortname=this.sortedByName;
@@ -78,7 +86,7 @@ sortedByGender:any;
    }
    SortByGender(){
     this.sort=1;
-    this.teacherservice.sortStudents(this.class_id,0,this.sort,0).subscribe((res:any)=>{
+    this.teacherservice.sortStudents(+this.class_id,0,this.sort,0).subscribe((res:any)=>{
     this.sortedByGender=res['data'];
     this.teacherservice.sortgender=this.sortedByGender
     
@@ -105,11 +113,25 @@ sortedByGender:any;
   select(item:any) {
     this.selected = item;
     console.log("selllllected",this.selected)
+    if(item!='students'){
+      this.showschedule=false ;
+      this.hideCoursesAndBags=false ;
+    }
+    else {
+      // this.showschedule=true ;
+      this.hideCoursesAndBags=true ;
+    }
      };
   isActive(item:any) {
   return this.selected === item;
   }
 
+
+  changeCourse(event:any){
+    localStorage.setItem('course_id',event.target.value);
+     
+  }
+ 
 
   // addLesson(){
   //   const dialogRef = this.dialog.open(DialogComponent, {
