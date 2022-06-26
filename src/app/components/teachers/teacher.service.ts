@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class TeacherService {
+  public class_id:number=0;
   public sortname=[] ; 
   public sortgender=[];
   private currentUserSubject: BehaviorSubject<any>;

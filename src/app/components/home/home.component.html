@@ -117,12 +117,12 @@
           <div
             class="card--content__image d-flex justify-content-center flex-column"
           >
-            <img [src]="class.teacher.imagePath" alt="" srcset="" (click)="goToStudents()"/>
+            <img [src]="class.teacher.imagePath" alt="" srcset="" (click)="goToStudents(class.id)"/>
           </div>
           <div
             class="card--content__footer d-flex justify-content-center flex-column"
           >
-            <p class="text-center mb-0"  (click)="goToStudents()">{{ class.name }}</p>
+            <p class="text-center mb-0"  (click)="goToStudents(class.id)">{{ class.name }}</p>
           </div>
         </div>
       <!-- </a> -->

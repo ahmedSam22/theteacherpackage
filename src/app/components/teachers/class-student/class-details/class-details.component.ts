@@ -22,6 +22,7 @@ currentRoute: string;
 sortName:any;
 sortGender:any;
 search='search';
+class_id:any;
   constructor(private router:Router , private route:ActivatedRoute ,private formbuilder:FormBuilder ,private teacherservice:TeacherService ,private elementRef: ElementRef ) {
     this.currentRoute = "";
     this.sortName=[];
@@ -32,26 +33,26 @@ search='search';
         }
 
         if (event instanceof NavigationEnd) {
-         
+          this.class_id =localStorage.getItem('class_id');
           this.searchResult=this.route.snapshot.params['search'];
           console.log("param",this.searchResult);
     
           if(this.searchResult=='search'){
-             this.teacherservice.searchStudent(25).subscribe((res:any)=>{
+             this.teacherservice.searchStudent(+this.class_id).subscribe((res:any)=>{
              this.classStudents=res['data']
            console.log("oooooooooo",this.classStudents)
             })
           }
           else if(this.searchResult=='female'||this.searchResult=='Female'||this.searchResult=='FEMALE'){
            this.femaleSearch=2;
-           this.teacherservice.searchStudent(25,'',this.femaleSearch).subscribe((res:any)=>{
+           this.teacherservice.searchStudent(+this.class_id,'',this.femaleSearch).subscribe((res:any)=>{
                this.classStudents=res['data']
              console.log("FEMALE",this.classStudents)
             })
           }
           else if(this.searchResult=='male'||this.searchResult=='Male'||this.searchResult=='MALE'){
            this.maleSearch=1;
-           this.teacherservice.searchStudent(25,'',this.maleSearch).subscribe((res:any)=>{
+           this.teacherservice.searchStudent(+this.class_id,'',this.maleSearch).subscribe((res:any)=>{
                this.classStudents=res['data']
              console.log("MALE",this.classStudents)
             })
@@ -66,7 +67,7 @@ search='search';
           }
          else {
              this.studentname=this.searchResult
-             this.teacherservice.searchStudent(25,this.studentname).subscribe((res:any)=>{
+             this.teacherservice.searchStudent(+this.class_id,this.studentname).subscribe((res:any)=>{
                this.classStudents=res['data']
               //  this.router.navigate(['../../class-student',this.search],{ relativeTo: this.route})
              console.log("Student Name",this.classStudents)

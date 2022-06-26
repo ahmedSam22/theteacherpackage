@@ -141,11 +141,11 @@ border-color:#37B673 !important;
  
 
 .timepicker {
-
+   
   .timepicker__header {
     background-color:#37B673!important;
   }
-
+   
   .clock-face__clock-hand {
     background-color: #37B673 !important;
 
@@ -169,4 +169,8 @@ border-color:#37B673 !important;
   }
 
  
+}
+ 
+.cdk-overlay-container{
+  z-index:995;
 }

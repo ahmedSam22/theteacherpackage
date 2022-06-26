@@ -27,6 +27,8 @@ export class ClassScheduleComponent implements OnInit {
   showNoContent:boolean=true;
   showContent:boolean=false;
   lessons!:any;
+  class_id:any;
+  course_id!:any;
   constructor(public dialog: MatDialog ,private router:Router,private formbuilder:FormBuilder,private teacherservice:TeacherService,) {}
 
   editLesson(lesson:any): void {
@@ -50,9 +52,12 @@ export class ClassScheduleComponent implements OnInit {
     });
   }
   ngOnInit(): void {
- 
+    this.class_id = localStorage.getItem('class_id');
     this.currentDate=this.startDate.substring(0, 15)
     
+
+    this.course_id = localStorage.getItem('course_id');
+    console.log("course_id",this.course_id)
   }
   changess(){
     let restOfData=this.selected?.toString().substring(7,15);
@@ -118,20 +123,13 @@ export class ClassScheduleComponent implements OnInit {
     this.fullLongDate =  days+this.longMonth+years
     console.log("longMonth",this.fullLongDate)
 
-    
-    this.teacherservice.getLessonsByDate(396,this.fullLongDate).subscribe((res:any)=>{
+  
+
+    this.teacherservice.getLessonsByDate(+this.course_id,this.fullLongDate).subscribe((res:any)=>{
       this.lessons=res['data']
       console.log("Lessons By Date", this.lessons)
      })
-     
-    if ( this.lessons == [] ) {
-      this.showContent= false ; 
-      this.showNoContent=true ; 
-      }
-      else {
-      this.showContent= true ; 
-      this.showNoContent=false ; 
-      }
+  
   }
   
 }

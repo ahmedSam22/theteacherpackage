@@ -20,42 +20,46 @@ import { AddStudentComponent } from './components/teachers/add-student/add-stude
 import { ClassScheduleComponent } from './components/teachers/class-student/class-schedule/class-schedule.component';
 import { AddComponent } from './components/teachers/lessons/add/add.component';
 import { EditComponent } from './components/teachers/lessons/edit/edit.component';
-   
+import { BehaviorComponent } from './components/teachers/class-student/behavior/behavior.component';
+
 // import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
 
 const routes: Routes = [
+  { path: '', component: LoginComponent },
+  { path: 'auth/signup', component: SignupComponent },
+  { path: 'auth/verify/:id', component: VerifycodeComponent },
+  { path: 'auth/forgetpassword', component: ForgetpasswordComponent },
+  { path: 'auth/changepassword', component: ChangepasswordComponent },
 
-  {path:'',component:LoginComponent},
-  {path:'auth/signup',component:SignupComponent},
-  {path:'auth/verify/:id',component:VerifycodeComponent},
-  {path:'auth/forgetpassword',component:ForgetpasswordComponent},
-  {path:'auth/changepassword',component:ChangepasswordComponent},
-  
-  {path:'home',component:DashboardLayoutComponent, 
-  // canActivateChild: [],
-  children: [
-    {path:'',component:ClassComponent},
-    {path:'class-student',component:ClassStudentComponent , children:[
-      {path:'class-schedual',component:ClassScheduleComponent},
-      {path:':search',component:ClassDetailsComponent},
-    ]},  
-    {path:'class-student-add',component:AddStudentComponent},
-    {path:'class-lesson-add',component:AddComponent},
-    {path:'class-lesson-edit',component:EditComponent},
-    {path:'class-add',component:AddClassComponent},
-    
-     
-    {path:'reports',component:ReportsComponent},
-    {path:'teachers',component:TeachersComponent},
-    {path:'students',component:StudentsComponent},
-    {path:'weekly-schedule',component:WeeklyscheduleComponent},
-     
-    ] },
- 
+  {
+    path: 'home',
+    component: DashboardLayoutComponent,
+    // canActivateChild: [],
+    children: [
+      { path: '', component: ClassComponent },
+      {
+        path: 'class-student',
+        component: ClassStudentComponent,
+        children: [
+          { path: 'class-schedual', component: ClassScheduleComponent },
+          { path: 'class-behavior', component: BehaviorComponent },
+          { path: ':search', component: ClassDetailsComponent },
+        ],
+      },
+      { path: 'class-student-add', component: AddStudentComponent },
+      { path: 'class-lesson-add', component: AddComponent },
+      { path: 'class-add', component: AddClassComponent },
+
+      { path: 'reports', component: ReportsComponent },
+      { path: 'teachers', component: TeachersComponent },
+      { path: 'students', component: StudentsComponent },
+      { path: 'weekly-schedule', component: WeeklyscheduleComponent },
+    ],
+  },
 ];
 // {path:'student/:id',component: },
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

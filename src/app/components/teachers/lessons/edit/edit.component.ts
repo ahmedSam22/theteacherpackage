@@ -17,6 +17,7 @@ export class EditComponent implements OnInit {
   startDate = new Date();
   date!:string;
   lesson:any;
+ 
   @ViewChild('picker3') picker3!:any;
   constructor(private router:Router , private route:ActivatedRoute ,private formbuilder:FormBuilder , public dialogRef: MatDialogRef<DialogComponent> , @Inject(MAT_DIALOG_DATA) public data:any,private teacherservice:TeacherService, private renderer: Renderer2 ,private elementRef: ElementRef ) {
   }
@@ -32,6 +33,7 @@ export class EditComponent implements OnInit {
      })
 
     console.log("Edit Dialog" , this.lesson)
+ 
   }
   get f() { 
     return this.form.controls
