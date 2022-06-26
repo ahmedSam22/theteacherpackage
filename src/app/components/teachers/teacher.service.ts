@@ -52,7 +52,7 @@ export class TeacherService {
   }
 
   deleteClass(id: number) {
-    return this.http.get(
+    return this.http.delete(
       `${environment.endpoint}/teacher/class/delete?class_id=${id}`
     );
   }

@@ -15,25 +15,33 @@ searchParam:string='search';
   constructor(private service:TeacherService,private router : Router , private route:ActivatedRoute ) { }
 
   ngOnInit(): void {
-      this.service.getAllClasses().subscribe((res:any)=>{
-        this.allClasses = res['data']
-        console.log("all classess" , this.allClasses)
-        if(this.allClasses==[]){
-          this.hideClass=true ; 
-          this.showClass=false ; 
-        }
-        else {
-          this.hideClass=false ; 
-          this.showClass=true ; 
-        }
-      })
+    this.getAllClasses() 
+  }
+
+  getAllClasses(){
+    this.service.getAllClasses().subscribe((res:any)=>{
+      this.allClasses = res['data']
+      console.log("all classess" , this.allClasses)
+      if(this.allClasses.length == 0 ){
+        // this.hideClass=true ; 
+        this.showClass=false ; 
+      }
+      else {
+        // this.hideClass=false ; 
+        this.showClass=true ; 
+      }
+    })
   }
   editClass(){
 
   }
 
-  deleteClass(){
+  deleteClass(classId:any){
+    this.service.deleteClass(classId).subscribe((res:any)=>{
+      this.getAllClasses() 
 
+      
+    })
   }
 
   goToStudents(){
