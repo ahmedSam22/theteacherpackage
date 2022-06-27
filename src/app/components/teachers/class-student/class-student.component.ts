@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -25,12 +25,13 @@ export class ClassStudentComponent implements OnInit {
  hideCoursesAndBags:boolean=true;
  showstudents:boolean =true; 
  showschedule:boolean=false;
-
+showBehavior:boolean=false ;
 sortedByName:any;
 sortedByGender:any;
 
   @ViewChild('search')search!:ElementRef;
   constructor(public dialog: MatDialog ,private router:Router , private route:ActivatedRoute ,private formbuilder:FormBuilder ,private teacherservice:TeacherService ,private elementRef: ElementRef ) {
+   
   }
 
   ngOnInit(): void {
@@ -52,7 +53,9 @@ sortedByGender:any;
   this.courses=this.classStudents.courses;
      console.log("courses",this.courses);
    })
-   
+  //  @HostListener('window:beforeunload') goToPage() {
+  //   this.router.navigate(['/hello']);
+  // }
 
   //  this.teacherservice.getAllClasses().subscribe((res:any)=>{
   //   let allClasses;
@@ -68,10 +71,17 @@ sortedByGender:any;
    studentfunc(){
     this.showstudents=true; 
     this.showschedule= false;
+    this.showBehavior=false;
    }
    schedulefunc(){
     this.showstudents=false; 
     this.showschedule= true;
+    this.showBehavior=false;
+   }
+   behaviorfunc(){
+    this.showstudents=false; 
+    this.showschedule= false;
+    this.showBehavior=true;
    }
    SortByName(){
     this.sort=1;

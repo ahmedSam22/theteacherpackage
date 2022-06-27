@@ -38,11 +38,12 @@ import { ClassDetailsComponent } from './components/teachers/class-student/class
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
- 
+ import{MatCheckboxModule}from '@angular/material/checkbox';
 import { AddStudentComponent } from './components/teachers/add-student/add-student.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddClassComponent } from './components/teachers/class-student/add-class/add-class.component';
 import { MatNativeDateModule } from '@angular/material/core';
+ 
 import { ClassScheduleComponent } from './components/teachers/class-student/class-schedule/class-schedule.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { AddComponent } from './components/teachers/lessons/add/add.component';
@@ -51,7 +52,11 @@ import { TimePickerModule } from '@syncfusion/ej2-angular-calendars';
   // import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
   import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { BehaviorComponent } from './components/teachers/class-student/behavior/behavior.component';
+<<<<<<< HEAD
+import { AddBehaviorComponent } from './components/teachers/add-behavior/add-behavior.component';
+=======
 import { EditClassComponent } from './components/teachers/class-student/edit-class/edit-class.component';
+>>>>>>> 623138d66494edd21fa1a2967d6510f12eb1c4dd
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +80,11 @@ import { EditClassComponent } from './components/teachers/class-student/edit-cla
     AddComponent,
     EditComponent,
     BehaviorComponent,
+<<<<<<< HEAD
+    AddBehaviorComponent,
+=======
     EditClassComponent,
+>>>>>>> 623138d66494edd21fa1a2967d6510f12eb1c4dd
  
  
    
@@ -99,8 +108,13 @@ import { EditClassComponent } from './components/teachers/class-student/edit-cla
     MatCardModule,
     MatDialogModule,
     TimePickerModule,
+<<<<<<< HEAD
+    NgxMaterialTimepickerModule,ReactiveFormsModule,
+    MatCheckboxModule
+=======
     NgxMaterialTimepickerModule,
     ReactiveFormsModule
+>>>>>>> 623138d66494edd21fa1a2967d6510f12eb1c4dd
   ],
   providers: [
 
