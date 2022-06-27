@@ -21,6 +21,7 @@ import { ClassScheduleComponent } from './components/teachers/class-student/clas
 import { AddComponent } from './components/teachers/lessons/add/add.component';
 import { EditComponent } from './components/teachers/lessons/edit/edit.component';
 import { BehaviorComponent } from './components/teachers/class-student/behavior/behavior.component';
+import { AddBehaviorComponent } from './components/teachers/add-behavior/add-behavior.component';
    
 // import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
 
@@ -38,11 +39,16 @@ const routes: Routes = [
     {path:'',component:ClassComponent},
     {path:'class-student',component:ClassStudentComponent , children:[
       {path:'class-schedual',component:ClassScheduleComponent},
+      {path:'class-behavior',component:BehaviorComponent} ,
+     
       {path:':search',component:ClassDetailsComponent},
-    ]},  
+ 
+   ]
+  
+  },  
+     
     {path:'class-student-add',component:AddStudentComponent},
     {path:'class-lesson-add',component:AddComponent},
-    {path:'class-behavior',component:BehaviorComponent},
     {path:'class-add',component:AddClassComponent},
     
      
