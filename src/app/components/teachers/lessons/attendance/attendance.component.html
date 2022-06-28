@@ -11,13 +11,13 @@
            -->
         <h2>ATTENDANCE</h2>
            <div class="d-flex justify-content-between row">
-            <div class="col-md-6 col-sm-6 d-flex justify-content-between">
-                <div class="head__left__name mr-2">
+            <div class="col-md-6 col-sm-12 d-flex justify-content-between">
+                <div class="head__left__name mr-2 col-md-6 col-sm-12">
                     <span>
                         {{lessonData.name}}
                     </span>
                     </div>
-                <div class="head__left__date">
+                <div class="head__left__date col-md-6 col-sm-12">
                     <span>
                         
                         {{lessonData.date}} | {{lessonData.start_time}} {{lessonData.end_time}}
@@ -25,8 +25,8 @@
                  </div>
             </div>
             <div class="col-md-6 col-sm-6 d-flex justify-content-end">
-                <button class="btn btn-lg btn-light"> <i class="fas fa-print"></i> Print</button>
-                <button class="btn btn-lg btn-success ml-2"> <i class="fas fa-cog"></i> settings</button>
+                <button class="btn   btn-light"> <i class="fas fa-print"></i> Print</button>
+                <button class="btn  btn-success ml-2"> <i class="fas fa-cog"></i> settings</button>
             </div>
            </div>
            <!-- <div class="card" style="border-radius: 15px;">
@@ -63,61 +63,21 @@
         </div>
       </div>
       <div class="row cases mt-5">
-        <span class="col"><h3>40</h3> <p>present</p> </span>
-        <span class="col"><h3>40</h3> <p>present</p> </span>
-        <span class="col"><h3>40</h3> <p>present</p> </span>
-        <span class="col"><h3>40</h3> <p>present</p> </span>
-        <span class="col"><h3>40</h3> <p>present</p> </span>
-        <span class="col"><h3>40</h3> <p>present</p> </span>
-        <span class="col"><h3>40</h3> <p>present</p> </span>
-        <span class="col"><h3>40</h3> <p>present</p> </span>
-        <span class="col"><h3>40</h3> <p>present</p> </span>
-        <span class="col"><h3>40</h3> <p>present</p> </span>
-        <span class="col"><h3>40</h3> <p>present</p> </span>
+        <span class="col" *ngFor="let case of allAttendanceCases" [style.background]="case.color" [style.color]="case.color"><h3>40</h3> <p>{{case.name}}</p> </span>
+
 
       </div>
       <div class="row students mt-5">
-        <div class="col students__student">
-          <img src="../../../../../assets/images/shady.jpg" alt="">
-          <p class="text-center">faraggggg</p>
+        <div class="col students__student" *ngFor="let student of allStudentAttendance">
+          <img [src]="student.imagePath" alt="" class="m-auto w-50">
+          <p class="text-center">{{student.full_name}}</p>
+
+          <div
+          class="cases--students__footer"
+          [style.background]="student.hexcode">
+      </div>
         </div>
-        <div class="col students__student">
-          <img src="../../../../../assets/images/shady.jpg" alt="">
-          <p class="text-center">faraggggg</p>
-        </div>
-        <div class="col students__student">
-          <img src="../../../../../assets/images/shady.jpg" alt="">
-          <p class="text-center">faraggggg</p>
-        </div>
-        <div class="col students__student">
-          <img src="../../../../../assets/images/shady.jpg" alt="">
-          <p class="text-center">faraggggg</p>
-        </div>
-        <div class="col students__student">
-          <img src="../../../../../assets/images/shady.jpg" alt="">
-          <p class="text-center">faraggggg</p>
-        </div>
-        <div class="col students__student">
-          <img src="../../../../../assets/images/shady.jpg" alt="">
-          <p class="text-center">faraggggg</p>
-        </div>
-        <div class="col students__student">
-          <img src="../../../../../assets/images/shady.jpg" alt="">
-          <p class="text-center">faraggggg</p>
-        </div>
-        <div class="col students__student">
-          <img src="../../../../../assets/images/shady.jpg" alt="">
-          <p class="text-center">faraggggg</p>
-        </div>
-        <div class="col students__student">
-          <img src="../../../../../assets/images/shady.jpg" alt="">
-          <p class="text-center">faraggggg</p>
-        </div>
-        <div class="col students__student">
-          <img src="../../../../../assets/images/shady.jpg" alt="">
-          <p class="text-center">faraggggg</p>
-        </div>
-   
+
       </div>
     </div>
   </section>

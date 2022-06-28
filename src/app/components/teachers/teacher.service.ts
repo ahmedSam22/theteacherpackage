@@ -165,6 +165,16 @@ deleteLesson(id:number){
 }
  /* ---------- Attendance -----------*/
 
+  getAllAttendanceCases(id:number){
+  return this.http.get(`${environment.endpoint}/teacher/attendance/cases/all?lesson_id=${id}`);
+
+  }
+
+  getAllStudentAttendance(id:number){
+    return this.http.get(`${environment.endpoint}/teacher/attendances/all?lesson_id=${id}`);
+  
+    }
+
 
   /* ---------- Behavior -----------*/
   getAllBehaviors(){
