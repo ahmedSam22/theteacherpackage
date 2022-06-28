@@ -52,7 +52,12 @@ import { TimePickerModule } from '@syncfusion/ej2-angular-calendars';
   // import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
   import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { BehaviorComponent } from './components/teachers/class-student/behavior/behavior.component';
-import { AddBehaviorComponent } from './components/teachers/add-behavior/add-behavior.component';
+  // import { EditClassComponent } from './components/teachers/class-student/edit-class/edit-class.component';
+import { AddStudentBehaviorComponent } from './components/teachers/add-student-behavior/add-student-behavior.component';
+import { PromptComponent } from './components/prompt/prompt.component';
+import { BehaviorSettingComponent } from './components/teachers/behavior-setting/behavior-setting.component';
+
+// import { AddStudentBehaviorComponent } from './components/teachers/add-behavior/add-behavior.component';
 import { EditClassComponent } from './components/teachers/class-student/edit-class/edit-class.component';
 import { AttendanceComponent } from './components/teachers/lessons/attendance/attendance.component';
 @NgModule({
@@ -78,7 +83,11 @@ import { AttendanceComponent } from './components/teachers/lessons/attendance/at
     AddComponent,
     EditComponent,
     BehaviorComponent,
-    AddBehaviorComponent,
+    EditClassComponent,
+ 
+    PromptComponent,
+    BehaviorSettingComponent,
+    AddStudentBehaviorComponent,
     EditClassComponent,
     AttendanceComponent,
  
@@ -103,6 +112,7 @@ import { AttendanceComponent } from './components/teachers/lessons/attendance/at
     MatNativeDateModule,
     MatCardModule,
     MatDialogModule,
+    MatCheckboxModule,
     TimePickerModule,
     NgxMaterialTimepickerModule,ReactiveFormsModule,
     MatCheckboxModule,

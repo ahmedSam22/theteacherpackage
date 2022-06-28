@@ -1,0 +1,13 @@
+<h1 class="text-center text-danger" mat-dialog-title>Alert ! </h1>
+<p> {{data.name}}</p>
+<div class="col-xl-12 m-auto" mat-dialog-content>
+    <form>  
+      <div class="form-group col-xl-12 " > 
+          <input class="form-control  " type="text" [placeholder]="data.promptplaceholder" #inputVal> 
+      </div> 
+    <button class="col-xl-12 btn btn-primary" (click)="Save()"> Save </button>
+  </form>
+</div>
+<!-- <div mat-dialog-actions>
+   
+</div> -->

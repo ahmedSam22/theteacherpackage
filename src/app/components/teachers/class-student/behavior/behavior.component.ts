@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AddBehaviorComponent } from '../../add-behavior/add-behavior.component';
+import { AddStudentBehaviorComponent } from '../../add-student-behavior/add-student-behavior.component';
 import { TeacherService } from '../../teacher.service';
 import { MatDialog } from '@angular/material/dialog';
 @Component({
@@ -49,8 +49,10 @@ export class BehaviorComponent implements OnInit {
   
   }
   addStudentBehavior(student:any){
-    const dialogRef = this.dialog.open(AddBehaviorComponent, {
+    const dialogRef = this.dialog.open(AddStudentBehaviorComponent, {
       data:student,
+       
     });
+    // console.log("idddddd",student)
   }
 }

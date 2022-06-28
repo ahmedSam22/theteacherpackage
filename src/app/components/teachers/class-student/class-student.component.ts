@@ -11,6 +11,7 @@ import {
 import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PromptComponent } from '../../prompt/prompt.component';
 import { TeacherService } from '../teacher.service';
 @Component({
   selector: 'app-class-student',
@@ -53,8 +54,9 @@ export class ClassStudentComponent implements OnInit,OnChanges {
   ngOnInit(): void {
     // alert(this.attendance);
     let data = localStorage.getItem('class_id');
-    console.log('dfdssad', data);
-    this.class_id = data;
+    
+    console.log("dfdssad",data)
+    this.class_id=data;
     // localStorage.removeItem("SortByName");
     // localStorage.removeItem("SortByGender");
     this.select('students');
@@ -76,78 +78,137 @@ export class ClassStudentComponent implements OnInit,OnChanges {
     //   this.router.navigate(['/hello']);
     // }
 
-    //  this.teacherservice.getAllClasses().subscribe((res:any)=>{
-    //   let allClasses;
-    //   allClasses = res['data']
-    //   console.log("classess" , allClasses)
-    //   let courses;
-    //   for(var i=0 ; i<=allClasses.length ; i++){
-    //     courses=allClasses[i].courses
-    //     console.log("courses" , courses)
-    //       }
-    //     })
-  }
+  //  this.teacherservice.getAllClasses().subscribe((res:any)=>{
+  //   let allClasses;
+  //   allClasses = res['data']
+  //   console.log("classess" , allClasses)
+  //   let courses;
+  //   for(var i=0 ; i<=allClasses.length ; i++){
+  //     courses=allClasses[i].courses
+  //     console.log("courses" , courses)
+  //       }
+  //     })    
+   }
+   behaviorAlert(){
+    const dialogRef = this.dialog.open(PromptComponent, {
+      data:{name:'The alert appears on the student whose negative behaviors exceed :' , promptplaceholder:'Number Of Behaviors', from:'behavior'},
+    });
 
-  studentfunc() {
-    this.showstudents = true;
-    this.showschedule = false;
-    this.showBehavior = false;
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(result);
+   // });
+    
+   }
+   
+   studentfunc(){
+    this.showstudents=true; 
+    this.showschedule= false;
+    this.showBehavior=false;
+   }
+   schedulefunc(){
+    this.showstudents=false; 
+    this.showschedule= true;
+    this.showBehavior=false;
+   }
+   behaviorfunc(){
+    this.showstudents=false; 
+    this.showschedule= false;
+    this.showBehavior=true;
+   }
+   SortByName(){
+    this.sort=1;
+    this.teacherservice.sortStudents(+this.class_id,this.sort,0,0).subscribe((res:any)=>{
+    this.sortedByName=res['data'];
+    
+    this.teacherservice.sortname=this.sortedByName;
+     ;
+    let name='name'
+    this.router.navigate(['../class-student',name],{ relativeTo: this.route})
+     })
+   }
+   SortByGender(){
+    this.sort=1;
+    this.teacherservice.sortStudents(+this.class_id,0,this.sort,0).subscribe((res:any)=>{
+    this.sortedByGender=res['data'];
+    this.teacherservice.sortgender=this.sortedByGender
+    
+      let gender='gender';
+      this.router.navigate(['../class-student',gender],{ relativeTo: this.route})
+    })
   }
-  schedulefunc() {
-    this.showstudents = false;
-    this.showschedule = true;
-    this.showBehavior = false;
-  }
-  behaviorfunc() {
-    this.showstudents = false;
-    this.showschedule = false;
-    this.showBehavior = true;
-  }
-  SortByName() {
-    this.sort = 1;
-    this.teacherservice
-      .sortStudents(+this.class_id, this.sort, 0, 0)
-      .subscribe((res: any) => {
-        this.sortedByName = res['data'];
-
-        this.teacherservice.sortname = this.sortedByName;
-        let name = 'name';
-        this.router.navigate(['../class-student', name], {
-          relativeTo: this.route,
-        });
-      });
-  }
-  SortByGender() {
-    this.sort = 1;
-    this.teacherservice
-      .sortStudents(+this.class_id, 0, this.sort, 0)
-      .subscribe((res: any) => {
-        this.sortedByGender = res['data'];
-        this.teacherservice.sortgender = this.sortedByGender;
-
-        let gender = 'gender';
-        this.router.navigate(['../class-student', gender], {
-          relativeTo: this.route,
-        });
-      });
-  }
-
-  studentFilter() {
-    this.searchResult = this.search.nativeElement.value;
-    console.log('Search', this.searchResult);
-    if (this.searchResult != '') {
-      this.router.navigate(['../class-student', this.searchResult], {
-        relativeTo: this.route,
-      });
-    } else {
-      this.router.navigate(['../class-student', this.navigate], {
-        relativeTo: this.route,
-      });
+  
+  studentFilter(){
+    this.searchResult=this.search.nativeElement.value;
+    console.log("Search" ,this.searchResult)
+    if(this.searchResult!=''){
+      this.router.navigate(['../class-student',this.searchResult],{ relativeTo: this.route})
     }
+    else {
+      this.router.navigate(['../class-student',this.navigate],{ relativeTo: this.route})
+    }
+    }
+
+    goBehaviorSetting(){
+      this.router.navigate(['../behavior-setting'],{ relativeTo: this.route})
+    }
+  type(num:any) {
+     console.log("nummmm",num)
   }
-  type(num: any) {
-    console.log('nummmm', num);
-  }
+  // schedulefunc() {
+  //   this.showstudents = false;
+  //   this.showschedule = true;
+  //   this.showBehavior = false;
+  // }
+  // behaviorfunc() {
+  //   this.showstudents = false;
+  //   this.showschedule = false;
+  //   this.showBehavior = true;
+  // }
+  // SortByName() {
+  //   this.sort = 1;
+  //   this.teacherservice
+  //     .sortStudents(+this.class_id, this.sort, 0, 0)
+  //     .subscribe((res: any) => {
+  //       this.sortedByName = res['data'];
+
+  //       this.teacherservice.sortname = this.sortedByName;
+  //       let name = 'name';
+  //       this.router.navigate(['../class-student', name], {
+  //         relativeTo: this.route,
+  //       });
+  //     });
+  // }
+  // SortByGender() {
+  //   this.sort = 1;
+  //   this.teacherservice
+  //     .sortStudents(+this.class_id, 0, this.sort, 0)
+  //     .subscribe((res: any) => {
+  //       this.sortedByGender = res['data'];
+  //       this.teacherservice.sortgender = this.sortedByGender;
+
+  //       let gender = 'gender';
+  //       this.router.navigate(['../class-student', gender], {
+  //         relativeTo: this.route,
+  //       });
+  //     });
+  // }
+
+  // studentFilter() {
+  //   this.searchResult = this.search.nativeElement.value;
+  //   console.log('Search', this.searchResult);
+  //   if (this.searchResult != '') {
+  //     this.router.navigate(['../class-student', this.searchResult], {
+  //       relativeTo: this.route,
+  //     });
+  //   } else {
+  //     this.router.navigate(['../class-student', this.navigate], {
+  //       relativeTo: this.route,
+  //     });
+  //   }
+  // }
+  // type(num: any) {
+  //   console.log('nummmm', num);
+  // }
   select(item: any) {
     this.selected = item;
     console.log('selllllected', this.selected);
