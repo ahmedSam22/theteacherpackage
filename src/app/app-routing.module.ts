@@ -1,3 +1,4 @@
+import { AttendanceComponent } from './components/teachers/lessons/attendance/attendance.component';
 import { EditClassComponent } from './components/teachers/class-student/edit-class/edit-class.component';
 import { AddClassComponent } from './components/teachers/class-student/add-class/add-class.component';
 import { AppComponent } from './app.component';
@@ -20,7 +21,7 @@ import { ClassDetailsComponent } from './components/teachers/class-student/class
 import { AddStudentComponent } from './components/teachers/add-student/add-student.component';
 import { ClassScheduleComponent } from './components/teachers/class-student/class-schedule/class-schedule.component';
 import { AddComponent } from './components/teachers/lessons/add/add.component';
-import { EditComponent } from './components/teachers/lessons/edit/edit.component';
+// import { EditComponent } from './components/teachers/lessons/edit/edit.component';
 import { BehaviorComponent } from './components/teachers/class-student/behavior/behavior.component';
 import { BehaviorSettingComponent } from './components/teachers/behavior-setting/behavior-setting.component';
 // import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
@@ -31,11 +32,9 @@ const routes: Routes = [
   { path: 'auth/verify/:id', component: VerifycodeComponent },
   { path: 'auth/forgetpassword', component: ForgetpasswordComponent },
   { path: 'auth/changepassword', component: ChangepasswordComponent },
-
   {
     path: 'home',
     component: DashboardLayoutComponent,
-    // canActivateChild: [],
     children: [
       { path: '', component: ClassComponent },
       {

@@ -131,5 +131,9 @@ export class ClassScheduleComponent implements OnInit {
      })
   
   }
+  navigate(currentId:any){
+    this.router.navigate(['/home/class-student/lesson-attendance'])
+    localStorage.setItem('currentId', currentId )
+  }
   
 }

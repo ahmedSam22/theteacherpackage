@@ -47,13 +47,14 @@ ngOnInit(): void {
   this.form = this.formbuilder.group({
     class_id: [this.data.id, Validators.required],
     name: [this.data.name],
-    code: [this.data.code],
-    courses :this.formbuilder.array([
-      // this.formbuilder.control("")
-    ]),
+    code: [this.data.code], 
     start_date: [this.data.start_date],
     end_date: [this.data.end_date],
     color_id: [this.data.color.id],
+    courses :this.formbuilder.array([
+      // this.formbuilder.control("")
+    ]),
+  
   });
   // this.teacherservice.getClassDetails(this.classId).subscribe((res:any)=>{
   //   console.log(res);
