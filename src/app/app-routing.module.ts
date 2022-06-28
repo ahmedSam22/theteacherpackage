@@ -22,12 +22,7 @@ import { ClassScheduleComponent } from './components/teachers/class-student/clas
 import { AddComponent } from './components/teachers/lessons/add/add.component';
 import { EditComponent } from './components/teachers/lessons/edit/edit.component';
 import { BehaviorComponent } from './components/teachers/class-student/behavior/behavior.component';
-<<<<<<< HEAD
-import { AddBehaviorComponent } from './components/teachers/add-behavior/add-behavior.component';
-   
-=======
-
->>>>>>> 623138d66494edd21fa1a2967d6510f12eb1c4dd
+import { BehaviorSettingComponent } from './components/teachers/behavior-setting/behavior-setting.component';
 // import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
 
 const routes: Routes = [
@@ -37,40 +32,6 @@ const routes: Routes = [
   { path: 'auth/forgetpassword', component: ForgetpasswordComponent },
   { path: 'auth/changepassword', component: ChangepasswordComponent },
 
-<<<<<<< HEAD
-  {path:'',component:LoginComponent},
-  {path:'auth/signup',component:SignupComponent},
-  {path:'auth/verify/:id',component:VerifycodeComponent},
-  {path:'auth/forgetpassword',component:ForgetpasswordComponent},
-  {path:'auth/changepassword',component:ChangepasswordComponent},
-  
-  {path:'home',component:DashboardLayoutComponent, 
-  // canActivateChild: [],
-  children: [
-    {path:'',component:ClassComponent},
-    {path:'class-student',component:ClassStudentComponent , children:[
-      {path:'class-schedual',component:ClassScheduleComponent},
-      {path:'class-behavior',component:BehaviorComponent} ,
-     
-      {path:':search',component:ClassDetailsComponent},
- 
-   ]
-  
-  },  
-     
-    {path:'class-student-add',component:AddStudentComponent},
-    {path:'class-lesson-add',component:AddComponent},
-    {path:'class-add',component:AddClassComponent},
-    
-     
-    {path:'reports',component:ReportsComponent},
-    {path:'teachers',component:TeachersComponent},
-    {path:'students',component:StudentsComponent},
-    {path:'weekly-schedule',component:WeeklyscheduleComponent},
-     
-    ] },
- 
-=======
   {
     path: 'home',
     component: DashboardLayoutComponent,
@@ -90,14 +51,13 @@ const routes: Routes = [
       { path: 'class-lesson-add', component: AddComponent },
       { path: 'class-add', component: AddClassComponent },
       { path: 'class-edit', component: EditClassComponent },
-
+      {path : 'behavior-setting' , component:BehaviorSettingComponent},
       { path: 'reports', component: ReportsComponent },
       { path: 'teachers', component: TeachersComponent },
       { path: 'students', component: StudentsComponent },
       { path: 'weekly-schedule', component: WeeklyscheduleComponent },
     ],
   },
->>>>>>> 623138d66494edd21fa1a2967d6510f12eb1c4dd
 ];
 // {path:'student/:id',component: },
 @NgModule({

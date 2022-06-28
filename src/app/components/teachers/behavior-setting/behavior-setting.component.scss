@@ -1,0 +1,75 @@
+.card {
+    border-radius:15px;
+    .card-body{  
+
+    input::placeholder  {
+     font-size: 12px;
+    }
+    select  {
+        color :#FAFAFA;
+        font-size: 12px;
+    }
+    
+    input ,select  {
+      background-color:#FAFAFA;
+      color: grey;
+    }
+    option{
+      background-color: white;
+      font-size: 12px;
+      color:grey;
+    }
+  .infoButtons   {
+    .active {
+      border-color: #37B673;
+        color:#37B673
+    }
+    button{
+          border-color: #B1B1B1;
+          color: #B1B1B1;
+        } 
+    // div:nth-of-type(1) button {
+    //     border-color: #37B673;
+    //     color:#37B673
+    //   }
+    //   div:nth-of-type(2) button{
+    //     border-color: #B1B1B1;
+    //     color: #B1B1B1;
+    //   } 
+  }
+   
+  }
+
+   
+   
+    .image{
+      position: relative;
+      overflow: hidden;
+      height: 100px;
+      width:300px;
+      
+    }
+      img.user-image-avatar{
+          position: absolute;
+          width: 35%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: 2;
+          opacity: 0.4;
+          border-radius: 50%;
+      }
+      svg{
+          position: relative;
+          z-index:3;
+          left:0px;
+          margin:10px 5px;
+      }
+      .hideEmptyImg[src=""] {
+          visibility: hidden;
+       }
+  }
+ 
+ 
+
+ 

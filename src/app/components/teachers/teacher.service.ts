@@ -187,15 +187,22 @@ deleteLesson(id:number){
     return this.http.delete(`${environment.endpoint}/teacher/behavior/delete?behavior_id=${id}`);
   }
 
-  setNegativeBehaviorAlert(class_id:number,count_limit:string){
+  setNegativeBehaviorAlert(class_id:any,count_limit:any){
     return this.http.get(`${environment.endpoint}/teacher/behavior/set/alert-limit?class_id=${class_id}&negative_behaviors_count_limit=${count_limit}`);
   }
 
- addBehaviorToStudent(form:any){
-    return this.http.post(`${environment.endpoint}/teacher/behavior/student/create`,form);
+ addBehaviorToStudent(f:any){
+  const formData:FormData = new FormData()
+  console.log(f)
+  formData.append('student_id',f.student_id)
+  formData.append('course_id',f.course_id)
+    for (let i = 0; i < f.behaviors_ids.length; i++) {
+      formData.append('behaviors_ids['+i+']',f.behaviors_ids[i])
+    }
+    return this.http.post(`${environment.endpoint}/teacher/behavior/student/create`,formData);
   }
 
-  deleteBehaviorFromStudent(student_id:number,behavior_id:number,course_id:number){
+  deleteBehaviorFromStudent(student_id:any,behavior_id:any,course_id:any){
     return this.http.delete(`${environment.endpoint}/teacher/behavior/student/delete?student_id=${student_id}&behavior_id=${behavior_id}&course_id=${course_id}`);
   }
 }

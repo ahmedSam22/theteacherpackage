@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@
 import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PromptComponent } from '../../prompt/prompt.component';
 import { TeacherService } from '../teacher.service';
 @Component({
   selector: 'app-class-student',
@@ -36,6 +37,7 @@ sortedByGender:any;
 
   ngOnInit(): void {
     let data = localStorage.getItem('class_id');
+    
     console.log("dfdssad",data)
     this.class_id=data;
     // localStorage.removeItem("SortByName");
@@ -68,6 +70,17 @@ sortedByGender:any;
   //       }
   //     })    
    }
+   behaviorAlert(){
+    const dialogRef = this.dialog.open(PromptComponent, {
+      data:{name:'The alert appears on the student whose negative behaviors exceed :' , promptplaceholder:'Number Of Behaviors', from:'behavior'},
+    });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(result);
+   // });
+    
+   }
+   
    studentfunc(){
     this.showstudents=true; 
     this.showschedule= false;
@@ -114,9 +127,11 @@ sortedByGender:any;
     else {
       this.router.navigate(['../class-student',this.navigate],{ relativeTo: this.route})
     }
-    
+    }
 
-   }
+    goBehaviorSetting(){
+      this.router.navigate(['../behavior-setting'],{ relativeTo: this.route})
+    }
   type(num:any) {
      console.log("nummmm",num)
   }

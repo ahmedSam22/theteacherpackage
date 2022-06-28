@@ -52,11 +52,11 @@ import { TimePickerModule } from '@syncfusion/ej2-angular-calendars';
   // import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
   import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { BehaviorComponent } from './components/teachers/class-student/behavior/behavior.component';
-<<<<<<< HEAD
-import { AddBehaviorComponent } from './components/teachers/add-behavior/add-behavior.component';
-=======
 import { EditClassComponent } from './components/teachers/class-student/edit-class/edit-class.component';
->>>>>>> 623138d66494edd21fa1a2967d6510f12eb1c4dd
+import { AddStudentBehaviorComponent } from './components/teachers/add-student-behavior/add-student-behavior.component';
+import { PromptComponent } from './components/prompt/prompt.component';
+import { BehaviorSettingComponent } from './components/teachers/behavior-setting/behavior-setting.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,14 +80,10 @@ import { EditClassComponent } from './components/teachers/class-student/edit-cla
     AddComponent,
     EditComponent,
     BehaviorComponent,
-<<<<<<< HEAD
-    AddBehaviorComponent,
-=======
     EditClassComponent,
->>>>>>> 623138d66494edd21fa1a2967d6510f12eb1c4dd
- 
- 
-   
+    AddStudentBehaviorComponent,
+    PromptComponent,
+    BehaviorSettingComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,14 +103,10 @@ import { EditClassComponent } from './components/teachers/class-student/edit-cla
     MatNativeDateModule,
     MatCardModule,
     MatDialogModule,
+    MatCheckboxModule,
     TimePickerModule,
-<<<<<<< HEAD
-    NgxMaterialTimepickerModule,ReactiveFormsModule,
-    MatCheckboxModule
-=======
     NgxMaterialTimepickerModule,
     ReactiveFormsModule
->>>>>>> 623138d66494edd21fa1a2967d6510f12eb1c4dd
   ],
   providers: [
 
