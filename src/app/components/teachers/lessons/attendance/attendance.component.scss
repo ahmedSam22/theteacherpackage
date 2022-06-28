@@ -59,8 +59,14 @@
     img {
       border-radius: 50%;
     }
-    &__footer{
-      height: 13px;
-    }
+
+  }
+}
+
+
+.cases--students{
+  &__footer{
+    height: 23px;
+    // background: #888;
   }
 }

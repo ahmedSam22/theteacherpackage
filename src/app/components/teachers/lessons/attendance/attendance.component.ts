@@ -1,4 +1,7 @@
+import { AssignAttendanceComponent } from './assign-attendance/assign-attendance.component';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddStudentBehaviorComponent } from '../../add-student-behavior/add-student-behavior.component';
 import { TeacherService } from '../../teacher.service';
 
 @Component({
@@ -12,7 +15,7 @@ export class AttendanceComponent implements OnInit {
   allAttendanceCases:any;
   allStudentAttendance:any;
 
-  constructor(private service:TeacherService) {
+  constructor(private service:TeacherService,public dialog: MatDialog) {
 
    }
 
@@ -34,9 +37,17 @@ export class AttendanceComponent implements OnInit {
       this.allStudentAttendance = res.data
       
     })
-    console.log(history.state , "testtttttttttt")
+    // console.log(history.state , "testtttttttttt")
 
 
+  }
+
+  addStudentAttendance(student:any){
+    const dialogRef = this.dialog.open(AssignAttendanceComponent, {
+      data:student,
+       
+    });
+    // console.log("idddddd",student)
   }
 
 }
