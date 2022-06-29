@@ -43,6 +43,8 @@ const routes: Routes = [
         children: [
           { path: 'class-schedual', component: ClassScheduleComponent },
           { path: 'class-behavior', component: BehaviorComponent },
+          { path: 'lesson-attendance', component: AttendanceComponent },
+
           { path: ':search', component: ClassDetailsComponent },
         ],
       },
