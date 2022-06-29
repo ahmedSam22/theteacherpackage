@@ -1,14 +1,21 @@
 <section  >
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div  class="studentsIcons col-xl-12">
-         <a *ngFor="let student of classStudents"> 
+      <div  class="studentsIcons col-xl-2 col-md-3 col-6 my-2" *ngFor="let student of classStudents">
+         <!-- <a *ngFor="let student of classStudents" > 
          <div class="studentProfileIcon text-center" > 
             <img src="{{student.imagePath}}">
             <p class="text-center">{{student.full_name}}</p>
           </div>
-        </a>
-        
+        </a> -->
+        <div class="card" style="width:100;">
+         <div class="card-image">
+          <img class="card-img-top" src="{{student.imagePath}}" alt="Card image cap">
+            </div>
+          <div class="card-body">
+            <p class="text-center">{{student.full_name}}</p>
+          </div>
+        </div>
       
          <!-- <div class="card" style="border-radius: 15px;">
           

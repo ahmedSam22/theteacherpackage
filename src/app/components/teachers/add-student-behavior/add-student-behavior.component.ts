@@ -40,7 +40,7 @@ export class AddStudentBehaviorComponent implements OnInit {
   constructor(private router:Router , private route:ActivatedRoute ,private formbuilder:FormBuilder ,private teacherservice:TeacherService, private renderer: Renderer2 ,private elementRef: ElementRef  , public dialogRef: MatDialogRef<DialogComponent> , @Inject(MAT_DIALOG_DATA) public data:any) {
   }
   ngOnInit(): void {
-    console.log("All data",this.data)
+    console.log("All data",this.data.id)
   
       let obj= {id:0 , name:'name'} 
     this.teacherservice.getAllBehaviors().subscribe((res:any)=>{
@@ -114,6 +114,7 @@ export class AddStudentBehaviorComponent implements OnInit {
     // }
 
     deleteStudentBahvior(id:any){
+      console.log("r5t3wq43324e",this.data.id)
        this.teacherservice.deleteBehaviorFromStudent(this.data.id,id,this.course_id).subscribe((res:any)=>{
         console.log("deleteBehaviorFromStudent",res)
       })

@@ -1,4 +1,4 @@
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import { TeacherService } from './../teachers/teacher.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -13,6 +13,7 @@ export class ClassComponent implements OnInit {
   hideClass!: boolean;
   showClass!: boolean;
   searchParam: string = 'search';
+   
 
   constructor(
     private teacherservice: TeacherService,
@@ -24,6 +25,10 @@ export class ClassComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllClasses();
+     localStorage.removeItem('showschedule');
+     localStorage.removeItem('showBehavior');
+     localStorage.removeItem('showstudents');
+ 
   }
 
   getAllClasses() {

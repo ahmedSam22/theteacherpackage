@@ -1,4 +1,4 @@
-<h1 class="text-center text-danger" mat-dialog-title>Alert ! </h1>
+<h1 *ngIf="showAlert" class="text-center text-danger" mat-dialog-title>Alert ! </h1>
 <p> {{data.name}}</p>
 <div class="col-xl-12 m-auto" mat-dialog-content>
     <form>  

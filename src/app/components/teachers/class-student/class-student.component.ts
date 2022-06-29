@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import { PromptComponent } from '../../prompt/prompt.component';
 import { TeacherService } from '../teacher.service';
 @Component({
@@ -59,7 +59,7 @@ export class ClassStudentComponent implements OnInit,OnChanges {
     this.class_id=data;
     // localStorage.removeItem("SortByName");
     // localStorage.removeItem("SortByGender");
-    this.select('students');
+    
     this.teacherservice
       .getClassDetails(+this.class_id)
       .subscribe((res: any) => {
@@ -88,6 +88,34 @@ export class ClassStudentComponent implements OnInit,OnChanges {
   //     console.log("courses" , courses)
   //       }
   //     })    
+ 
+   if(localStorage.getItem('showstudents')=='first'){
+    this.showstudents=true; 
+    this.showschedule= false;
+    this.showBehavior=false;
+    this.select('students');
+   }
+   else if(localStorage.getItem('showschedule')=='second') {
+    this.showstudents=false; 
+    this.showschedule= true;
+    this.showBehavior=false;
+    this.select('schedule');
+   }
+   else if (localStorage.getItem('showBehavior')=='third') {
+    this.showstudents=false; 
+    this.showschedule= false;
+    this.showBehavior=true;
+    this.select('behavior');
+   }
+   else {
+    this.select('students');
+   }
+
+
+   this.route.url.subscribe((urlPath:UrlSegment[]) => {
+    const url = urlPath[urlPath.length - 1].path;
+    console.log('Back button pressed',url);
+})
    }
    behaviorAlert(){
     const dialogRef = this.dialog.open(PromptComponent, {
@@ -99,21 +127,31 @@ export class ClassStudentComponent implements OnInit,OnChanges {
    // });
     
    }
-   
+ 
    studentfunc(){
+    
     this.showstudents=true; 
     this.showschedule= false;
     this.showBehavior=false;
+    localStorage.setItem('showstudents','first');
+    localStorage.removeItem('showschedule');
+    localStorage.removeItem('showBehavior');
    }
    schedulefunc(){
     this.showstudents=false; 
     this.showschedule= true;
     this.showBehavior=false;
+    localStorage.setItem('showschedule','second');
+    localStorage.removeItem('showstudents');
+    localStorage.removeItem('showBehavior');
    }
    behaviorfunc(){
     this.showstudents=false; 
     this.showschedule= false;
     this.showBehavior=true;
+    localStorage.setItem('showBehavior','third');
+    localStorage.removeItem('showstudents');
+    localStorage.removeItem('showschedule');
    }
    SortByName(){
     this.sort=1;
@@ -121,7 +159,7 @@ export class ClassStudentComponent implements OnInit,OnChanges {
     this.sortedByName=res['data'];
     
     this.teacherservice.sortname=this.sortedByName;
-     ;
+     
     let name='name'
     this.router.navigate(['../class-student',name],{ relativeTo: this.route})
      })
@@ -193,7 +231,7 @@ export class ClassStudentComponent implements OnInit,OnChanges {
   //     });
   // }
 
-  // studentFilter() {
+  //  () {
   //   this.searchResult = this.search.nativeElement.value;
   //   console.log('Search', this.searchResult);
   //   if (this.searchResult != '') {
