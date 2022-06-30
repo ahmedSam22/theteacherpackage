@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
  
 import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute, NavigationEnd, NavigationError, NavigationStart, Params, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationError, NavigationStart, Params, Router, UrlSegment } from '@angular/router';
  
 import { map, Observable } from 'rxjs';
 import { TeacherService } from '../../teacher.service';
@@ -82,7 +82,20 @@ class_id:any;
   }
 
   ngOnInit(): void {
- 
+   
+      this.route.url.subscribe((urlPath:UrlSegment[]) => {
+        const url = urlPath[urlPath.length - 1].path;
+        console.log('Back button pressed',url);
+        if (url=='search'){
+          localStorage.setItem('showstudents','first');
+          localStorage.removeItem('showschedule');
+          localStorage.removeItem('showBehavior');
+        }
+       else {
+        console.log("teeeeest")
+       }
+        })
+  
     // console.log('SortByName',this.teacherservice.sortname)
     // console.log('SortByGender',this.teacherservice.sortgender) 
    

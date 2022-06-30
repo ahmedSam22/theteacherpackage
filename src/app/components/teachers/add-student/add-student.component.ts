@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import Swal from 'sweetalert2';
 import { TeacherService } from '../teacher.service';
 
@@ -54,6 +54,11 @@ export class AddStudentComponent implements OnInit {
  
     this.select('student');
     this.class_id = localStorage.getItem('class_id');
+
+    this.route.url.subscribe((urlPath:UrlSegment[]) => {
+      const url = urlPath[urlPath.length - 1].path;
+      console.log('Back button pressed',url);
+  })
   }
  
   back(){
@@ -146,6 +151,7 @@ export class AddStudentComponent implements OnInit {
             icon: 'success',
             confirmButtonColor: '#4AB673',
           }) 
+          this.router.navigate(['../home/class-student/search'])
         }
      else {
       console.log("fail add student", res) ;
@@ -158,6 +164,6 @@ export class AddStudentComponent implements OnInit {
      }
       }) 
      
-  
+      ;
   }
 }

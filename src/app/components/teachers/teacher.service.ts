@@ -9,6 +9,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class TeacherService {
+  private refresh: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public getRefresh(): Observable<boolean> { return this.refresh.asObservable()}
+  public setRefresh(value: boolean): void { this.refresh.next(value) } 
   public class_id:number=0;
   public sortname=[] ; 
   public sortgender=[];

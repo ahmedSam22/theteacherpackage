@@ -22,3 +22,13 @@
       }
     }
   }
+
+  .studentsIcons{
+     
+    @media (min-width: 991.98px) { 
+      display: flex;
+     }
+  @media (max-width: 1199.98px) { 
+    display: block;
+   }
+  }

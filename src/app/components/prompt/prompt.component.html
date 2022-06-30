@@ -1,11 +1,21 @@
-<h1 class="text-center text-danger" mat-dialog-title>Alert ! </h1>
-<p> {{data.name}}</p>
+<button class="btn close" mat-button mat-dialog-close>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+  </svg>
+</button>
+<h1 *ngIf="showAlert" class="text-center text-danger" mat-dialog-title>Alert ! </h1>
+ 
+<mat-dialog-actions class="my-1">
+ 
+  <p class="d-flex"> {{data.name}}</p>
+  
+</mat-dialog-actions>
 <div class="col-xl-12 m-auto" mat-dialog-content>
     <form>  
       <div class="form-group col-xl-12 " > 
           <input class="form-control  " type="text" [placeholder]="data.promptplaceholder" #inputVal> 
       </div> 
-    <button class="col-xl-12 btn btn-primary" (click)="Save()"> Save </button>
+    <button class="col-xl-12 btn btn-primary" (click)="Save()" > Save </button>
   </form>
 </div>
 <!-- <div mat-dialog-actions>

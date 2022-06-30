@@ -1,7 +1,9 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormGroup,FormBuilder, Validators ,FormArray} from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { PromptComponent } from '../../prompt/prompt.component';
 import { TeacherService } from '../teacher.service';
 
 @Component({
@@ -26,41 +28,54 @@ export class BehaviorSettingComponent implements OnInit {
   showStudentInfo:boolean=true ;
   showGardianInfo:boolean=false ;
   class_id:any;
-
+  t:any;
   allBehaviors:any=[];
   positives:any=[];
   negatives:any=[];
-  constructor(private router:Router , private route:ActivatedRoute ,private formbuilder:FormBuilder ,private teacherservice:TeacherService, private renderer: Renderer2 ,private elementRef: ElementRef ) {
+  constructor(public dialog: MatDialog ,private router:Router , private route:ActivatedRoute ,private formbuilder:FormBuilder ,private teacherservice:TeacherService, private renderer: Renderer2 ,private elementRef: ElementRef ) {
   }
-  get getPositives():FormArray {
-    return this.form.get("positive") as FormArray
-  }
-  addPositiveBehavior(){
-    this.getPositives.push(this.formbuilder.control(""))
-    "tamam"
-  }
-  
-  get getNegatives():FormArray {
-    return this.form.get("negative") as FormArray
-  }
+  // get getPositives():FormArray {
+  //   return this.form.get("positive") as FormArray
+  // }
+   addPositiveBehavior(type:any){
+  //   this.getPositives.push(this.formbuilder.control(""))
+  type=1
+  const dialogRef = this.dialog.open(PromptComponent, {
+    
+    data:{type:type,from:'behaviorSetting',promptplaceholder:'Positive Behavior',name:'Add a Positive Behavior'}
+   
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    location.reload()
+  });
+   
+   }
+   addNegativeBehavior(type:any){
+  //   this.getNegatives.push(this.formbuilder.control(""))
+  type=2
+  const dialogRef = this.dialog.open(PromptComponent, {
+    data:{type:type,from:'behaviorSetting',promptplaceholder:'Negative Behavior',name:'Add a Negative Behavior'}
+     
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    location.reload()
+  });
+   }
+  // get getNegatives():FormArray {
+  //   return this.form.get("negative") as FormArray
+  // }
   ngOnInit(): void {
-    this.form = this.formbuilder.group({
-      positive : this.formbuilder.array([
-        // this.formbuilder.control("")
-      ]),
-      negative : this.formbuilder.array([
-        // this.formbuilder.control("")
-      ]),
-    });
+    // this.form = this.formbuilder.group({
+    //   positive : this.formbuilder.array([
+    //    ]),
+    //   negative : this.formbuilder.array([
+    //     ]),
+    // });
  
     this.select('positive');
     this.class_id = localStorage.getItem('class_id');
 
-
-    // for(let i = 0; i < this.data.courses.length;i++){
-    //   this.getPositives.push( this.formbuilder.control(this.data.courses[i].name)  )
-    // }
-
+ 
     let obj= {id:0 , name:'name'} 
     this.teacherservice.getAllBehaviors().subscribe((res:any)=>{
       this.allBehaviors=res['data'];
@@ -70,16 +85,16 @@ export class BehaviorSettingComponent implements OnInit {
           obj.id=this.allBehaviors[i].id;
           obj.name= this.allBehaviors[i].name;
             this.positives.push({id:obj.id,name:obj.name})
-            this.getPositives.push( this.formbuilder.control(obj.name))
-             console.log("pppppppppppp",this.positives)
+            // this.getPositives.push( this.formbuilder.control(obj.name))
+            //  console.log("pppppppppppp",this.positives)
         }
         else {
           obj.id=this.allBehaviors[i].id;
           obj.name= this.allBehaviors[i].name;
           
           this.negatives.push({id:obj.id,name:obj.name})
-          this.getNegatives.push( this.formbuilder.control(obj.name))
-          console.log("nnnnnnnnnn", this.negatives)
+          // this.getNegatives.push( this.formbuilder.control(obj.name))
+          // console.log("nnnnnnnnnn", this.negatives)
         }
       }
     })
@@ -87,9 +102,7 @@ export class BehaviorSettingComponent implements OnInit {
 
   
  
-// addNegativeBehavior(){
-//   this.getNegatives.push(this.formbuilder.control(""))
-// }
+ 
 
   back(){
     this.router.navigate(['../home/class-student/class-behavior']);

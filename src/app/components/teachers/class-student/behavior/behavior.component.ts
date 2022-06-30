@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AddStudentBehaviorComponent } from '../../add-student-behavior/add-student-behavior.component';
 import { TeacherService } from '../../teacher.service';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, UrlSegment } from '@angular/router';
 @Component({
   selector: 'app-behavior',
   templateUrl: './behavior.component.html',
@@ -18,7 +19,7 @@ export class BehaviorComponent implements OnInit {
   negative:any=[];
   n_sum:any;
   
-  constructor(public dialog: MatDialog ,private teacherservice:TeacherService) { }
+  constructor(public dialog: MatDialog ,private teacherservice:TeacherService , private route:ActivatedRoute) { }
 
   ngOnInit(): void {
      
@@ -46,12 +47,28 @@ export class BehaviorComponent implements OnInit {
     //   this.behaviors=res['data']
     //   console.log("All behaviors", this.behaviors)
     // })
-  
+    this.route.url.subscribe((urlPath:UrlSegment[]) => {
+      const url = urlPath[urlPath.length - 1].path;
+      console.log('Back button pressed',url);
+      if(url=='class-behavior'){
+          localStorage.setItem('showBehavior','third');
+          localStorage.removeItem('showstudents');
+          localStorage.removeItem('showschedule');
+        }
+     else {
+      console.log("teeeeest")
+     }
+      })
+      
+         
   }
   addStudentBehavior(student:any){
     const dialogRef = this.dialog.open(AddStudentBehaviorComponent, {
       data:student,
        
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      location.reload()
     });
     // console.log("idddddd",student)
   }

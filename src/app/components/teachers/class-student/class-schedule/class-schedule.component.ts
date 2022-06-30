@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { EditComponent } from '../../lessons/edit/edit.component';
 import { TeacherService } from '../../teacher.service';
@@ -29,13 +29,13 @@ export class ClassScheduleComponent implements OnInit {
   lessons!:any;
   class_id:any;
   course_id!:any;
-  constructor(public dialog: MatDialog ,private router:Router,private formbuilder:FormBuilder,private teacherservice:TeacherService,) {}
+  constructor(public dialog: MatDialog , private route:ActivatedRoute ,private router:Router,private formbuilder:FormBuilder,private teacherservice:TeacherService,) {}
 
   editLesson(lesson:any): void {
     const dialogRef = this.dialog.open(EditComponent, {
       data:lesson,
     });
-
+    
     // dialogRef.afterClosed().subscribe(result => {
     //   console.log(result);
     
@@ -58,6 +58,20 @@ export class ClassScheduleComponent implements OnInit {
 
     this.course_id = localStorage.getItem('course_id');
     console.log("course_id",this.course_id)
+
+    this.route.url.subscribe((urlPath:UrlSegment[]) => {
+      const url = urlPath[urlPath.length - 1].path;
+      console.log('Back button pressed',url);
+      if (url=='class-schedual'){
+          localStorage.setItem('showschedule','second');
+          localStorage.removeItem('showstudents');
+          localStorage.removeItem('showBehavior');
+        }
+     else {
+      console.log("teeeeest")
+     }
+      })
+       
   }
   changess(){
     let restOfData=this.selected?.toString().substring(7,15);
