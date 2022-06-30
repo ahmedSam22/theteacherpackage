@@ -41,16 +41,24 @@ export class BehaviorSettingComponent implements OnInit {
   //   this.getPositives.push(this.formbuilder.control(""))
   type=1
   const dialogRef = this.dialog.open(PromptComponent, {
-    data:{type:type,from:'behaviorSetting',promptplaceholder:'Name Of Positive Behavior',name:'Add a Positive Behavior'}
-     
+    
+    data:{type:type,from:'behaviorSetting',promptplaceholder:'Positive Behavior',name:'Add a Positive Behavior'}
+   
   });
+  dialogRef.afterClosed().subscribe(result => {
+    location.reload()
+  });
+   
    }
    addNegativeBehavior(type:any){
   //   this.getNegatives.push(this.formbuilder.control(""))
   type=2
   const dialogRef = this.dialog.open(PromptComponent, {
-    data:{type:type,from:'behaviorSetting',promptplaceholder:'Name Of Negative Behavior',name:'Add a Negative Behavior'}
+    data:{type:type,from:'behaviorSetting',promptplaceholder:'Negative Behavior',name:'Add a Negative Behavior'}
      
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    location.reload()
   });
    }
   // get getNegatives():FormArray {

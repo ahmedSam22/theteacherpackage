@@ -49,8 +49,12 @@ export class ClassComponent implements OnInit {
   editClass(lesson:any): void {
     const dialogRef = this.dialog.open(EditClassComponent, {
       data:lesson,
-    })};
-
+    })
+    dialogRef.afterClosed().subscribe(result => {
+      location.reload()
+    });
+  };
+   
   deleteClass(classId: any) {
     this.service.deleteClass(classId).subscribe((res: any) => {
       this.getAllClasses();

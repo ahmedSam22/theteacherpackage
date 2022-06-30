@@ -151,6 +151,7 @@ export class AddStudentComponent implements OnInit {
             icon: 'success',
             confirmButtonColor: '#4AB673',
           }) 
+          this.router.navigate(['../home/class-student/search'])
         }
      else {
       console.log("fail add student", res) ;
@@ -163,6 +164,6 @@ export class AddStudentComponent implements OnInit {
      }
       }) 
      
-  
+      ;
   }
 }

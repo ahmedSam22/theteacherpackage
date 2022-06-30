@@ -4,8 +4,8 @@
       <div class="row d-flex justify-content-center align-items-center h-100">
        <h2 class="my-4"> Today , <span> {{currentDate}} </span></h2>
        
-       <div class="studentsIcons d-flex col-xl-12">
-          <div class="col-xl-7 d-block"  >
+       <div class="studentsIcons   col-xl-12">
+          <div class="col-xl-7 col-12 col-md-12 col-sm-12 col-12 d-block"  >
               <div class="schedule row mb-3" *ngFor="let lesson of lessons">
                 <div class="col-xl-12 d-flex">
                     <p class="col-xl-3"> {{lesson.name}} </p>
@@ -42,7 +42,7 @@
 
                
              </div>
-            <div class="col-xl-5">
+            <div class="col-xl-5 col-md-12 col-sm-12 col-12">
                 <mat-card class="demo-inline-calendar-card"  >
                     <mat-calendar [(selected)]="selected" [startAt]="startDate" (selectedChange)="changess()"></mat-calendar>
                 </mat-card>

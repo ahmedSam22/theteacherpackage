@@ -42,6 +42,7 @@ export class EditComponent implements OnInit {
       this.router.navigate(['../home/class-student/class-schedual']);
     }
     onSubmit(){
+   
      this.date=this.form.value.dat.toString().substring(4,15);
      
      console.log("edit date",this.date)
@@ -60,6 +61,9 @@ export class EditComponent implements OnInit {
         ``,
         `success`
         )
+
      })
+    //  this.router.navigate(['../home/class-student/class-schedual']);
     }
+     
   }
