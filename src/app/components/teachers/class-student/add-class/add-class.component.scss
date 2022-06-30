@@ -1,5 +1,7 @@
 .card {
   border-radius: 15px;
+  overflow-y: auto;
+  height:90vh;
   .card-body {
     input::placeholder {
       font-size: 12px;
@@ -44,6 +46,11 @@
     border:1px solid #E9EAEC;
     background-color: #FAFAFA;
     border-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0px;
 &__circle {
     height: 40px;
     width: 40px;
@@ -55,3 +62,7 @@
   }
 }
 
+label{
+    color: #37b673;
+    font-weight: 500;
+}

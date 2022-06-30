@@ -1,6 +1,6 @@
    .card {
     border-radius:15px;
-    .card-body{  
+    .card-body{
 
     input::placeholder  {
      font-size: 12px;
@@ -9,7 +9,7 @@
         color :#FAFAFA;
         font-size: 12px;
     }
-    
+
     input ,select  {
       background-color:#FAFAFA;
       color: grey;
@@ -27,7 +27,7 @@
     button{
           border-color: #B1B1B1;
           color: #B1B1B1;
-        } 
+        }
     // div:nth-of-type(1) button {
     //     border-color: #37B673;
     //     color:#37B673
@@ -35,23 +35,23 @@
     //   div:nth-of-type(2) button{
     //     border-color: #B1B1B1;
     //     color: #B1B1B1;
-    //   } 
-  }
-   
+    //   }
   }
 
-   
-   
+  }
+
+
+
     .image{
       position: relative;
       overflow: hidden;
       height: 100px;
-      width:300px;
-      
+      width:100px;
+margin: auto;
     }
       img.user-image-avatar{
           position: absolute;
-          width: 35%;
+          width: 100%;
           height: 100%;
           top: 0;
           left: 0;
@@ -62,14 +62,13 @@
       svg{
           position: absolute;
           z-index:  3;
-           left: 11%;
+           left: 34%;
            top:25%
       }
       .hideEmptyImg[src=""] {
           visibility: hidden;
        }
   }
- 
- 
 
- 
+
+

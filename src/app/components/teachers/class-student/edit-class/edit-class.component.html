@@ -17,13 +17,13 @@
           </svg>
           Back
         </a>
-        <div class="col-xl-10">
+        <div class="col-xl-12">
           <div class="card">
             <h4 class="card-header text-left">Edit a Classroom</h4>
             <div class="card-body">
               <form [formGroup]="form" novalidate>
-                <div class="form-group row justify-content-start py-2">
-                  <div class="col-md-12">
+                <div   class="col-md-12">
+                  <div class="form-group row justify-content-start py-2">
                     <label for="">About Class</label>
                     <input
                       type="text"
@@ -32,8 +32,8 @@
                       formControlName="name"
                     />
                     <!-- <span class="text-danger" *ngIf="f_name_error" >*This data is required.</span>  -->
-  
-               
+
+
                   </div>
                 </div>
                 <!-- <div *ngIf="form.controls['first_name'].invalid && (form.controls['first_name'].dirty || form.controls['first_name'].touched)" class="alert alert-danger">
@@ -41,7 +41,7 @@
                       Name is required.
                     </div>
                   </div> -->
-  
+
                 <div class="form-group row justify-content-start py-1">
                   <div class="col-md-12">
                     <input
@@ -53,7 +53,7 @@
                  <!-- <span class="text-danger" *ngIf="email_error">*This data is required.</span> -->
                   </div>
                 </div>
-  
+
                 <div class="form-group row justify-content-start py-1">
                     <label for="">Course</label>
                   <div formArrayName="courses" class="col-md-12" *ngFor="let item of getCourses.controls; let i = index">
@@ -120,7 +120,7 @@
                     <!-- <span class="text-danger" *ngIf="email_error">*This data is required.</span> -->
                   </div>
                 </div>
-  
+
                 <div class="form-group row justify-content-start py-1">
                   <div
                     class="col-md-12 d-flex justify-content-around p-2 colorContainer"
@@ -134,7 +134,7 @@
                     <!-- <span class="text-danger" *ngIf="gender_error" >*This data is required.</span> -->
                   </div>
                 </div>
-  
+
                 <div class="py-4">
                   <button
                     type="submit"
@@ -151,4 +151,3 @@
       </div>
     </div>
   </section>
-  
