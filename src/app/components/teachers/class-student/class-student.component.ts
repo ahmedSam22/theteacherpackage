@@ -110,18 +110,16 @@ export class ClassStudentComponent implements OnInit,OnChanges {
    else {
     this.select('students');
    }
-
-
-   this.route.url.subscribe((urlPath:UrlSegment[]) => {
-    const url = urlPath[urlPath.length - 1].path;
-    console.log('Back button pressed',url);
-})
+ 
    }
+ 
    behaviorAlert(){
     const dialogRef = this.dialog.open(PromptComponent, {
       data:{name:'The alert appears on the student whose negative behaviors exceed :' , promptplaceholder:'Number Of Behaviors', from:'behavior'},
     });
-
+    dialogRef.afterClosed().subscribe(result => {
+      location.reload()
+    });
     // dialogRef.afterClosed().subscribe(result => {
     //   console.log(result);
    // });

@@ -45,8 +45,7 @@ export class AttendanceComponent implements OnInit {
   addStudentAttendance(student:any){
     const dialogRef = this.dialog.open(AssignAttendanceComponent, {
       data:student,
-       
-    });
+     });
     // console.log("idddddd",student)
   }
 
