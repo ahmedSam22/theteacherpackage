@@ -48,7 +48,7 @@
                     width: 30px;
                     display: flex;
                     justify-content: center;
-                
+
             }
         }
 }
@@ -61,7 +61,7 @@ a {
 .dropdown {
     position: relative;
     display: inline-block;
-  
+
  }
   .dropdown-content {
     display: none;
@@ -73,7 +73,7 @@ a {
     z-index: 1;
     border-radius: 10px;
     ul {
-        padding:0px ; 
+        padding:0px ;
 
           li {
             height:25px;
@@ -83,10 +83,26 @@ a {
            a {
             text-decoration:none;
             color:black;
-            
+
            }
-         
+
         }
-         
+
     }
   }
+.home_classs{
+  padding: 50px 0;
+}
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+::ng-deep .mat-form-field-wrapper{
+  padding: 0;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 4px;
+  padding: 0em 0.75em !important;
+
+}
+

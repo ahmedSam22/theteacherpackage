@@ -22,28 +22,11 @@
         </div>
       </div>
     </div>
-    <div class="row my-5" *ngIf="showClass">
-      <div class="col-12">
-        <div class="head d-flex justify-content-between">
+    <div class="row home_classs d-flex justify-content-between align-items-center " *ngIf="showClass">
+      <div class="col-xl-6 ">
+
           <h4>CLASSES</h4>
-          <div class="head__right d-flex align-items-center">
-            <form class="example-form">
-              <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>
-                  <mat-icon matSuffix>mode_edit</mat-icon> Search</mat-label>
-                <input type="text" matInput placeholder="" />
-              </mat-form-field>
-            </form>
-            <button class="btn ms-3"  routerLink="class-add">
-            <img
-            src="../../../assets/images/classes/plus.png"
-                alt=""
-                srcset=""
-              />
-              Add Class
-            </button>
-          </div>
-        </div>
+
         <!-- <div class="card" style="border-radius: 15px">
           <h1 class="card-header text-center mb-4">Apply for a job</h1>
           <div class="card-body">
@@ -65,7 +48,7 @@
               </div>
             </div>
 
-    
+
 
             <div class="px-5 py-4 text-center">
               <button type="submit" class="btn btn-primary btn-lg">
@@ -75,9 +58,28 @@
           </div>
         </div> -->
       </div>
-      <div class="col-md-12 d-flex flex-wrap justify-content-start custom--container">
+      <div class="col-xl-6">
+        <div class="head__right d-flex align-items-center justify-content-end">
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>
+                <mat-icon matSuffix>mode_edit</mat-icon> Search</mat-label>
+              <input type="text" matInput placeholder="" />
+            </mat-form-field>
+          </form>
+          <button class="btn ms-3"  routerLink="class-add">
+          <img
+          src="../../../assets/images/classes/plus.png"
+              alt=""
+              srcset=""
+            />
+            Add Class
+          </button>
+        </div>
+      </div>
+      <div class="col-xl-2 d-flex  custom--container mb-3 mt-3"  *ngFor="let class of allClasses">
         <!-- <a class="col-md-12 d-flex flex-wrap justify-content-start custom--container " [routerLink]="['./class-student','search']"  >   -->
-        <div class="card--content d-flex flex-column  p-0 " *ngFor="let class of allClasses" >
+        <div class="card--content d-flex flex-column  p-0 " >
           <!-- <p> {{class.id}}</p> -->
           <div
             class="card--content__header"
