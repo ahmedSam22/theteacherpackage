@@ -13,6 +13,7 @@ export class AttendanceComponent implements OnInit {
   lessonData:any;
   lessonId:any;
   allAttendanceCases:any;
+  allAttendanceCount:any;
   allStudentAttendance:any;
 
   constructor(private service:TeacherService,public dialog: MatDialog) {
@@ -27,17 +28,24 @@ export class AttendanceComponent implements OnInit {
       
     })
 
+    this.service.getAllAttendanceCount(this.lessonId).subscribe((res:any)=>{
+      console.log(res);
+      this.allAttendanceCount = res.data
+      
+    })
+
     this.service.getAllAttendanceCases(this.lessonId).subscribe((res:any)=>{
       console.log(res);
       this.allAttendanceCases = res.data
       
     })
+
     this.service.getAllStudentAttendance(this.lessonId).subscribe((res:any)=>{
       console.log(res);
       this.allStudentAttendance = res.data
       
+      console.log(this.allStudentAttendance , "testtttttttttt")
     })
-    // console.log(history.state , "testtttttttttt")
 
 
   }

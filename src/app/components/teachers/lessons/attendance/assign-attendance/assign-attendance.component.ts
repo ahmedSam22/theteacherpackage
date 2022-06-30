@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { TeacherService } from '../../../teacher.service';
@@ -9,12 +10,27 @@ import { TeacherService } from '../../../teacher.service';
   styleUrls: ['./assign-attendance.component.scss']
 })
 export class AssignAttendanceComponent implements OnInit {
-
-  constructor(private service:TeacherService, public dialogRef: MatDialogRef<DialogComponent> , @Inject(MAT_DIALOG_DATA) public data:any) { }
+  form!:FormGroup;
+  allAttendanceCases:any;
+  lessonId:any;
+  constructor(private service:TeacherService,private formbuilder:FormBuilder, public dialogRef: MatDialogRef<DialogComponent> , @Inject(MAT_DIALOG_DATA) public data:any) { }
 
   ngOnInit(): void {
+    this.lessonId = localStorage.getItem('class_id') 
 
-    console.log("hhhhhhhhhhhhhhhhh" , this.data);
+    this.form = this.formbuilder.group({
+      attendance_case_id: ['', Validators.required],
+      lesson_id: [localStorage.getItem("class_id"), Validators.required],
+      student_id: [this.data.id, Validators.required],    
+    })
+
+
+    this.service.getAllAttendanceCases(this.lessonId).subscribe((res:any)=>{
+      console.log(res);
+      this.allAttendanceCases = res.data
+      
+      console.log("hhhhhhhhhhhhhhhhh" , this.allAttendanceCases);
+    })
     
   }
 

@@ -1,3 +1,4 @@
+import { AssignAttendanceComponent } from './components/teachers/lessons/attendance/assign-attendance/assign-attendance.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
@@ -90,7 +91,7 @@ import { AttendanceComponent } from './components/teachers/lessons/attendance/at
     AddStudentBehaviorComponent,
     EditClassComponent,
     AttendanceComponent,
- 
+ AssignAttendanceComponent
  
    
   ],

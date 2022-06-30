@@ -82,9 +82,9 @@
         (click)="addStudentAttendance(student)"
       >
         <img [src]="student.imagePath" alt="" class="m-auto w-50" />
-      {{student.attendance_case?.color}}
       <p class="text-center">{{ student.full_name }}  </p>
-     
+      <div class="students__student__footer w-100" 
+      [style.background]="student.attendance_case?.color"></div>
    
       </div>
     </div>
