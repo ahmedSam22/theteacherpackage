@@ -30,6 +30,7 @@
     "bootstrap": "^5.1.3",
     "firebase": "^9.8.3",
     "jquery": "^3.6.0",
+    "moment": "^2.29.3",
     "ngx-flag-picker": "^12.0.0",
     "ngx-mat-timepicker": "^14.0.1",
     "ngx-material-timepicker": "^5.5.3",

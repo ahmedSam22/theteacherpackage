@@ -46,6 +46,8 @@ import { MatNativeDateModule } from '@angular/material/core';
  
 import { ClassScheduleComponent } from './components/teachers/class-student/class-schedule/class-schedule.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+ 
+ 
 import { AddComponent } from './components/teachers/lessons/add/add.component';
 import { EditComponent } from './components/teachers/lessons/edit/edit.component';
 import { TimePickerModule } from '@syncfusion/ej2-angular-calendars';
@@ -60,6 +62,7 @@ import { BehaviorSettingComponent } from './components/teachers/behavior-setting
 // import { AddStudentBehaviorComponent } from './components/teachers/add-behavior/add-behavior.component';
 import { EditClassComponent } from './components/teachers/class-student/edit-class/edit-class.component';
 import { AttendanceComponent } from './components/teachers/lessons/attendance/attendance.component';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -116,7 +119,9 @@ import { AttendanceComponent } from './components/teachers/lessons/attendance/at
     TimePickerModule,
     NgxMaterialTimepickerModule,ReactiveFormsModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+   
+ 
   ],
   providers: [
 
