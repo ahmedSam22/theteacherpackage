@@ -1,3 +1,4 @@
+import { AssignAttendanceComponent } from './components/teachers/lessons/attendance/assign-attendance/assign-attendance.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
@@ -43,9 +44,11 @@ import { AddStudentComponent } from './components/teachers/add-student/add-stude
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddClassComponent } from './components/teachers/class-student/add-class/add-class.component';
 import { MatNativeDateModule } from '@angular/material/core';
- 
+
 import { ClassScheduleComponent } from './components/teachers/class-student/class-schedule/class-schedule.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+
+
 import { AddComponent } from './components/teachers/lessons/add/add.component';
 import { EditComponent } from './components/teachers/lessons/edit/edit.component';
 import { TimePickerModule } from '@syncfusion/ej2-angular-calendars';
@@ -62,6 +65,7 @@ import { EditClassComponent } from './components/teachers/class-student/edit-cla
 import { AttendanceComponent } from './components/teachers/lessons/attendance/attendance.component';
 import { ClassGradesComponent } from './components/teachers/class-grades/class-grades.component';
 import { NotFoundGradeComponent } from './components/teachers/class-grades/not-found-grade/not-found-grade.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +90,7 @@ import { NotFoundGradeComponent } from './components/teachers/class-grades/not-f
     EditComponent,
     BehaviorComponent,
     EditClassComponent,
- 
+
     PromptComponent,
     BehaviorSettingComponent,
     AddStudentBehaviorComponent,
@@ -94,9 +98,9 @@ import { NotFoundGradeComponent } from './components/teachers/class-grades/not-f
     AttendanceComponent,
     ClassGradesComponent,
     NotFoundGradeComponent,
- 
- 
-   
+    AssignAttendanceComponent
+
+
   ],
   imports: [
     BrowserModule,
@@ -120,13 +124,15 @@ import { NotFoundGradeComponent } from './components/teachers/class-grades/not-f
     TimePickerModule,
     NgxMaterialTimepickerModule,ReactiveFormsModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+
   ],
   providers: [
 
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-   
+
   ],
 
   bootstrap: [AppComponent]
