@@ -1,1 +1,17 @@
-<p>assign-attendance works!</p>
+<div class="w-100">
+    <div class="w-100 d-flex justify-content-around">
+        <span>{{this.data.full_name}}</span>
+        <span>DONE</span>
+    </div>
+<ul class="pl-0">
+    <li *ngFor="let case of allAttendanceCases"
+    class="d-flex align-items-center mb-1"
+    >
+        <div
+        class="color"
+        [style.background]="case.color"
+        ></div>
+        {{case.name}}
+    </li>
+</ul>
+</div>

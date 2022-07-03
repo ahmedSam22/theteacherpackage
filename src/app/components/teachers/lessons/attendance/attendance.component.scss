@@ -7,7 +7,7 @@
       border-radius: 7px;
       width: 50%;
       text-align: center;
-      font-size: .6rem;
+      font-size: 0.6rem;
     }
     &__date {
       padding: 17px 0px;
@@ -16,8 +16,7 @@
       border-radius: 7px;
       width: 50%;
       text-align: center;
-      font-size: .6rem;
-
+      font-size: 0.6rem;
     }
   }
 }
@@ -32,11 +31,10 @@
     max-width: 100px;
     p {
       margin-bottom: 0;
-      filter : brightness(0.5)
-
+      filter: brightness(0.5);
     }
-    h3{
-      filter : brightness(0.5)
+    h3 {
+      filter: brightness(0.5);
     }
   }
 }
@@ -49,6 +47,8 @@
     padding: 10px;
     border-radius: 7px;
     max-width: 14%;
+    position: relative;
+    overflow: hidden;
     // max-width: 16%;
     display: flex;
     justify-content: center;
@@ -59,14 +59,15 @@
     img {
       border-radius: 50%;
     }
-
+    &__footer {
+      height: 10px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      // background: #888;
+    }
   }
 }
 
-
-.cases--students{
-  &__footer{
-    height: 23px;
-    // background: #888;
-  }
+.cases--students {
 }
