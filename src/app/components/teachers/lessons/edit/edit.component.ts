@@ -117,14 +117,25 @@ export class EditComponent implements OnInit {
      console.log("eeeeeee",editform)
      this.teacherservice.updateLesson(editform).subscribe((res:any)=>{
       console.log("edit lesson success" , res)
-      Swal.fire(
-        `Lesson Updated Successfully `,
-        ``,
-        `success`
-        )
-
+      if(res.status==true){
+        Swal.fire({
+          title: 'Success'  ,
+          text: 'Lesson Updated Successfully '  ,
+          icon: 'success',
+          confirmButtonColor: '#37B673',
+        }) 
+      }
+      else {
+        Swal.fire({
+          title: 'Fail'  ,
+          text:res.errors[0]  ,
+          icon: 'error',
+          confirmButtonColor: '#37B673',
+        }) 
+      }
+    
      })
-    //  this.router.navigate(['../home/class-student/class-schedual']);
+   
     }
      
   }

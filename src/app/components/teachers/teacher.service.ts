@@ -215,7 +215,14 @@ deleteLesson(id:number){
     return this.http.post(`${environment.endpoint}/teacher/behavior/student/create`,formData);
   }
 
-  deleteBehaviorFromStudent(student_id:any,behavior_id:any,course_id:any){
+  deleteBehaviorFromStudent(student_id:number,behavior_id:number,course_id:number){
     return this.http.delete(`${environment.endpoint}/teacher/behavior/student/delete?student_id=${student_id}&behavior_id=${behavior_id}&course_id=${course_id}`);
+  }
+
+  getbehaviorByCourseId(course_id:number){
+    return this.http.get(`${environment.endpoint}/teacher/students/behaviors?course_id=${course_id}`);
+  }
+  deleteBehaviorStudent(student_behavior_id:number){
+    return this.http.delete(`${environment.endpoint}/teacher/behavior/student/delete?student_behavior_id=${student_behavior_id}`);
   }
 }

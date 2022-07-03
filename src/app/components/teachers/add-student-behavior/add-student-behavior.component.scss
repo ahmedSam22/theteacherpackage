@@ -9,6 +9,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    
   }
   
   /* Hide the browser's default checkbox */
@@ -23,7 +24,7 @@
   /* Create a custom checkbox */
   .checkmark {
     position: absolute;
-    top: 0;
+    top: 5px;
     left: 0;
     height: 25px;
     width: 25px;
@@ -66,3 +67,14 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+.card{
+  overflow-y: auto;
+  height:70vh;
+ 
+  
+}
+button {
+  svg {
+    margin-bottom: 10px;
+  }
+}

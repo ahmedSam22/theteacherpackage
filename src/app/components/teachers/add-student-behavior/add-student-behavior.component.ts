@@ -35,14 +35,21 @@ export class AddStudentBehaviorComponent implements OnInit {
   isChecked:boolean=false;
   goodbehave:any=[];
   badbehave:any=[];
+  allres:any=[];
   student_name=this.data.full_name;
   course_id:any;
+ doneLink=true;
+ hexacolor1='#37B673';
+ hexacolor2='transparent';
+ hexacolor3='transparent';
   constructor(private router:Router , private route:ActivatedRoute ,private formbuilder:FormBuilder ,private teacherservice:TeacherService, private renderer: Renderer2 ,private elementRef: ElementRef  , public dialogRef: MatDialogRef<DialogComponent> , @Inject(MAT_DIALOG_DATA) public data:any) {
   }
   ngOnInit(): void {
-    console.log("All data",this.data.id)
-  
-      let obj= {id:0 , name:'name'} 
+    this.course_id = localStorage.getItem('course_id');
+    this.doneLink=true;
+    console.log("All data",this.data)
+ 
+    let obj= {id:0 , name:'name'} 
     this.teacherservice.getAllBehaviors().subscribe((res:any)=>{
       this.allBehaviors=res['data'];
       console.log("ressssssssssssssssssssss", this.allBehaviors)
@@ -63,9 +70,32 @@ export class AddStudentBehaviorComponent implements OnInit {
     })
     this.select('student');
     this.class_id = localStorage.getItem('class_id');
-    this.course_id = localStorage.getItem('course_id');
-    // console.log("cccccccccccc", this.course_id)
- 
+    
+  //  this.teacherservice.getbehaviorByCourseId(+this.course_id).subscribe((res:any)=>{
+  //   this.allres=res['data'];
+  //   console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",this.allres)
+  //   for (let j=0 ;j<=this.allres.length ; j++) {
+  //      this.allBehaviors=this.allres[j].behaviors;
+  //      console.log("ressssssssssssssssssssss", this.allBehaviors)
+          
+  //     for(let i=0; i<=this.allBehaviors.length ; i++){
+  //       if( this.allBehaviors[i].type==1){
+  //         obj.id=this.allBehaviors[i].student_behavior_id;
+  //         obj.name= this.allBehaviors[i].name;
+  //         // console.log("oooooooobbbbbbbbbb",obj)
+  //            this.positives.push({id:obj.id,name:obj.name})
+  //       }
+  //       else {
+  //         obj.id=this.allBehaviors[i].student_behavior_id;
+  //         obj.name= this.allBehaviors[i].name;
+  //         // console.log("oooooooobbbbbbbbbb",obj)
+  //         this.negatives.push({id:obj.id,name:obj.name})
+  //       }
+  //     }
+  //   }
+      
+  
+  //   })
 
 
     let obj2= {id:0 , name:'name'} 
@@ -73,12 +103,12 @@ export class AddStudentBehaviorComponent implements OnInit {
     console.log("studentAllBehaviors",this.studentAllBehaviors)
     for(let i=0; i<=this.studentAllBehaviors.length ; i++){
       if( this.studentAllBehaviors[i].type==1){
-        obj2.id=this.studentAllBehaviors[i].id;
+        obj2.id=this.studentAllBehaviors[i].student_behavior_id;
         obj2.name= this.studentAllBehaviors[i].name;
         this.studentgood.push({id:obj2.id,name:obj2.name})
       }
       else {
-        obj2.id=this.studentAllBehaviors[i].id;
+        obj2.id=this.studentAllBehaviors[i].student_behavior_id;
         obj2.name= this.studentAllBehaviors[i].name;
          this.studentbad.push({id:obj2.id,name:obj2.name})
       }
@@ -90,16 +120,31 @@ export class AddStudentBehaviorComponent implements OnInit {
       this.showPositiveInfo=true ;  
       this.showNegativeInfo=false ; 
       this.showRecordInfo=false ; 
+      this.doneLink=true;
+     
+      this.hexacolor1='#37B673';
+      this.hexacolor2='transparent';
+      this.hexacolor3='transparent';
     }
     else if(number==1) {
       this.showPositiveInfo=false ;  
       this.showNegativeInfo=true ;
       this.showRecordInfo=false ; 
+      this.doneLink=true;
+      
+      this.hexacolor2='#FF0000';
+      this.hexacolor1='transparent';
+      this.hexacolor3='transparent';
     }
     else{
       this.showPositiveInfo=false ;  
       this.showNegativeInfo=false ;
       this.showRecordInfo=true ; 
+      this.doneLink=false;
+
+      this.hexacolor3='#6BB4CB';
+      this.hexacolor1='transparent';
+      this.hexacolor2='transparent';
     }
   }
   select(item:any) {
@@ -114,9 +159,26 @@ export class AddStudentBehaviorComponent implements OnInit {
     // }
 
     deleteStudentBahvior(id:any){
-      console.log("r5t3wq43324e",this.data.id)
-       this.teacherservice.deleteBehaviorFromStudent(this.data.id,id,this.course_id).subscribe((res:any)=>{
+  
+      console.log("course id ",typeof(id))
+       this.teacherservice.deleteBehaviorStudent(id).subscribe((res:any)=>{
         console.log("deleteBehaviorFromStudent",res)
+        if(res.status==true){
+          Swal.fire({
+            title: 'Delete Process Success',
+            text: 'Success',
+            icon: 'success',
+            confirmButtonColor: '#37B673',
+          }) 
+        }
+        else {
+          Swal.fire({
+            title: 'Delete Process Fail',
+            text: 'Fail',
+            icon: 'error',
+            confirmButtonColor: '#37B673',
+          }) 
+        }
       })
     }
 
@@ -168,6 +230,26 @@ send() {
       }
       this.teacherservice.addBehaviorToStudent(form).subscribe((res:any)=>{
         console.log("good behaviors",res)
+        if(res.status==true){
+          Swal.fire({
+            title: 'Success',
+            text: res.message,
+            icon: 'success',
+            confirmButtonColor: '#37B673',
+          }) 
+          // setTimeout(() =>{
+          //   this.router.navigate(['../home/class-student/search'])
+          //   },1500);
+        }
+        else {
+          Swal.fire({
+            title: 'Fail',
+            text: res.message,
+            icon: 'error',
+            confirmButtonColor: '#37B673',
+          }) 
+        }
+       
      })
   }
   else if (this.showNegativeInfo==true){
@@ -177,7 +259,24 @@ send() {
       behaviors_ids:this.badarr
       }
       this.teacherservice.addBehaviorToStudent(form).subscribe((res:any)=>{
-        console.log("bad behaviors",res)
+         console.log("bad behaviors",res)
+         if(res.status==true){
+          Swal.fire({
+            title: 'Success',
+            text: res.message,
+            icon: 'success',
+            confirmButtonColor: '#37B673',
+          }) 
+         
+        }
+        else {
+          Swal.fire({
+            title: 'Fail',
+            text: res.message,
+            icon: 'error',
+            confirmButtonColor: '#37B673',
+          }) 
+        }
      })
   }
   else {

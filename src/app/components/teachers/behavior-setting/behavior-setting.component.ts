@@ -131,6 +131,30 @@ export class BehaviorSettingComponent implements OnInit {
     }
     deleteBahvior(id:any) {
       console.log("delete id : " , id)
+    this.teacherservice.deleteBehavior(id).subscribe((res:any)=>{
+     console.log("ddddddddddd",res)
+      if(res.status==true){
+                 Swal.fire({
+                  title: 'Success',
+                  text: res.message,
+                  icon: 'success',
+                  confirmButtonColor: '#4AB673',
+                }) 
+              }
+              else {
+                Swal.fire({
+                  title: 'Fail',
+                  text: res.message,
+                  icon: 'error',
+                  confirmButtonColor: '#4AB673',
+                }) 
+              }
+    
+    })
+    setTimeout(() =>{
+      location.reload()
+      },1500);
+   
     }
   onSubmit() {
   //   let form = {

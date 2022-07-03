@@ -24,13 +24,23 @@ export class DialogComponent implements OnInit {
     console.log("id",typeof(id))
     this.teacherservice.deleteLesson(id).subscribe(res=>{
       console.log("Delete Dialog",res)
-      Swal.fire(
-        `Delete Process Success `,
-        ``,
-        `success`
-        )
+      // Swal.fire({
+      //   title: 'Delete Process Success',
+      //   text: 'success',
+      //   icon: 'success',
+      //   confirmButtonColor: '#37B673',
+      // }) 
+         this.dialogRef.close() 
+        // location.reload()
+         setTimeout(() =>{
+            location.reload()
+            },1500);
+       
+      
+       
     })
-    this.dialogRef.close();
+    
+    
    }
 
   onNoClick(): void {
