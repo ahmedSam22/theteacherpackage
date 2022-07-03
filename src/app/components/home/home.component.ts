@@ -13,7 +13,7 @@ export class ClassComponent implements OnInit {
   hideClass!: boolean;
   showClass!: boolean;
   searchParam: string = 'search';
-   
+
 
   constructor(
     private teacherservice: TeacherService,
@@ -28,7 +28,7 @@ export class ClassComponent implements OnInit {
      localStorage.removeItem('showschedule');
      localStorage.removeItem('showBehavior');
      localStorage.removeItem('showstudents');
- 
+
   }
 
   getAllClasses() {
@@ -54,7 +54,7 @@ export class ClassComponent implements OnInit {
       location.reload()
     });
   };
-   
+
   deleteClass(classId: any) {
     this.service.deleteClass(classId).subscribe((res: any) => {
       this.getAllClasses();

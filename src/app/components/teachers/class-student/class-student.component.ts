@@ -37,6 +37,7 @@ export class ClassStudentComponent implements OnInit,OnChanges {
   showstudents: boolean = true;
   showschedule: boolean = false;
   showBehavior: boolean = false;
+  showGrade: boolean = false;
   sortedByName: any;
   sortedByGender: any;
 
@@ -54,12 +55,12 @@ export class ClassStudentComponent implements OnInit,OnChanges {
   ngOnInit(): void {
     // alert(this.attendance);
     let data = localStorage.getItem('class_id');
-    
+
     console.log("dfdssad",data)
     this.class_id=data;
     // localStorage.removeItem("SortByName");
     // localStorage.removeItem("SortByGender");
-    
+
     this.teacherservice
       .getClassDetails(+this.class_id)
       .subscribe((res: any) => {
@@ -87,32 +88,42 @@ export class ClassStudentComponent implements OnInit,OnChanges {
   //     courses=allClasses[i].courses
   //     console.log("courses" , courses)
   //       }
-  //     })    
- 
+  //     })
+
    if(localStorage.getItem('showstudents')=='first'){
-    this.showstudents=true; 
+    this.showstudents=true;
     this.showschedule= false;
     this.showBehavior=false;
+    this.showGrade=false;
     this.select('students');
    }
    else if(localStorage.getItem('showschedule')=='second') {
-    this.showstudents=false; 
+    this.showstudents=false;
     this.showschedule= true;
     this.showBehavior=false;
+    this.showGrade=false;
     this.select('schedule');
    }
    else if (localStorage.getItem('showBehavior')=='third') {
-    this.showstudents=false; 
+    this.showstudents=false;
     this.showschedule= false;
+    this.showGrade=false;
     this.showBehavior=true;
     this.select('behavior');
+   }
+   else if (localStorage.getItem('showGrade')=='forth') {
+    this.showstudents=false;
+    this.showschedule= false;
+    this.showBehavior=false;
+    this.showGrade=true
+    this.select('grades');
    }
    else {
     this.select('students');
    }
- 
+
    }
- 
+
    behaviorAlert(){
     const dialogRef = this.dialog.open(PromptComponent, {
       data:{name:'The alert appears on the student whose negative behaviors exceed :' , promptplaceholder:'Number Of Behaviors', from:'behavior'},
@@ -123,41 +134,57 @@ export class ClassStudentComponent implements OnInit,OnChanges {
     // dialogRef.afterClosed().subscribe(result => {
     //   console.log(result);
    // });
-    
+
    }
- 
+
    studentfunc(){
-    
-    this.showstudents=true; 
+
+    this.showstudents=true;
     this.showschedule= false;
     this.showBehavior=false;
+    this.showGrade=false;
     localStorage.setItem('showstudents','first');
     localStorage.removeItem('showschedule');
     localStorage.removeItem('showBehavior');
+    localStorage.removeItem('showGrade');
    }
    schedulefunc(){
-    this.showstudents=false; 
+    this.showstudents=false;
     this.showschedule= true;
     this.showBehavior=false;
+    this.showGrade=false;
     localStorage.setItem('showschedule','second');
     localStorage.removeItem('showstudents');
     localStorage.removeItem('showBehavior');
+    localStorage.removeItem('showGrade');
    }
    behaviorfunc(){
-    this.showstudents=false; 
+    this.showstudents=false;
     this.showschedule= false;
+    this.showGrade=false;
     this.showBehavior=true;
     localStorage.setItem('showBehavior','third');
     localStorage.removeItem('showstudents');
     localStorage.removeItem('showschedule');
+    localStorage.removeItem('showGrade');
+   }
+  Gradefunc(){
+    this.showstudents=false;
+    this.showschedule= false;
+    this.showBehavior=false;
+    this.showGrade=true;
+    localStorage.setItem('showGrade','forth');
+    localStorage.removeItem('showstudents');
+    localStorage.removeItem('showschedule');
+    localStorage.removeItem('showBehavior');
    }
    SortByName(){
     this.sort=1;
     this.teacherservice.sortStudents(+this.class_id,this.sort,0,0).subscribe((res:any)=>{
     this.sortedByName=res['data'];
-    
+
     this.teacherservice.sortname=this.sortedByName;
-     
+
     let name='name'
     this.router.navigate(['../class-student',name],{ relativeTo: this.route})
      })
@@ -167,12 +194,12 @@ export class ClassStudentComponent implements OnInit,OnChanges {
     this.teacherservice.sortStudents(+this.class_id,0,this.sort,0).subscribe((res:any)=>{
     this.sortedByGender=res['data'];
     this.teacherservice.sortgender=this.sortedByGender
-    
+
       let gender='gender';
       this.router.navigate(['../class-student',gender],{ relativeTo: this.route})
     })
   }
-  
+
   studentFilter(){
     this.searchResult=this.search.nativeElement.value;
     console.log("Search" ,this.searchResult)

@@ -1,3 +1,4 @@
+import { ClassGradesComponent } from './components/teachers/class-grades/class-grades.component';
 import { AttendanceComponent } from './components/teachers/lessons/attendance/attendance.component';
 import { EditClassComponent } from './components/teachers/class-student/edit-class/edit-class.component';
 import { AddClassComponent } from './components/teachers/class-student/add-class/add-class.component';
@@ -44,7 +45,7 @@ const routes: Routes = [
           { path: 'class-schedual', component: ClassScheduleComponent },
           { path: 'class-behavior', component: BehaviorComponent },
           { path: 'lesson-attendance', component: AttendanceComponent },
-
+          { path: 'class-grade', component: ClassGradesComponent },
           { path: ':search', component: ClassDetailsComponent },
         ],
       },

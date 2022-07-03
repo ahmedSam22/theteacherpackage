@@ -60,6 +60,8 @@ import { BehaviorSettingComponent } from './components/teachers/behavior-setting
 // import { AddStudentBehaviorComponent } from './components/teachers/add-behavior/add-behavior.component';
 import { EditClassComponent } from './components/teachers/class-student/edit-class/edit-class.component';
 import { AttendanceComponent } from './components/teachers/lessons/attendance/attendance.component';
+import { ClassGradesComponent } from './components/teachers/class-grades/class-grades.component';
+import { NotFoundGradeComponent } from './components/teachers/class-grades/not-found-grade/not-found-grade.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,6 +92,8 @@ import { AttendanceComponent } from './components/teachers/lessons/attendance/at
     AddStudentBehaviorComponent,
     EditClassComponent,
     AttendanceComponent,
+    ClassGradesComponent,
+    NotFoundGradeComponent,
  
  
    

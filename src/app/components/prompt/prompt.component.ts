@@ -1,4 +1,4 @@
-
+``
 
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -24,9 +24,9 @@ export class PromptComponent implements OnInit {
   ngOnInit(): void {
     this.class_id = localStorage.getItem('class_id');
     //  console.log("behavior",this.data.from)
- 
+
    }
- 
+
   Save(){
     if(this.data.from=='behavior') {
       this.showAlert=true
@@ -45,13 +45,13 @@ export class PromptComponent implements OnInit {
         this.in_val=this.inputVal.nativeElement.value
         let form={
           name:this.in_val,
-          type:this.data.type  
+          type:this.data.type
           }
           console.log("ffffff", form)
         this.teacherservice.createBehavior(form).subscribe((res:any)=>{
           console.log("add Behavior",res)
         })
-        
+
       }
       else {
         console.log("ay kalam")
