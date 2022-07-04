@@ -66,6 +66,9 @@ import { AttendanceComponent } from './components/teachers/lessons/attendance/at
 import { ClassGradesComponent } from './components/teachers/class-grades/class-grades.component';
 import { NotFoundGradeComponent } from './components/teachers/class-grades/not-found-grade/not-found-grade.component';
 
+import { AddMainItemComponent } from './components/teachers/class-grades/add-main-item/add-main-item.component';
+import { AddSubItemComponent } from './components/teachers/class-grades/add-sub-item/add-sub-item.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,8 +101,9 @@ import { NotFoundGradeComponent } from './components/teachers/class-grades/not-f
     AttendanceComponent,
     ClassGradesComponent,
     NotFoundGradeComponent,
-    AssignAttendanceComponent
-
+    AssignAttendanceComponent,
+    AddMainItemComponent,
+    AddSubItemComponent
 
   ],
   imports: [

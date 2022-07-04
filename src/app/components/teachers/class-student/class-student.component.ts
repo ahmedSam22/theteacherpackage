@@ -1,3 +1,5 @@
+import { AddSubItemComponent } from './../class-grades/add-sub-item/add-sub-item.component';
+import { AddMainItemComponent } from './../class-grades/add-main-item/add-main-item.component';
 import {
   Component,
   ElementRef,
@@ -12,6 +14,7 @@ import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import { PromptComponent } from '../../prompt/prompt.component';
+
 import { TeacherService } from '../teacher.service';
 @Component({
   selector: 'app-class-student',
@@ -299,4 +302,15 @@ export class ClassStudentComponent implements OnInit,OnChanges {
   //       //  console.log(result);
   //     });
   // }
+ AddMainItem(lesson:any): void {
+    const dialogRef = this.dialog.open(AddMainItemComponent, {
+
+    });
+
+}
+AddSubItem(): void {
+  const dialogRef = this.dialog.open(AddSubItemComponent , {
+
+  });
+}
 }

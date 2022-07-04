@@ -170,7 +170,7 @@
                     </svg>
                     Delete Main Item
                     </button>
-                    <button data-toggle="modal" data-target="#exampleModal" ngbDropdownItem><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <button (click)=" AddMainItem('osama')"    data-toggle="modal" data-target="#exampleModal" ngbDropdownItem><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
                       <g id="Group_70613" data-name="Group 70613" transform="translate(-15.5 -692.98)">
                         <g id="Group_68614" data-name="Group 68614" transform="translate(15.5 692.98)">
                           <circle id="Ellipse_3538" data-name="Ellipse 3538" cx="16" cy="16" r="16" fill="#eaeaea"/>
@@ -185,7 +185,7 @@
                     </svg>
                     Add Main Item
                   </button>
-                    <button ngbDropdownItem>
+                    <button (click)="AddSubItem()" ngbDropdownItem>
                       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
                         <g id="Group_70614" data-name="Group 70614" transform="translate(-15.5 -692.98)">
                           <g id="Group_68614" data-name="Group 68614" transform="translate(15.5 692.98)">

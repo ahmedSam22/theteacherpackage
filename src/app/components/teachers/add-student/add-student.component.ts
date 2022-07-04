@@ -26,19 +26,19 @@ export class AddStudentComponent implements OnInit {
   showStudentInfo:boolean=true ;
   showGardianInfo:boolean=false ;
   class_id:any;
-  // f_name_error:boolean=false ; 
-  // l_name_error:boolean=false ; 
-  // email_error:boolean=false ; 
-  // phone_error:boolean=false ; 
-  // gender_error:boolean=false ; 
-  // guardian_name_error:boolean=false ; 
+  // f_name_error:boolean=false ;
+  // l_name_error:boolean=false ;
+  // email_error:boolean=false ;
+  // phone_error:boolean=false ;
+  // gender_error:boolean=false ;
+  // guardian_name_error:boolean=false ;
   // guardian_email_error:boolean=false ;
-  // guardian_phone_error:boolean=false ; 
+  // guardian_phone_error:boolean=false ;
   constructor(private router:Router , private route:ActivatedRoute ,private formbuilder:FormBuilder ,private teacherservice:TeacherService, private renderer: Renderer2 ,private elementRef: ElementRef ) {
     }
- 
-   
-  
+
+
+
 
   ngOnInit(): void {
     this.form = this.formbuilder.group({
@@ -51,7 +51,7 @@ export class AddStudentComponent implements OnInit {
       guardian_email: ['', Validators.required],
       guardian_phone: ['', Validators.required],
     });
- 
+
     this.select('student');
     this.class_id = localStorage.getItem('class_id');
 
@@ -60,7 +60,7 @@ export class AddStudentComponent implements OnInit {
       console.log('Back button pressed',url);
   })
   }
- 
+
   back(){
     this.router.navigate(['../home/class-student/search']);
   }
@@ -76,11 +76,11 @@ export class AddStudentComponent implements OnInit {
   }
    filter(number:any) {
     if (number==0){
-      this.showStudentInfo=true ;  
-      this.showGardianInfo=false ; 
+      this.showStudentInfo=true ;
+      this.showGardianInfo=false ;
     }
     else {
-      this.showStudentInfo=false ;  
+      this.showStudentInfo=false ;
       this.showGardianInfo=true ;
     }
   }
@@ -91,16 +91,17 @@ export class AddStudentComponent implements OnInit {
   isActive(item:any) {
     return this.selected === item;
     }
-    get f() { 
-    
+    get f() {
+
     return this.form.controls
     }
+
   onSubmit() {
     let form = {
       ...this.form.value ,
       class_id:this.class_id,
     }
-  
+
   // if( form.first_name==undefined ||  form.first_name==""){
   //     this.f_name_error=true;
   // }
@@ -114,29 +115,29 @@ export class AddStudentComponent implements OnInit {
   //    this.phone_error=true;
   // }
   // else if (form.gender==undefined || form.gender=="") {
-  //   this.gender_error=true; 
+  //   this.gender_error=true;
   // }
   // else if (form.guardian_name==undefined || form.guardian_name=="") {
-  //   this.guardian_name_error=true; 
+  //   this.guardian_name_error=true;
   // }
   // else if (form.guardian_email==undefined || form.guardian_email=="") {
-  //   this.guardian_email_error=true; 
+  //   this.guardian_email_error=true;
   // }
   // else if (form.guardian_phone==undefined || form.guardian_phone=="") {
-  //   this.guardian_phone_error=true; 
+  //   this.guardian_phone_error=true;
   // }
   // else {
- 
+
   // console.log("kolo tamammmmm")
   //   this.f_name_error=false;
   //   this.l_name_error=false;
   //   this.email_error=false;
   //   this.phone_error=false ;
-  //   this.gender_error=false; 
-  //   this.guardian_name_error=false; 
-  //   this.guardian_email_error=false; 
-  //   this.guardian_phone_error=false; 
-   
+  //   this.gender_error=false;
+  //   this.guardian_name_error=false;
+  //   this.guardian_email_error=false;
+  //   this.guardian_phone_error=false;
+
   // }
   this.submitted=true;
   if(this.form.invalid){return}
@@ -150,7 +151,7 @@ export class AddStudentComponent implements OnInit {
             text: res.message,
             icon: 'success',
             confirmButtonColor: '#4AB673',
-          }) 
+          })
           this.router.navigate(['../home/class-student/search'])
         }
      else {
@@ -160,10 +161,10 @@ export class AddStudentComponent implements OnInit {
         text: res.errors[0],
         icon: 'error',
         confirmButtonColor: '#4AB673',
-      }) 
+      })
      }
-      }) 
-     
+      })
+
       ;
   }
 }

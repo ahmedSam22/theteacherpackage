@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddMainItemComponent } from '../add-main-item/add-main-item.component';
 
 @Component({
   selector: 'app-not-found-grade',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundGradeComponent implements OnInit {
 
-  constructor() { }
+  constructor(  public dialog: MatDialog,) { }
 
   ngOnInit(): void {
   }
+  AddMainItem(lesson:any): void {
+    const dialogRef = this.dialog.open(AddMainItemComponent, {
 
+    });
+}
 }

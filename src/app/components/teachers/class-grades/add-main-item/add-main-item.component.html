@@ -1,0 +1,17 @@
+<form  [formGroup]="form"  (ngSubmit)="onSubmit(form.value)">
+<mat-form-field appearance="fill">
+  <mat-label >Input</mat-label>
+  <input matInput formControlName="title">
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Select</mat-label>
+  <mat-select formControlName="calculating_method">
+    <mat-option value="1">First option</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label >Textarea</mat-label>
+  <textarea formControlName="total" matInput></textarea>
+</mat-form-field>
+<button type="submit">ok</button>
+</form>

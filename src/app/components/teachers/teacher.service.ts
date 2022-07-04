@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -11,9 +11,9 @@ import { environment } from 'src/environments/environment';
 export class TeacherService {
   private refresh: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public getRefresh(): Observable<boolean> { return this.refresh.asObservable()}
-  public setRefresh(value: boolean): void { this.refresh.next(value) } 
+  public setRefresh(value: boolean): void { this.refresh.next(value) }
   public class_id:number=0;
-  public sortname=[] ; 
+  public sortname=[] ;
   public sortgender=[];
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
@@ -153,7 +153,7 @@ updateLesson(form:any){
 }
 
 getLessonById(id:number){
-  return this.http.get(`${environment.endpoint}/teacher/lesson/show?lesson_id=${id}`); 
+  return this.http.get(`${environment.endpoint}/teacher/lesson/show?lesson_id=${id}`);
 }
  getWeeklySchedule() {
   return this.http.get(`${environment.endpoint}/teacher/weekly/schedule`);
@@ -162,7 +162,7 @@ getLessonById(id:number){
 getLessonsByDate(course_id:number,date:string){
   return this.http.get(`${environment.endpoint}/teacher/lessons/all?course_id=${course_id}&date=${date}`);
 }
- 
+
 deleteLesson(id:number){
   return this.http.delete(`${environment.endpoint}/teacher/lesson/delete?lesson_id=${id}`);
 }
@@ -175,12 +175,12 @@ deleteLesson(id:number){
 
   getAllStudentAttendance(id:number){
     return this.http.get(`https://elmo3lem.scarksa.com/public/api/teacher/attendances/all?lesson_id=${id}`);
-  
+
     }
 
     getAllAttendanceCount(id:number){
       return this.http.get(`${environment.endpoint}/teacher/attendance/count/show?lesson_id=${id}`);
-    
+
       }
 
       assignAttendance(form:any){
@@ -195,7 +195,7 @@ deleteLesson(id:number){
   }
 
   getBehaviorByClassId(course_id:number){
-    return this.http.get(`${environment.endpoint}/teacher/students/behaviors?course_id=${course_id}`); 
+    return this.http.get(`${environment.endpoint}/teacher/students/behaviors?course_id=${course_id}`);
   }
 
   createBehavior(form:any){
@@ -228,4 +228,26 @@ deleteLesson(id:number){
   deleteBehaviorFromStudent(student_id:any,behavior_id:any,course_id:any){
     return this.http.delete(`${environment.endpoint}/teacher/behavior/student/delete?student_id=${student_id}&behavior_id=${behavior_id}&course_id=${course_id}`);
   }
+
+
+
+
+  /*-----------------------Grades------------------------------ */
+  showGradeDetailsbyClassId(id:any){
+return this.http.get(`${environment.endpoint}/teacher/grade/show?course_id=${id}`).pipe(map((data:any)=>{
+  return data
+}),catchError((err:any)=>{
+  console.log(err);
+  throw err.message;
+}))
+  }
+
+addDragetoClass(form: any) {
+  return this.http.post(`${environment.endpoint}/teacher/grade/main-item/create`, form);
 }
+AddSubItem(form:any){
+  return this.http.post(`${environment.endpoint}/teacher/grade/sub-item/create`, form);
+}
+
+}
+

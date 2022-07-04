@@ -1,0 +1,59 @@
+
+<div class="example-container">
+  <form [formGroup]="AddSubForm"  (ngSubmit)="onSubmit(AddSubForm.value)">
+  <mat-form-field appearance="fill">
+    <mat-label>Evaluation item name</mat-label>
+    <input matInput formControlName="evaluation_item_name">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Add rating item</mat-label>
+    <mat-select #key  (valueChange)="mainitemChanged(key.value)" >
+      <mat-option value="1">Within a key component</mat-option>
+      <mat-option value="2">Outside the main component</mat-option>
+
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngIf="key.value==1">
+    <mat-label >Select</mat-label>
+    <mat-select #name (valueChange)="getmainitem(name.value)" >
+      <mat-option  [value]="item" *ngFor="let item of GradesList">{{item.title}}</mat-option>
+
+    </mat-select>
+  </mat-form-field>
+
+<mat-form-field appearance="fill" >
+  <mat-label >Select</mat-label>
+  <mat-select #degree formControlName="evaluation_item_data_type">
+    <mat-option value="1" >empty</mat-option>
+    <mat-option value="2" >degree</mat-option>
+    <mat-option value="3" >number</mat-option>
+    <mat-option value="4" >two part</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill" *ngIf="degree.value==2" >
+
+  <mat-label>max degree</mat-label>
+  <input matInput formControlName="first_option">
+
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngIf="degree.value==2">
+    <mat-label>element percentage</mat-label>
+    <input matInput formControlName="second_option">
+
+</mat-form-field>
+<mat-form-field appearance="fill"*ngIf="degree.value==4">
+
+  <mat-label>frist option</mat-label>
+  <input matInput formControlName="first_option">
+
+
+</mat-form-field>
+<mat-form-field appearance="fill"*ngIf="degree.value==4">
+  <mat-label>secont option</mat-label>
+  <input matInput formControlName="second_option">
+</mat-form-field>
+<div class="form-group">
+<button [disabled]="AddSubForm.invalid" class="btn btn-primary" type="submit">add item</button>
+</div>
+</form>
+</div>

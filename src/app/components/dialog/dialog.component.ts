@@ -16,7 +16,7 @@ export class DialogComponent implements OnInit {
     private teacherservice:TeacherService,
   ) {}
 
- 
+
   ngOnInit(): void {
   }
 
