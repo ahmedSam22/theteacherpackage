@@ -149,9 +149,12 @@ export class AddStudentComponent implements OnInit {
             title: 'Success',
             text: res.message,
             icon: 'success',
-            confirmButtonColor: '#4AB673',
+            confirmButtonColor: '#37B673',
           }) 
-          this.router.navigate(['../home/class-student/search'])
+          setTimeout(() =>{
+            this.router.navigate(['../home/class-student/search'])
+            },1500);
+         
         }
      else {
       console.log("fail add student", res) ;
@@ -159,7 +162,7 @@ export class AddStudentComponent implements OnInit {
         title: 'Fail',
         text: res.errors[0],
         icon: 'error',
-        confirmButtonColor: '#4AB673',
+        confirmButtonColor: '#37B673',
       }) 
      }
       }) 

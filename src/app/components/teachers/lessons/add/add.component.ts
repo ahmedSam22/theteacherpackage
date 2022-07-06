@@ -60,16 +60,33 @@ export class AddComponent implements OnInit {
       // console.log("end date",this.end )
       // console.log("date",this.date )
       this.teacherservice.createLesson(myForm).subscribe((res:any)=>{
-        console.log("create lesson",res)
-        Swal.fire(
-          `Lesson Added Successfully `,
-          ``,
-          `success`
-          )
-      })
-      setTimeout(() =>{
-        this.router.navigate(['../home/class-student/class-schedual'])
-        },1500);
+        console.log( "lesson",res)
+        if(res.status==true) {
+          console.log("create lesson",res)
+          Swal.fire({
+              title: 'Success'  ,
+              text: 'Lesson Added Successfully '  ,
+              icon: 'success',
+              confirmButtonColor: '#37B673',
+            }) 
+          setTimeout(() =>{
+          this.router.navigate(['../home/class-student/class-schedual'])
+          },1500);
+    
+        }
+        else {
+          console.log("can't create lesson",res)
+          for (let i=0 ; i<res.errors.length ; i++){
+             Swal.fire({
+              title: 'Fail'  ,
+              text: res.errors[i] ,
+              icon: 'error',
+              confirmButtonColor: '#37B673',
+            }) 
+          }
+         
+        }
+        })
     
     }
 }

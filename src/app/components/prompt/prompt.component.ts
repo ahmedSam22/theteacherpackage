@@ -2,6 +2,7 @@
 
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 import { DialogComponent } from '../dialog/dialog.component';
 import { TeacherService } from '../teachers/teacher.service';
 
@@ -37,7 +38,31 @@ export class PromptComponent implements OnInit {
       }
       console.log("form",form)
        this.teacherservice.setNegativeBehaviorAlert(this.class_id,this.in_val).subscribe((res:any)=>{
-        console.log("add limit",res)
+         setTimeout(() =>{    
+          this.dialogRef.close() ;
+           },2000);
+        if(res.status==true){
+          console.log("add limit",res)
+          // setTimeout(() =>{  
+            Swal.fire({
+             title: res.message,
+             text: 'success',
+             icon: 'success',
+             confirmButtonColor: '#37B673',
+           }) 
+          // },2000);
+         }
+        else {
+          setTimeout(() =>{    
+            this.dialogRef.close() ;
+             },2000);
+             Swal.fire({
+              title:'Fail',
+              text: 'Please Add Negative Behavior Limit',
+              icon: 'error',
+              confirmButtonColor: '#37B673',
+            }) 
+        }
        })
 
       }
@@ -49,7 +74,31 @@ export class PromptComponent implements OnInit {
           }
           console.log("ffffff", form)
         this.teacherservice.createBehavior(form).subscribe((res:any)=>{
-          console.log("add Behavior",res)
+          setTimeout(() =>{    
+            this.dialogRef.close() ;
+             },2000);
+          if(res.status==true){
+            console.log("add limit",res)
+           
+              Swal.fire({
+               title: 'Behavior Create Successfully',
+               text: 'success',
+               icon: 'success',
+               confirmButtonColor: '#37B673',
+             }) 
+          
+           }
+          else {
+            setTimeout(() =>{    
+              this.dialogRef.close() ;
+               },2000);
+               Swal.fire({
+                title:'Fail',
+                text: 'Please Add Behavior',
+                icon: 'error',
+                confirmButtonColor: '#37B673',
+              }) 
+          }
         })
         
       }
