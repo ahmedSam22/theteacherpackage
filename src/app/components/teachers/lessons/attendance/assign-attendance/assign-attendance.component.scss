@@ -9,7 +9,7 @@ ul{
     li{
         opacity: .5;
         cursor: pointer;
-        :focus{
+        &:focus{
             opacity: 1;
         }
     }

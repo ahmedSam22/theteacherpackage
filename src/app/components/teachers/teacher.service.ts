@@ -174,7 +174,7 @@ deleteLesson(id:number){
   }
 
   getAllStudentAttendance(id:number){
-    return this.http.get(`https://elmo3lem.scarksa.com/public/api/teacher/attendances/all?lesson_id=${id}`);
+    return this.http.get(`${environment.endpoint}/teacher/attendances/all?lesson_id=${id}`);
   
     }
 
@@ -183,9 +183,11 @@ deleteLesson(id:number){
     
       }
 
-      assignAttendance(form:any){
-      return this.http.post(`${environment.endpoint}/teacher/attendance/create`,form);
+    
 
+
+      assignAttendance(form:any){
+        return this.http.post(`${environment.endpoint}/teacher/attendance/create`,form);
       }
 
 

@@ -1,11 +1,15 @@
 <div class="w-100">
-    <div class="w-100 d-flex justify-content-around">
+    <div class="w-100 d-flex justify-content-between col-md-9 offset-3 mb-2">
         <span>{{this.data.full_name}}</span>
         <span>DONE</span>
     </div>
 <ul class="pl-0">
     <li *ngFor="let case of allAttendanceCases"
+      (click)="setColor(case.id)"
+
+        [value]="case.id"
     class="d-flex align-items-center mb-1"
+    (click)="setatt()"
     >
         <div
         class="color"
