@@ -1,3 +1,4 @@
+import { SettingsComponent } from './components/teachers/lessons/attendance/settings/settings.component';
 import { AttendanceComponent } from './components/teachers/lessons/attendance/attendance.component';
 import { EditClassComponent } from './components/teachers/class-student/edit-class/edit-class.component';
 import { AddClassComponent } from './components/teachers/class-student/add-class/add-class.component';
@@ -53,6 +54,7 @@ const routes: Routes = [
       { path: 'class-add', component: AddClassComponent },
       { path: 'class-edit', component: EditClassComponent },
       {path : 'behavior-setting' , component:BehaviorSettingComponent},
+      {path : 'attendance-setting' , component:SettingsComponent},
       { path: 'reports', component: ReportsComponent },
       { path: 'teachers', component: TeachersComponent },
       { path: 'students', component: StudentsComponent },

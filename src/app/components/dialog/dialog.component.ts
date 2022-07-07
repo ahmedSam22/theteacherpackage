@@ -18,9 +18,14 @@ export class DialogComponent implements OnInit {
 
  
   ngOnInit(): void {
-  }
 
+  }
   deleteDialog(id:number){
+    if(this.data.from == "attendance"){
+      this.teacherservice.deleteAttendanceCase(this.data.id).subscribe(_=>{})
+    }else{
+      this.deleteDialog(this.data.id)
+    }
     console.log("id",typeof(id))
     this.teacherservice.deleteLesson(id).subscribe(res=>{
       console.log("Delete Dialog",res)

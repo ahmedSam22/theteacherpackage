@@ -189,7 +189,22 @@ deleteLesson(id:number){
       assignAttendance(form:any){
         return this.http.post(`${environment.endpoint}/teacher/attendance/create`,form);
       }
+      
+      assignAllStudentAttendance(lesson_id:any,case_id:any){
+        return this.http.get(`${environment.endpoint}/teacher/attendance/add/students/all?lesson_id=${lesson_id}&attendance_case_id=${case_id}`);
+      }
 
+      createAttendance(form:any){
+        return this.http.post(`${environment.endpoint}/teacher/attendance/case/create`,form);
+      }
+
+      deleteAttendanceCase(id:any){
+        return this.http.delete(`${environment.endpoint}/teacher/attendance/case/delete?attendance_case_id=${id}`);
+      }
+
+      updateAttendance(form:any){
+        return this.http.post(`${environment.endpoint}/teacher/attendance/case/update`,form);
+      }
 
   /* ---------- Behavior -----------*/
   getAllBehaviors(){

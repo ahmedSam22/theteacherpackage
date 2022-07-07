@@ -1,0 +1,60 @@
+.card {
+    border: none !important;
+    border-radius: 15px;
+    .card-body {
+    border: none !important;
+    background-color: inherit !important;
+
+      input::placeholder {
+        font-size: 12px;
+      }
+      select {
+        color: #fafafa;
+        font-size: 12px;
+      }
+  
+      input,
+      select {
+        background-color: #fafafa;
+        color: grey;
+      }
+      option {
+        background-color: white;
+        font-size: 12px;
+        // color: grey;
+      }
+      .infoButtons {
+        .active {
+          border-color: #37b673;
+          color: #37b673;
+        }
+        button {
+          color: #b1b1b1;
+        }
+        // div:nth-of-type(1) button {
+        //     border-color: #37B673;
+        //     color:#37B673
+        //   }
+        //   div:nth-of-type(2) button{
+        //     border-color: #B1B1B1;
+        //     color: #B1B1B1;
+        //   }
+      }
+    }
+  }
+  
+  .colorContainer{
+      background-color: #FAFAFA;
+      border-radius: 10px;
+  &__circle {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      :focus{
+          content: "hhhhh";
+      }
+    }
+  }
+  
+  

@@ -1,3 +1,4 @@
+import { AssignAllAttendanceComponent } from './assign-all-attendance/assign-all-attendance.component';
 import { AssignAttendanceComponent } from './assign-attendance/assign-attendance.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -40,21 +41,34 @@ export class AttendanceComponent implements OnInit {
       
     })
 
-    this.service.getAllStudentAttendance(this.lessonId).subscribe((res:any)=>{
-      console.log(res);
-      this.allStudentAttendance = res.data
-      
-      console.log(this.allStudentAttendance , "testtttttttttt")
-    })
+    this.showStudent()
 
 
   }
-
+showStudent(){
+  this.service.getAllStudentAttendance(this.lessonId).subscribe((res:any)=>{
+    console.log(res);
+    this.allStudentAttendance = res.data
+    
+    console.log(this.allStudentAttendance , "testtttttttttt")
+  })
+}
   addStudentAttendance(student:any){
     const dialogRef = this.dialog.open(AssignAttendanceComponent, {
       data:student,
      });
-    // console.log("idddddd",student)
+    dialogRef.afterClosed().subscribe(() => this.showStudent());
+  }
+
+  addAllStudentsAttendance(){
+    const dialogRef = this.dialog.open(AssignAllAttendanceComponent, {
+     });
+    dialogRef.afterClosed().subscribe(() => this.showStudent());
+  }
+
+
+  forPrint(){
+    window.print()
   }
 
 }

@@ -63,6 +63,10 @@ import { BehaviorSettingComponent } from './components/teachers/behavior-setting
 // import { AddStudentBehaviorComponent } from './components/teachers/add-behavior/add-behavior.component';
 import { EditClassComponent } from './components/teachers/class-student/edit-class/edit-class.component';
 import { AttendanceComponent } from './components/teachers/lessons/attendance/attendance.component';
+import { SettingsComponent } from './components/teachers/lessons/attendance/settings/settings.component';
+import { AddAttendanceComponent } from './components/teachers/lessons/attendance/add-attendance/add-attendance.component';
+import { EditAttendanceComponent } from './components/teachers/lessons/attendance/edit-attendance/edit-attendance.component';
+import { AssignAllAttendanceComponent } from './components/teachers/lessons/attendance/assign-all-attendance/assign-all-attendance.component';
  
 @NgModule({
   declarations: [
@@ -94,7 +98,11 @@ import { AttendanceComponent } from './components/teachers/lessons/attendance/at
     AddStudentBehaviorComponent,
     EditClassComponent,
     AttendanceComponent,
- AssignAttendanceComponent
+ AssignAttendanceComponent,
+ SettingsComponent,
+ AddAttendanceComponent,
+ EditAttendanceComponent,
+ AssignAllAttendanceComponent
  
    
   ],
