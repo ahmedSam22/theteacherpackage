@@ -1,20 +1,30 @@
+$theme-colors: (
+  "primary": #37B673,
+  "danger":#FF0000,
+  "blue" : #6BB4CB,
+  "secondary" : #F9F9F9,
+);
+
+
+@import "node_modules/bootstrap/scss/bootstrap";
 @import '~ngx-toastr/toastr';
 
-@font-face {
-    font-family: 'Noto Sans Kufi Arabic';
-    font-style: normal;
-    font-weight: 400;
-    src: url(/assets/fonts/custom/ArbFONTS-NotoKufiArabic-Regular.ttf);
-  }
-  @font-face {
-    font-family: 'Noto Sans Kufi Arabic';
-    font-style: normal;
-    font-weight: 700;
-    src: url(/assets/fonts/custom/ArbFONTS-NotoKufiArabic-Bold.ttf);
-  }
+// @font-face {
+//     font-family: 'Noto Sans Kufi Arabic';
+//     font-style: normal;
+//     font-weight: 400;
+//     src: url(/assets/fonts/custom/ArbFONTS-NotoKufiArabic-Regular.ttf);
+//   }
+//   @font-face {
+//     font-family: 'Noto Sans Kufi Arabic';
+//     font-style: normal;
+//     font-weight: 700;
+//     src: url(/assets/fonts/custom/ArbFONTS-NotoKufiArabic-Bold.ttf);
+//   }
+
   html:lang(ar){
     body,html,mat-form-field{
-        font-family: 'Noto Sans Kufi Arabic', Courier, monospace !important;
+        // font-family: 'Noto Sans Kufi Arabic', Courier, monospace !important;
         direction: ltr;
         // text-align: right ;
       }

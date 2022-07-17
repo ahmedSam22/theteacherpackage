@@ -8,44 +8,31 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import { FacebookAuthProvider } from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable({ providedIn: "root" })
+
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
 
   constructor(private router: Router, private http: HttpClient, public afAuth: AngularFireAuth) {
-    this.currentUserSubject = new BehaviorSubject<any>(
-      JSON.parse(localStorage.getItem(`${environment.currentUserKey}`) || "{}")
-    );
+    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem(`${environment.currentUserKey}`) || "{}"));
     this.currentUser = this.currentUserSubject.asObservable();
   }
+
   public get currentUserValue(): any {
-    if (this.currentUserSubject.value != null) {
-      return this.currentUserSubject.value;
-    }
+    if(this.currentUserSubject.value != null) { return this.currentUserSubject.value }        
   }
+
   login(form:any) {
     const formData: FormData = new FormData();
     formData.append("email_or_phone", form.email_or_phone);
     formData.append("password", form.password);
-    return this.http
-      .post(`${environment.endpoint}/teacher/signin`, formData)
-      .pipe(
-        map((user?: any) => {
-          console.log("userrrrrrrr", user);
-          console.log(user);
-          console.log(user);
-          console.log(user);
-          if (user && user.data?.access_token) {
-            localStorage.setItem(
-              `${environment.currentUserKey}`,
-              JSON.stringify(user)
-            );
-            this.currentUserSubject.next(user);
-          }
-          return user;
+    return this.http.post(`${environment.endpoint}/teacher/signin`, formData)
+      .pipe(map((user: any) => {
+        if (user && user.data.token) {
+          localStorage.setItem(`${environment.currentUserKey}`, JSON.stringify(user));
+          this.currentUserSubject.next(user.data);
+            } return user;
         })
       );
   }
@@ -58,40 +45,27 @@ export class AuthenticationService {
     formData.append("phone", form.phone);
     formData.append("password", form.password);
     formData.append("confirm_password", form.confirm_password);
-
-    return this.http
-      .post(`${environment.endpoint}/teacher/signup`, formData)
-      .pipe(
-        map((user: any) => {
-          console.log("sign up user", user);
-          console.log(user);
-          console.log(user);
-          console.log(user);
-
-          if (user && user.data?.access_token) {
-            localStorage.setItem(
-              `${environment.currentUserKey}`,
-              JSON.stringify(user)
-            );
-      this.verify(`0096 ${form.phone}`)
-            this.currentUserSubject.next(user);
-          }
-          return user;
+    return this.http.post(`${environment.endpoint}/teacher/signup`, formData).pipe(map((user: any) => {
+      this.http.post(`${environment.endpoint}/sms/send`, form).pipe(map((response?: any) => {
+        if (user && user.data?.access_token) {
+          localStorage.setItem(`${environment.currentUserKey}`,JSON.stringify(user));
+          // this.verif/y(`0096 ${form.phone}`)
+          this.currentUserSubject.next(user);
+        }
+        return user;
+      })
+    );
         })
       );
   }
 
   verify(form:any) {
-    return this.http
-      .post(`${environment.endpoint}/sms/send`, form)
-      .pipe(
-        map((user?: any) => {
-
-          return user;
+    return this.http.post(`${environment.endpoint}/sms/send`, form).pipe(map((response?: any) => {
+          return response;
         })
       );
-      
   }
+
   confirmVerify(form:any) {
     return this.http
       .post(`${environment.endpoint}/sms/confirm`, form)
