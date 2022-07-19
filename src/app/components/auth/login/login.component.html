@@ -1,13 +1,21 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xl-5 p-0">
+    <div class="col-xl-6 p-0">
       <div class="login-card">
         <div>
           <div class="login-main">
-            <div class="text-center my-4 logoImg">  <img class="img-fluid " src="../../../../assets/images/logo/logoo.png" alt="looginpage" height="100px" width="100px">  </div>
-          <form class="theme-form" [formGroup]="form" >
-              <h3 class="text-left my-4">  Welcome Back !</h3>
-           
+            <div class="text-center my-4 logoImg">
+              <img
+                class="img-fluid"
+                src="../../../../assets/images/logo/logoo.png"
+                alt="looginpage"
+                height="100px"
+                width="100px"
+              />
+            </div>
+            <form class="theme-form" [formGroup]="form">
+              <h3 class="text-left my-4">Welcome Back !</h3>
+
               <div class="form-group text-muted text-left">
                 <label class="col-form-label"> Mobile number or Email</label>
 
@@ -34,8 +42,7 @@
                   </p>
                 </div>
               </div>
-              <div class="form-group text-muted text-left"  >
-              
+              <div class="form-group text-muted text-left">
                 <label class="col-form-label">Password</label>
                 <input
                   class="form-control text-left"
@@ -45,36 +52,63 @@
                   required=""
                   placeholder="*********"
                   formControlName="password"
-                  />
-                  <div class="show-hide text-right"><span (click)="togglePassword = !togglePassword" [ngClass]="{'show': !togglePassword}"></span></div>
+                />
+                <div class="show-hide text-right">
+                  <span
+                    (click)="togglePassword = !togglePassword"
+                    [ngClass]="{ show: !togglePassword }"
+                  ></span>
+                </div>
                 <div
                   *ngIf="submitted && f.password.errors"
-                  class="errors-container mt-2" >
+                  class="errors-container mt-2"
+                >
                   <p class="error-element" *ngIf="f.password.errors.required">
                     *this is required field
                   </p>
                 </div>
               </div>
-              <div class="form-group mb-4 ">
-                <div class="text-right">  <a class="text-muted my-4 " href="" [routerLink]="['/auth/forgetpassword']" >forget password ?</a></div>
-                 
-                <button class="btn btn-primary btn-block my-4" type="submit" (click)="submit()"> Sign in  </button>
+              <div class="form-group mb-4">
+                <div class="text-right">
+                  <a
+                    class="text-muted my-4"
+                    href=""
+                    [routerLink]="['/forgetpassword']"
+                    >forget password ?</a
+                  >
+                </div>
 
-                <div class=" text-center"> <span class="text-muted">Don't have an account ?<a href="" class="goSign" [routerLink]="['auth/signup']"> Sign Up </a> </span></div> 
+                <button
+                  class="btn btn-primary btn-block text-light my-4"
+                  type="submit"
+                  (click)="submit()"
+                >
+                  Sign in
+                </button>
+
+                <div class="text-center">
+                  <span class="text-muted"
+                    >Don't have an account ?<a
+                      href=""
+                      class="goSign"
+                      [routerLink]="['signup']"
+                    >
+                      Sign Up
+                    </a>
+                  </span>
+                </div>
               </div>
 
               <!-- <div class="dropdown-divider"> </div>  -->
-             
+
               <!-- <div class="dropdown-divider"> </div> -->
               <div class="form-group my-4">
                 <h6 class="text-center"><span class="orstyle">OR</span></h6>
                 <button
                   class="btn btn-block"
                   type="submit"
-                  style="background-color: #3b5998 ; color:white"
+                  style="background-color: #3b5998; color: white"
                   (click)="facebookLogin()"
-
-                  
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +128,7 @@
                 <button
                   class="btn btn-block"
                   type="submit"
-                  style="background-color: #dd4b39; color:white"
+                  style="background-color: #dd4b39; color: white"
                   (click)="googleLogin()"
                 >
                   <svg
@@ -117,33 +151,18 @@
               <!-- <p class="mt-4 mb-0">ليس لديك حساب؟<a class="ml-2" href="javascript:void(0)">إنشاء حساب الآن</a></p> -->
             </form>
           </div>
-
         </div>
       </div>
     </div>
-  
-  
-    <div class= "col-xl-7 b-center bg-size caroSlider"> 
-      <!-- <carousel 
-      style="height:100% ; z-index:-1000"
-      [cellsToShow]="1"
-      [counter]="false"
-      [dots]="true"
-      [loop]="true"
-      [lightDOM]="true"
-      [autoplay]="true"
-      [autoplayInterval]="2000"
-      [pauseOnHover]="true"
-      [transitionDuration]="2000"
-      [transitionTimingFunction]="'ease-in-out'"
-      [arrows]="false"
-      [arrowsOutside]="false"
-      [arrowsTheme]="'light'">
-      <div class="carousel-cell" *ngFor="let project of imageSources">
-          <a class="projectImgContainer" >
-               <div style="display:flex;justify-content: center;"><img [src]="project.path" class="img-fluid rightMokap" height="auto" width="100%" style="object-fit:cover; position: absolute;"></div>
-            </a>
+
+    <div class="col-xl-6 b-center bg-size caroSlider">
+      <div>
+        <owl-carousel-o [options]="customOptions">
+          <ng-template carouselSlide *ngFor="let project of imageSources">
+            <img [src]="project.path" class="" />
+          </ng-template>
+        </owl-carousel-o>
       </div>
-     </carousel> -->
-      </div>
+    </div>
+  </div>
 </div>

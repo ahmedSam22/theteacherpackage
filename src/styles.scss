@@ -26,6 +26,7 @@ $theme-colors: (
     body,html,mat-form-field{
         // font-family: 'Noto Sans Kufi Arabic', Courier, monospace !important;
         direction: ltr;
+        
         // text-align: right ;
       }
       .toast-error{
@@ -197,3 +198,11 @@ color:inherit
   color:inherit
   }
  
+  body{
+    background-color: #f9f9f9;
+
+  }
+
+  .btn{
+    font-size: .8rem;
+  }

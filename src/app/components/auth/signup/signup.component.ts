@@ -18,25 +18,29 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class SignupComponent implements OnInit {
   customOptions: OwlOptions = {
-    loop: true,
+    items : 1,
+    loop: false,
     mouseDrag: false,
     touchDrag: false,
+    center : true,
+    slideBy : 1,
+    dots : true,
     pullDrag: false,
-    dots: false,
+    // dots: false,
     navSpeed: 700,
-    navText: ['', ''],
+    // navText : ["hide"],
     responsive: {
       0: {
-        items: 1
+        // items: 1
       },
       400: {
-        items: 2
+        // items: 2
       },
       740: {
-        items: 3
+        // items: 3
       },
       940: {
-        items: 4
+        // items: 4
       }
     },
     nav: true

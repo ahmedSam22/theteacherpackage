@@ -66,3 +66,17 @@
     display: block;
 }
 }
+
+owl-carousel-o{
+    position: relative;
+    ::ng-deep.owl-nav{
+    display: none !important;
+  }
+
+  ::ng-deep.owl-dots{
+    position: absolute !important;
+    bottom: 70px;
+    left: 45%;
+  }
+  }
+  

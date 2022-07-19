@@ -1,7 +1,7 @@
 import { AssignAttendanceComponent } from './components/teachers/lessons/attendance/assign-attendance/assign-attendance.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxSpinnerModule } from "ngx-spinner";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';

@@ -21,7 +21,7 @@ import { AuthModule } from './components/auth/auth.module';
 
 const routes: Routes = [
   {
-    path: 'auth',
+    path: '',
     loadChildren: () => AuthModule
   },
 

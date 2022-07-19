@@ -1,52 +1,75 @@
-h6{
-    margin:20px auto ;
-    max-width: 100px;
-    text-align: center;
-    color: #a39999;
+h6 {
+  margin: 20px auto;
+  max-width: 100px;
+  text-align: center;
+  color: #a39999;
 }
 
 h6:before {
-  content:"";
+  content: "";
   display: block;
   width: 150px;
   height: 2px;
   background: #cbcbcb;
   position: absolute;
   left: 0px;
-  top:5%; 
-  z-index: 2 ;
+  top: 5%;
+  z-index: 2;
 }
-h6:after{
-   content:"";
-   display: block;
-   width: 150px;
-   height: 2px;
-   background: #cbcbcb;
-   position: absolute;
-   right: 0px;
-   top:5%; 
-    z-index: 2 ;
+h6:after {
+  content: "";
+  display: block;
+  width: 150px;
+  height: 2px;
+  background: #cbcbcb;
+  position: absolute;
+  right: 0px;
+  top: 5%;
+  z-index: 2;
 }
-.recode{
-    color:#37B673;
-    cursor: pointer;
+.recode {
+  color: #37b673;
+  cursor: pointer;
 }
-span{
-    background: #fff;
+span {
+  background: #fff;
 }
 
-@media (max-width: 575.98px) { 
-   h6:before { 
-       width: 100px;
-   }
-   h6:after{
-       width: 100px;
-   }
- }
+@media (max-width: 575.98px) {
+  h6:before {
+    width: 100px;
+  }
+  h6:after {
+    width: 100px;
+  }
+}
 
- //////////////////////////////////////
- body{background-color:red}.height-100{height:100vh}.card{width:400px;border:none;height:300px;box-shadow: 0px 5px 20px 0px #d2dae3;z-index:1;display:flex;justify-content:center;align-items:center}.card h6{color:red;font-size:20px}.inputs input{width:40px;height:40px}
- 
+//////////////////////////////////////
+body {
+  background-color: red;
+}
+.height-100 {
+  height: 100vh;
+}
+.card {
+  width: 400px;
+  border: none;
+  height: 300px;
+  box-shadow: 0px 5px 20px 0px #d2dae3;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card h6 {
+  color: red;
+  font-size: 20px;
+}
+.inputs input {
+  width: 40px;
+  height: 40px;
+}
+
 //  .verifyIn{
 //     background-color: white;
 //      border-top: none ;
@@ -63,3 +86,21 @@ span{
 //     border-bottom-color:grey;
 //     border-radius: 0px;
 //  }
+
+owl-carousel-o {
+  position: relative;
+  ::ng-deep.owl-nav {
+    display: none !important;
+  }
+
+  ::ng-deep.owl-dots {
+    position: absolute !important;
+    bottom: 70px;
+    left: 45%;
+  }
+}
+
+::ng-deep.otp-input {
+  margin-right: 0 !important;
+  margin: 5px;
+}

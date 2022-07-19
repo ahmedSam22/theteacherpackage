@@ -12,6 +12,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { NgOtpInputModule } from  'ng-otp-input';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -30,7 +32,10 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    CarouselModule
+    CarouselModule,
+    NgOtpInputModule,
+    NgxSpinnerModule
+
   ],
   providers:[]
 })
