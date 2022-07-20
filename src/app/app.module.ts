@@ -68,6 +68,15 @@ import { NotFoundGradeComponent } from './components/teachers/class-grades/not-f
 
 import { AddMainItemComponent } from './components/teachers/class-grades/add-main-item/add-main-item.component';
 import { AddSubItemComponent } from './components/teachers/class-grades/add-sub-item/add-sub-item.component';
+import { EditGradesComponent } from './components/teachers/class-grades/edit-grades/edit-grades.component';
+import { GradeDetailsComponent } from './components/teachers/class-grades/grade-details/grade-details.component';
+import { EditGradeImageComponent } from './components/teachers/class-grades/edit-grade-image/edit-grade-image.component';
+import { DeleteGradeComponent } from './components/teachers/class-grades/delete-grade/delete-grade.component';
+import { UpdateMainItemComponent } from './components/teachers/class-grades/update-main-item/update-main-item.component';
+import { GradeStudentComponent } from './components/teachers/class-grades/grade-student/grade-student.component';
+import { DialogGradeComponent } from './components/teachers/class-grades/dialog-grade/dialog-grade.component';
+import { UpdateSubItemsWithoutMainComponent } from './components/teachers/class-grades/update-sub-items-without-main/update-sub-items-without-main.component';
+import { DialogSubItemsComponent } from './components/teachers/class-grades/dialog-sub-items/dialog-sub-items.component';
 
 @NgModule({
   declarations: [
@@ -103,8 +112,16 @@ import { AddSubItemComponent } from './components/teachers/class-grades/add-sub-
     NotFoundGradeComponent,
     AssignAttendanceComponent,
     AddMainItemComponent,
-    AddSubItemComponent
-
+    AddSubItemComponent,
+    EditGradesComponent,
+    GradeDetailsComponent,
+    EditGradeImageComponent,
+    DeleteGradeComponent,
+    UpdateMainItemComponent,
+    GradeStudentComponent,
+    DialogGradeComponent,
+    UpdateSubItemsWithoutMainComponent,
+    DialogSubItemsComponent,
   ],
   imports: [
     BrowserModule,

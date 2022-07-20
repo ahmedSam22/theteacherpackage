@@ -1,19 +1,44 @@
 
 <div class="example-container">
+  <div
+    class="" style="display: flex; justify-content: space-between; align-items: center;margin-bottom: 20px;">
+    <h6 class="">Add Sub Item</h6>
+    <div class="btn-close_popup_wrapper">
+      <button class="btn close btn-close_popup" mat-button mat-dialog-close>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-x"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
   <form [formGroup]="AddSubForm"  (ngSubmit)="onSubmit(AddSubForm.value)">
-  <mat-form-field appearance="fill">
+<div>
+  <mat-form-field appearance="outline">
     <mat-label>Evaluation item name</mat-label>
     <input matInput formControlName="evaluation_item_name">
+    <div  class="form-text text-danger mt-4" *ngIf="AddSubForm.get('evaluation_item_name')?.invalid &&AddSubForm.get('evaluation_item_name')?.touched ">
+      <p *ngIf="AddSubForm.get('evaluation_item_name')?.errors "> evaluation_item_name is required</p>
+    </div>
   </mat-form-field>
-  <mat-form-field appearance="fill">
+</div>
+  <mat-form-field appearance="outline">
     <mat-label>Add rating item</mat-label>
-    <mat-select #key  (valueChange)="mainitemChanged(key.value)" >
+    <mat-select class="choosetype" #key  (valueChange)="mainitemChanged(key.value)" >
       <mat-option value="1">Within a key component</mat-option>
       <mat-option value="2">Outside the main component</mat-option>
 
     </mat-select>
   </mat-form-field>
-  <mat-form-field appearance="fill" *ngIf="key.value==1">
+  <mat-form-field appearance="outline" *ngIf="key.value==1">
     <mat-label >Select</mat-label>
     <mat-select #name (valueChange)="getmainitem(name.value)" >
       <mat-option  [value]="item" *ngFor="let item of GradesList">{{item.title}}</mat-option>
@@ -21,7 +46,7 @@
     </mat-select>
   </mat-form-field>
 
-<mat-form-field appearance="fill" >
+<mat-form-field appearance="outline" >
   <mat-label >Select</mat-label>
   <mat-select #degree formControlName="evaluation_item_data_type">
     <mat-option value="1" >empty</mat-option>
@@ -29,31 +54,48 @@
     <mat-option value="3" >number</mat-option>
     <mat-option value="4" >two part</mat-option>
   </mat-select>
+  <div  class="form-text text-danger mt-4" *ngIf="AddSubForm.get('evaluation_item_data_type')?.invalid &&AddSubForm.get('evaluation_item_data_type')?.touched ">
+    <p *ngIf="AddSubForm.get('evaluation_item_data_type')?.errors "> evaluation_item_data_type is required</p>
+  </div>
 </mat-form-field>
-<mat-form-field appearance="fill" *ngIf="degree.value==2" >
+<mat-form-field appearance="outline" *ngIf="degree.value==2" >
 
-  <mat-label>max degree</mat-label>
+  <mat-label>max degree percentage</mat-label>
   <input matInput formControlName="first_option">
-
+  <div  class="form-text text-danger mt-4" *ngIf="AddSubForm.get('first_option')?.invalid &&AddSubForm.get('first_option')?.touched ">
+    <p *ngIf="AddSubForm.get('first_option')?.errors "> max degree percentage is required</p>
+  </div>
   </mat-form-field>
-  <mat-form-field appearance="fill" *ngIf="degree.value==2">
+  <mat-form-field appearance="outline" *ngIf="degree.value==2">
     <mat-label>element percentage</mat-label>
     <input matInput formControlName="second_option">
-
+    <div  class="form-text text-danger mt-4" *ngIf="AddSubForm.get('second_option')?.invalid &&AddSubForm.get('second_option')?.touched ">
+      <p *ngIf="AddSubForm.get('second_option')?.errors "> element percentage is required</p>
+    </div>
 </mat-form-field>
-<mat-form-field appearance="fill"*ngIf="degree.value==4">
+<mat-form-field appearance="outline"*ngIf="degree.value==4">
 
   <mat-label>frist option</mat-label>
   <input matInput formControlName="first_option">
-
+  <div  class="form-text text-danger mt-4" *ngIf="AddSubForm.get('first_option')?.invalid &&AddSubForm.get('first_option')?.touched ">
+    <p *ngIf="AddSubForm.get('first_option')?.errors "> frist option is required</p>
+  </div>
 
 </mat-form-field>
-<mat-form-field appearance="fill"*ngIf="degree.value==4">
+<mat-form-field appearance="outline"*ngIf="degree.value==4">
   <mat-label>secont option</mat-label>
   <input matInput formControlName="second_option">
+  <div  class="form-text text-danger mt-4" *ngIf="AddSubForm.get('second_option')?.invalid &&AddSubForm.get('second_option')?.touched ">
+    <p *ngIf="AddSubForm.get('second_option')?.errors "> secont option is required</p>
+  </div>
 </mat-form-field>
 <div class="form-group">
-<button [disabled]="AddSubForm.invalid" class="btn btn-primary" type="submit">add item</button>
+<button [disabled]="AddSubForm.invalid" class="btn btn-primary" style="width: 100%;" type="submit">add item</button>
 </div>
 </form>
 </div>
+
+
+
+
+

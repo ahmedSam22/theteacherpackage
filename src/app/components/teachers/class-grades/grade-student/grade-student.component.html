@@ -1,0 +1,76 @@
+<section class="grade-students">
+  <div class="container">
+  <div class="row">
+    <div class="col-xl-6 col-md-6">
+<h3>{{title}}</h3>
+    </div>
+    <div class="col-xl-6 col-md-6">
+     <div class="d-flex justify-content-end">
+<button (click)=" savedegree()">save</button>
+<button (click)=" insert()">select</button>
+<button>print</button>
+
+     </div>
+          </div>
+          <div class="col-xl-12">
+            <table class="table table-bordered table-striped table-hover">
+              <thead>
+                <th class="first-col">student name</th>
+                <th (click)="getsubItem(item)" *ngFor="let item of main let index=index">
+                  {{item.evaluation_item_name}}
+                        </th>
+              </thead>
+              <tbody>
+                <ng-container  >
+            <tr  *ngFor="let item of student ;let i=index" [attr.data-index]="i">
+              <td class="first-col">{{item.first_name}}</td>
+              <td  *ngFor="let car of main">
+                <span *ngIf="car.students[i].grade , else elseBlock">
+               <span (blur)="getDgree($event);save()"(click)="getsubItem(car); getstudent(car.students[i])"  contentEditable="true"> {{car.students[i].grade.grade_value}}</span>/{{car.first_option}}</span>
+                <ng-template #elseBlock> <span  (blur)=" getDgree($event);save()"(click)="getsubItem(car); getstudent(car.students[i])" contentEditable="true">-</span>/{{car.first_option}}</ng-template>
+              </td>
+            </tr>
+            </ng-container>
+              </tbody>
+            </table>
+
+
+          </div>
+  </div>
+</div>
+</section>
+
+
+
+
+<!-- <ng-container *ngFor="let item of main">
+  <tr class="pointer" *ngFor="let sub of item.students">
+    <td>{{sub}}</td>
+  </tr>
+</ng-container> -->
+
+<!-- <button (click)=" insert()">save</button>
+<table>
+  <thead>
+    <tr>
+      <th (click)="log(item)" *ngFor="let item of main let index=index">
+{{item.evaluation_item_name}}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container  >
+<tr  *ngFor="let item of student ;let i=index" [attr.data-index]="i">
+  <td  *ngFor="let car of main"(click)="log(item)">{{car.students[i].grade.grade_value}}/{{car.first_option}}</td>
+</tr>
+</ng-container>
+  </tbody>
+</table> -->
+
+  <!-- <table style="width:100%">
+    <tr ng-repeat="(key,values) in data[0]">
+      <th>{{key}}</th>
+      <td ng-repeat="(key, value) in values[0]">{{value}}</td>
+    </tr>
+  </table> -->
+

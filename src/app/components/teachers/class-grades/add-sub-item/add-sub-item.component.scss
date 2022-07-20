@@ -1,5 +1,54 @@
-.example-container , form {
+.example-container{
+  max-height: 80vh;
+
+
+}
+.btn-close_popup_wrapper {
+  background: #EBEBEB;
+  width: 27px;
+  height: 27px;
+  border-radius:50%;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+}
+.btn-close_popup_wrapper button {
+  display: flex;
+}
+form{
+  padding: 10px 0px ;
+}
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex:hover,
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex{
+    background-color:#FAFAFA!important;
+    border-radius:8px;
+    border: 1px solid #E9EAEC;
+    box-shadow: 0 6px 20px rgba(0,0,0,3%);
+    height: 56px;
+    font-size: 12px;
+}
+::ng-deep .mat-select-panel:not([class*=mat-elevation-z]) {
+  box-shadow: 0 6px 20px rgba(0,0,0,3%);
+  background: #fff;
+}
+::ng-deep .mat-select-panel .mat-option {
+  text-align: center;
+}
+
+:host ::ng-deep div.mat-form-field-outline-start{
+  border-color: 0 !important;
+  border-width: 0px !important;
+}
+
+:host ::ng-deep .mat-form-field-outline-gap{
+  border-color: 0 !important;
+  border-width: 0px !important;
+}
+
+:host ::ng-deep .mat-form-field-outline-end{
+  border-color: 0 !important;
+  border-width: 0px !important;
+}
+:host ::ng-deep .mat-input-element.mat-form-field-autofill-control.ng-tns-c104-2 .ng-valid {
+background: none !important;
 }

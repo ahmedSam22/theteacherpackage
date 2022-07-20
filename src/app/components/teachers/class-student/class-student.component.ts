@@ -1,3 +1,4 @@
+import { EditGradeImageComponent } from './../class-grades/edit-grade-image/edit-grade-image.component';
 import { AddSubItemComponent } from './../class-grades/add-sub-item/add-sub-item.component';
 import { AddMainItemComponent } from './../class-grades/add-main-item/add-main-item.component';
 import {
@@ -32,10 +33,13 @@ export class ClassStudentComponent implements OnInit,OnChanges {
   classStudents: any = [];
   searchResult: any;
   navigate = 'search';
-
+  GradesList:any[]= [];
+  outSiding:any[]=[];
+  show!: boolean;
+  hide!: boolean;
   class_id: any;
   sort = 0;
-
+  course_id:any=localStorage.getItem("course_id");
   hideCoursesAndBags: boolean = true;
   showstudents: boolean = true;
   showschedule: boolean = false;
@@ -56,6 +60,28 @@ export class ClassStudentComponent implements OnInit,OnChanges {
   ngOnChanges(){
   }
   ngOnInit(): void {
+    this.teacherservice.showGradeDetailsbyClassId(this.course_id).subscribe(data=>{
+      console.log(data);
+
+    this.GradesList = data.data.grade_main_items;
+    this.outSiding=data.data.grade_sub_items_without_main_item;
+    console.log(this.GradesList , this.GradesList.length);
+
+    localStorage.setItem("grade_id" , data.data.id)
+
+    if(this.GradesList.length>0){
+      this.show=false;
+      this.hide=true;
+
+    }else{
+      this.hide=false;
+      this.show=true
+
+    }
+    } , (err: { message: any; })=>{
+      console.log(err.message);
+
+    })
     // alert(this.attendance);
     let data = localStorage.getItem('class_id');
 
@@ -310,6 +336,11 @@ export class ClassStudentComponent implements OnInit,OnChanges {
 }
 AddSubItem(): void {
   const dialogRef = this.dialog.open(AddSubItemComponent , {
+
+  });
+}
+editgradeImage(): void {
+  const dialogRef = this.dialog.open(EditGradeImageComponent , {
 
   });
 }

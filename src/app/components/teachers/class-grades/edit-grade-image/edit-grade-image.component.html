@@ -1,0 +1,60 @@
+<section>
+<div class="container">
+  <div class="row d-flex align-items-center">
+    <div class="col-6">
+      <h5>Edit</h5>
+    </div>
+<div class="col-6 d-flex align-items-center justify-content-end">
+  <button class="btn btn-primary" (click)="save()" >save</button>
+</div>
+<div class="col-12">
+  <div class="card mb-3" style="background: none;border: none;box-shadow: none;">
+    <div class="avatar-upload mb-3">
+      <div class="avatar-edit">
+        <input type="file" #fileInput class="form-control" id="imageUpload"
+        (change)="select($event) ;selectImg($event)"
+         formControlName="image" accept=".png, .jpg, .jpeg" />
+        <label for="imageUpload"></label>
+      </div>
+      <div class="avatar-preview">
+        <div id="imagePreview" style="background-image: url({{url}});">
+          <!-- style="background-image: url({{url}});" -->
+        </div>
+      </div>
+    </div>
+      <!-- <img *ngIf="false" class="card-img-top" src="../../../../../assets/images/classes/Classroom-cuate.png" alt="Card image cap"> -->
+
+
+
+
+    <div class="card-body">
+      <form [formGroup]="gradeForm">
+        <div class="row">
+          <div class="col-12 mb-3">
+            <div class="form-group row justify-content-start py-1">
+
+            <div  formArrayName="titles"  class="col-md-12 " *ngFor="let item of getTitles.controls; let i = index" >
+              <input  *ngIf="getTitles.controls.length>0"
+                type="text"
+                class="form-control form-control-lg mt-1 input mb-3"
+                placeholder="Title of grade sheet (optional)"
+
+                [formControlName]="i"
+              />
+
+              <!-- <span class="text-danger" *ngIf="email_error">*This data is required.</span> -->
+            </div>
+          </div>
+          </div>
+          <div class="col-12">
+           <button class="add-input"  (click)="addCourse()">+ Add A Title</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+</section>

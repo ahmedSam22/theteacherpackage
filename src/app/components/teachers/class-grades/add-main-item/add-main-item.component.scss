@@ -1,5 +1,67 @@
-:host {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+
+.form-group{
+  position: relative;
+  padding: 10px 10px 0px;
+  background-color: #fbfbfb;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex:hover,
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex{
+    background-color:#FAFAFA!important;
+    border-radius:8px;
+    border: 1px solid #E9EAEC;
+    box-shadow: 0 6px 20px rgba(0,0,0,3%);
+    height: 56px;
+    font-size: 12px;
+}
+::ng-deep .mat-select-panel:not([class*=mat-elevation-z]) {
+  box-shadow: unset!important;
+  background: transparent;
+}
+.mat-option.mat-active {
+  background: rgba(0,0,0,.04);
+  color: rgba(0,0,0,.87);
+}
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0;
+}
+:host ::ng-deep div.mat-form-field-outline-start{
+  border-color: 0 !important;
+  border-width: 0px !important;
+}
+
+:host ::ng-deep .mat-form-field-outline-gap{
+  border-color: 0 !important;
+  border-width: 0px !important;
+}
+
+:host ::ng-deep .mat-form-field-outline-end{
+  border-color: 0 !important;
+  border-width: 0px !important;
+}
+:host ::ng-deep .mat-input-element.mat-form-field-autofill-control.ng-tns-c104-2 .ng-valid {
+background: none !important;
+}
+
+
+input , input:focus , select{
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background:none ;
+  width: 100%;
+}
+.btn{
+  width: 100%;
+}
+.btn-close_popup_wrapper {
+  background: #EBEBEB;
+  width: 27px;
+  height: 27px;
+  border-radius:50%;
+}
+.mat-option.mat-active {
+  background: transparent;
+  color: rgba(0,0,0,.87);
 }

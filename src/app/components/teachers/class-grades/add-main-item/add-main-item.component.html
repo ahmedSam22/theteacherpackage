@@ -1,17 +1,103 @@
-<form  [formGroup]="form"  (ngSubmit)="onSubmit(form.value)">
-<mat-form-field appearance="fill">
-  <mat-label >Input</mat-label>
-  <input matInput formControlName="title">
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>Select</mat-label>
-  <mat-select formControlName="calculating_method">
-    <mat-option value="1">First option</mat-option>
-  </mat-select>
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label >Textarea</mat-label>
-  <textarea formControlName="total" matInput></textarea>
-</mat-form-field>
-<button type="submit">ok</button>
-</form>
+<div class="container">
+  <div
+    class="" style="display: flex; justify-content: space-between; align-items: center;margin-bottom: 20px;">
+    <h6 class="">Add Main Item</h6>
+    <div class="btn-close_popup_wrapper">
+      <button class="btn close btn-close_popup" mat-button mat-dialog-close>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-x"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+        <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title">
+          <div  class="form-text text-danger mt-4" *ngIf="form.get('title')?.invalid &&form.get('title')?.touched ">
+            <p *ngIf="form.get('title')?.errors "> title is required</p>
+          </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" >
+          <mat-label >The method of calculating the degree</mat-label>
+          <mat-select #degree  formControlName="calculating_method">
+            <mat-option selected value="1">Precent</mat-option>
+          </mat-select>
+          <div  class="form-text text-danger mt-4" *ngIf="form.get('calculating_method')?.invalid &&form.get('calculating_method')?.touched ">
+            <p *ngIf="form.get('calculating_method')?.errors "> calculating_method is required</p>
+          </div>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Total</mat-label>
+          <input matInput  formControlName="total">
+          <div  class="form-text text-danger mt-4" *ngIf="form.get('total')?.invalid &&form.get('total')?.touched ">
+            <p *ngIf="form.get('total')?.errors "> total is required</p>
+          </div>
+        </mat-form-field>
+        <!-- <div class="mb-3 form-group">
+          <label class="form-label">Title</label>
+          <input type="text" class="form-control" formControlName="title" />
+        </div>
+        <div class="mb-3 form-group">
+          <div class="svg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="13.536"
+              height="7.518"
+              viewBox="0 0 13.536 7.518"
+            >
+              <path
+                id="Arrow_-_Left_2"
+                data-name="Arrow - Left 2"
+                d="M14.207,16.414,8.5,10.707,14.207,5"
+                transform="translate(-3.939 15.268) rotate(-90)"
+                fill="none"
+                stroke="#37b673"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+          </div>
+          <label class="form-label">The method of calculating the degree</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            formControlName="calculating_method"
+          >
+            <option selected value="1">Precent</option>
+          </select>
+        </div>
+        <div class="mb-3 form-group">
+          <div class="svg">
+            <span style="color: #37b673">%</span>
+          </div>
+          <label class="form-label">Total</label>
+          <input
+            type="text"
+            formControlName="total"
+            class="form-control"
+            aria-describedby="emailHelp"
+          />
+        </div> -->
+
+        <button [disabled]="form.invalid" type="submit" class="btn btn-primary">
+          Add Main Item
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

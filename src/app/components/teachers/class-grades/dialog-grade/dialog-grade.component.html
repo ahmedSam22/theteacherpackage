@@ -1,0 +1,62 @@
+
+<div *ngIf="show">
+<h2 mat-dialog-title>Install Angular</h2>
+<mat-dialog-content class="mat-typography" *ngIf="show">
+  <form [formGroup]="AddSubForm"  (ngSubmit)="onSubmit(AddSubForm.value)">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Evaluation item name</mat-label>
+        <input matInput formControlName="evaluation_item_name">
+      </mat-form-field>
+    </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Add rating item</mat-label>
+        <input matInput readonly value="Within a key component">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Main Item Name</mat-label>
+        <input matInput readonly [value]="main.title">
+      </mat-form-field>
+
+    <mat-form-field appearance="outline" >
+      <mat-label >Select</mat-label>
+      <mat-select #degree formControlName="evaluation_item_data_type">
+        <mat-option value="1" >empty</mat-option>
+        <mat-option value="2" >degree</mat-option>
+        <mat-option value="3" >number</mat-option>
+        <mat-option value="4" >two part</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" *ngIf="degree.value==2" >
+
+      <mat-label>max degree</mat-label>
+      <input matInput formControlName="first_option">
+
+      </mat-form-field>
+      <mat-form-field appearance="outline" *ngIf="degree.value==2">
+        <mat-label>element percentage</mat-label>
+        <input matInput formControlName="second_option">
+
+    </mat-form-field>
+    <mat-form-field appearance="outline"*ngIf="degree.value==4">
+
+      <mat-label>frist option</mat-label>
+      <input matInput formControlName="first_option">
+
+
+    </mat-form-field>
+    <mat-form-field appearance="outline"*ngIf="degree.value==4">
+      <mat-label>secont option</mat-label>
+      <input matInput formControlName="second_option">
+    </mat-form-field>
+    <div class="form-group">
+    <button [disabled]="AddSubForm.invalid" class="btn btn-primary" style="width: 100%;" type="submit">add item</button>
+    </div>
+    </form>
+</mat-dialog-content>
+<!-- <mat-dialog-actions >
+  <button mat-button mat-dialog-close></button>
+
+</mat-dialog-actions> -->
+</div>

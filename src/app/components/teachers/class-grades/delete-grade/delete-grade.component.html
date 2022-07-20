@@ -1,0 +1,315 @@
+<div class="container">
+  <div class="edit-grade">
+    <div class="row">
+      <div class="col-xl-6">
+        <div class="title">
+          <h5>
+            <svg
+              (click)="back()"
+              style="cursor: pointer"
+              class="mr-3"
+              xmlns="http://www.w3.org/2000/svg"
+              width="23"
+              height="23"
+              viewBox="0 0 23 23"
+            >
+              <g
+                id="Group_70371"
+                data-name="Group 70371"
+                transform="translate(-208 -163.21)"
+              >
+                <circle
+                  id="Ellipse_4831"
+                  data-name="Ellipse 4831"
+                  cx="11.5"
+                  cy="11.5"
+                  r="11.5"
+                  transform="translate(208 163.21)"
+                  fill="#ebebeb"
+                />
+                <path
+                  id="Arrow_-_Left_2"
+                  data-name="Arrow - Left 2"
+                  d="M13.108,14.217,8.5,9.608,13.108,5"
+                  transform="translate(208.786 164.83)"
+                  fill="none"
+                  stroke="#2c2738"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </g>
+            </svg>
+            Delete Grades
+          </h5>
+        </div>
+      </div>
+      <div class="col-xl-6 d-flex justify-content-end">
+        <button
+          (click)="save()"
+          type="button"
+          class="btn btn-outline-primary btn-primary"
+          style="padding-left: 30px; padding-right: 30px; color: #ffffff"
+        >
+          save
+        </button>
+      </div>
+      <div class="col-xl-12 m-auto mt-4">
+        <div
+          class="card mb-3"
+          style="
+            padding-top: 30px;
+            background: none;
+            border: none;
+            box-shadow: none;
+          "
+        >
+          <div class="avatar-upload mb-3">
+            <div class="avatar-edit">
+              <input
+                type="text"
+                #fileInput
+                class="form-control"
+                formControlName="image"
+                accept=".png, .jpg, .jpeg"
+              />
+              <label for="imageUpload " (click)="deleteImage() "></label>
+            </div>
+            <div class="avatar-preview">
+              <div
+                id="imagePreview"
+style="background-image:url({{url}}) ;"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <!-- <img *ngIf="false" class="card-img-top" src="../../../../../assets/images/classes/Classroom-cuate.png" alt="Card image cap"> -->
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 mb-4">
+
+              <div   class="form-group row justify-content-start py-1">
+                <!-- <div
+                *ngIf="showTitles"> osamaaaaaaaaaaaa</div> -->
+                <div
+
+                  class="col-xl-6"
+                  *ngFor="let item of titles_list; let i = index"
+
+                >
+
+
+                  <div
+
+                    type="text"
+                    class="form-control form-control-lg mt-1"
+
+                  >
+<h5  >{{item}}</h5>
+<span class="span-title-detele">   <svg
+  (click)="deleteTitles(item)"
+  xmlns="http://www.w3.org/2000/svg"
+  width="25"
+  height="25"
+  viewBox="0 0 25 25"
+>
+  <g
+    id="Group_70827"
+    data-name="Group 70827"
+    transform="translate(-329 -22)"
+  >
+    <circle
+      id="Ellipse_3463"
+      data-name="Ellipse 3463"
+      cx="12.5"
+      cy="12.5"
+      r="12.5"
+      transform="translate(329 22)"
+      fill="#ffd6d6"
+    />
+    <g
+      id="Iconly_Broken_Delete"
+      data-name="Iconly/Broken/Delete"
+      transform="translate(336.5 29)"
+    >
+
+      <g id="Delete">
+        <path
+          id="Delete-2"
+          data-name="Delete"
+          d="M5.106,11a.4.4,0,0,1,0-.8h0c.843,0,1.146,0,1.99-.019a.827.827,0,0,0,.894-.84c.168-1.54.462-5.227.464-5.264a.4.4,0,1,1,.79.065c0,.037-.3,3.736-.467,5.287A1.614,1.614,0,0,1,7.114,10.98c-.715.013-.887.02-1.6.02Zm-2.259-.022A1.612,1.612,0,0,1,1.219,9.428C1.048,7.863.756,4.174.753,4.137A.4.4,0,0,1,1.116,3.7a.4.4,0,0,1,.427.37c0,.037.295,3.713.465,5.266a.816.816,0,0,0,.857.835.4.4,0,0,1-.008.8ZM.4,2.728a.4.4,0,0,1,0-.8H2.171a.5.5,0,0,0,.488-.4L2.791.847A1.1,1.1,0,0,1,3.851,0h2.3A1.1,1.1,0,0,1,7.2.822a.4.4,0,0,1-.28.494.4.4,0,0,1-.486-.285A.3.3,0,0,0,6.149.805h-2.3a.3.3,0,0,0-.289.225l-.126.645a1.363,1.363,0,0,1-.077.248H9.6a.4.4,0,0,1,0,.8Z"
+          fill="red"
+        />
+      </g>
+    </g>
+  </g>
+</svg></span>
+                </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex h-100">
+      <div class="col-xl-12">
+        <div class="row">
+          <div class="col-xl-3 col-6" *ngFor="let MainItem of GradesList">
+            <div class="card mb-3 mt-2" style="width: 100%">
+              <div
+                class="card-header d-flex justify-content-between align-items-center btn btn-primary"
+              >
+                <p class="grades-card-header-title">{{ MainItem.title }}</p>
+                <span class="grades-card-header-degree" style="color: #fff">
+                  <svg
+                    (click)="deleteMainItem(MainItem.id)"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="25"
+                    height="25"
+                    viewBox="0 0 25 25"
+                  >
+                    <g
+                      id="Group_70827"
+                      data-name="Group 70827"
+                      transform="translate(-329 -22)"
+                    >
+                      <circle
+                        id="Ellipse_3463"
+                        data-name="Ellipse 3463"
+                        cx="12.5"
+                        cy="12.5"
+                        r="12.5"
+                        transform="translate(329 22)"
+                        fill="#ffd6d6"
+                      />
+                      <g
+                        id="Iconly_Broken_Delete"
+                        data-name="Iconly/Broken/Delete"
+                        transform="translate(336.5 29)"
+                      >
+                        <g id="Delete">
+                          <path
+                            id="Delete-2"
+                            data-name="Delete"
+                            d="M5.106,11a.4.4,0,0,1,0-.8h0c.843,0,1.146,0,1.99-.019a.827.827,0,0,0,.894-.84c.168-1.54.462-5.227.464-5.264a.4.4,0,1,1,.79.065c0,.037-.3,3.736-.467,5.287A1.614,1.614,0,0,1,7.114,10.98c-.715.013-.887.02-1.6.02Zm-2.259-.022A1.612,1.612,0,0,1,1.219,9.428C1.048,7.863.756,4.174.753,4.137A.4.4,0,0,1,1.116,3.7a.4.4,0,0,1,.427.37c0,.037.295,3.713.465,5.266a.816.816,0,0,0,.857.835.4.4,0,0,1-.008.8ZM.4,2.728a.4.4,0,0,1,0-.8H2.171a.5.5,0,0,0,.488-.4L2.791.847A1.1,1.1,0,0,1,3.851,0h2.3A1.1,1.1,0,0,1,7.2.822a.4.4,0,0,1-.28.494.4.4,0,0,1-.486-.285A.3.3,0,0,0,6.149.805h-2.3a.3.3,0,0,0-.289.225l-.126.645a1.363,1.363,0,0,1-.077.248H9.6a.4.4,0,0,1,0,.8Z"
+                            fill="red"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </span>
+              </div>
+              <div class="card-body">
+                <div class="grades-card-degree-details">
+                  <ul style="padding-left: 10px">
+                    <li
+                      class="mt-2 mp-2 d-flex justify-content-between align-items-center"
+                      *ngFor="let item of MainItem.grade_sub_items"
+                    >
+                      <p class="card-text">{{ item.evaluation_item_name }}</p>
+                      <span style="color: rgb(156, 156, 156)">{{
+                        item.first_option
+                      }}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="card-footer d-flex justify-content-between align-items-center"
+              >
+                <p>Total</p>
+                <span>{{ MainItem.grade_main_item_total }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-12" *ngIf="outSiding.length">
+            <div class="card mb-3 mt-2" style="width: 100%">
+              <div
+                class="card-header d-flex justify-content-between align-items-center btn btn-primary"
+              >
+                <p class="grades-card-header-title">
+                  rating out side main items
+                </p>
+                <span class="grades-card-header-degree" style="color: #fff">
+                  <svg
+                    (click)="deleteSubItemWithoutmain()"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="25"
+                    height="25"
+                    viewBox="0 0 25 25"
+                  >
+                    <g
+                      id="Group_70827"
+                      data-name="Group 70827"
+                      transform="translate(-329 -22)"
+                    >
+                      <circle
+                        id="Ellipse_3463"
+                        data-name="Ellipse 3463"
+                        cx="12.5"
+                        cy="12.5"
+                        r="12.5"
+                        transform="translate(329 22)"
+                        fill="#ffd6d6"
+                      />
+                      <g
+                        id="Iconly_Broken_Delete"
+                        data-name="Iconly/Broken/Delete"
+                        transform="translate(336.5 29)"
+                      >
+                        <g id="Delete">
+                          <path
+                            id="Delete-2"
+                            data-name="Delete"
+                            d="M5.106,11a.4.4,0,0,1,0-.8h0c.843,0,1.146,0,1.99-.019a.827.827,0,0,0,.894-.84c.168-1.54.462-5.227.464-5.264a.4.4,0,1,1,.79.065c0,.037-.3,3.736-.467,5.287A1.614,1.614,0,0,1,7.114,10.98c-.715.013-.887.02-1.6.02Zm-2.259-.022A1.612,1.612,0,0,1,1.219,9.428C1.048,7.863.756,4.174.753,4.137A.4.4,0,0,1,1.116,3.7a.4.4,0,0,1,.427.37c0,.037.295,3.713.465,5.266a.816.816,0,0,0,.857.835.4.4,0,0,1-.008.8ZM.4,2.728a.4.4,0,0,1,0-.8H2.171a.5.5,0,0,0,.488-.4L2.791.847A1.1,1.1,0,0,1,3.851,0h2.3A1.1,1.1,0,0,1,7.2.822a.4.4,0,0,1-.28.494.4.4,0,0,1-.486-.285A.3.3,0,0,0,6.149.805h-2.3a.3.3,0,0,0-.289.225l-.126.645a1.363,1.363,0,0,1-.077.248H9.6a.4.4,0,0,1,0,.8Z"
+                            fill="red"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                  <!-- <svg
+                  (click)="deleteSubItemWithoutmain()"
+                    id="Edit_Square"
+                    data-name="Edit Square"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17"
+                    height="17"
+                    viewBox="0 0 17 17"
+                  >
+                    <path
+                      id="Edit_Square-2"
+                      data-name="Edit Square"
+                      d="M4.81,17A4.653,4.653,0,0,1,0,11.985a.627.627,0,0,1,1.255,0A3.432,3.432,0,0,0,4.81,15.748h7.376a3.433,3.433,0,0,0,3.557-3.763V8.624a.627.627,0,0,1,1.253,0v3.361A4.653,4.653,0,0,1,12.186,17ZM5.1,12.46a.628.628,0,0,1-.627-.641l.08-3.153A2.43,2.43,0,0,1,5.264,7L11.512.765a2.624,2.624,0,0,1,3.7,0l1.017,1.016a2.612,2.612,0,0,1,0,3.7L9.957,11.746a2.425,2.425,0,0,1-1.726.714ZM6.151,7.887A1.181,1.181,0,0,0,5.8,8.7l-.062,2.511H8.231a1.182,1.182,0,0,0,.839-.347l6.277-6.266a1.365,1.365,0,0,0,0-1.928L14.329,1.65a1.369,1.369,0,0,0-1.931,0l-.515.513,1.594,1.59a.627.627,0,0,1-.887.886L11,3.049ZM0,8.251v-3.2A4.654,4.654,0,0,1,4.81.032H7.935a.626.626,0,1,1,0,1.252H4.81A3.433,3.433,0,0,0,1.255,5.048v3.2A.627.627,0,0,1,0,8.251Z"
+                      fill="#fff"
+                    />
+                  </svg> -->
+                </span>
+              </div>
+              <div class="card-body">
+                <div class="grades-card-degree-details">
+                  <ul style="padding-left: 10px">
+                    <li
+                      class="mt-2 mp-2 d-flex justify-content-between align-items-center"
+                      *ngFor="let item of outSiding"
+                    >
+                      <p class="card-text">{{ item.evaluation_item_name }}</p>
+                      <span style="color: rgb(156, 156, 156)">{{
+                        item.first_option
+                      }}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

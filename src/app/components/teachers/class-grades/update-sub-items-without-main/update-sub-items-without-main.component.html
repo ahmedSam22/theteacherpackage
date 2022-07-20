@@ -1,0 +1,209 @@
+
+<div class="editMain">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-6">
+        <div class="title">
+          <h5>  <svg (click)=" back()" style="cursor:pointer;" class="mr-3" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23">
+            <g id="Group_70371" data-name="Group 70371" transform="translate(-208 -163.21)">
+              <circle id="Ellipse_4831" data-name="Ellipse 4831" cx="11.5" cy="11.5" r="11.5" transform="translate(208 163.21)" fill="#ebebeb"/>
+              <path id="Arrow_-_Left_2" data-name="Arrow - Left 2" d="M13.108,14.217,8.5,9.608,13.108,5" transform="translate(208.786 164.83)" fill="none" stroke="#2c2738" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+            </g>
+          </svg>
+    Edit Grades</h5>
+        </div>
+      </div>
+      <div class="col-xl-6 d-flex justify-content-end">
+        <!-- <button  type="button" class="btn btn-outline-primary btn-primary" style="padding-left:30px ;padding-right:30px ;color: #ffffff;" >
+          save</button> -->
+      </div>
+
+      <div class="col-xl-6">
+        <h5>Sub Items</h5>
+      </div>
+      <div class="col-xl-6 col-md-6 col-12 d-flex justify-content-end">
+       <button class="btn btn-primary "(click)="openDialog()" ><svg id="Group_70637" data-name="Group 70637" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+        <g id="Rectangle_9981" data-name="Rectangle 9981" fill="#fff" stroke="#fff" stroke-width="1">
+          <rect width="20" height="20" rx="5" stroke="none"/>
+          <rect x="0.5" y="0.5" width="19" height="19" rx="4.5" fill="none"/>
+        </g>
+        <g id="Group_68312" data-name="Group 68312" transform="translate(6.087 6.087)">
+          <g id="Icon_feather-plus" data-name="Icon feather-plus" transform="translate(0 0)">
+            <path id="Path_19742" data-name="Path 19742" d="M18,7.5v8.2" transform="translate(-13.898 -7.5)" fill="none" stroke="#37b673" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <path id="Path_19743" data-name="Path 19743" d="M7.5,18h8.2" transform="translate(-7.5 -13.898)" fill="none" stroke="#37b673" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+        </g>
+      </svg>
+      Add Sub Items
+      </button>
+      <!-- <ng-template #content let-modal >
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title"> Add Sub Items</h4>
+          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body"> -->
+          <!-- <form  [formGroup]="AddSubForm">
+            <div class="form-group">
+
+              <input type="text" formControlName="evaluation_item_name" class="form-control" placeholder="evaluation_item_name">
+
+            </div>
+            <div class="form-group">
+
+              <select #degre  formControlName="evaluation_item_data_type" class="form-control">
+                <option value="1" >empty</option>
+                <option value="2" >degree</option>
+                <option value="3" >number</option>
+                <option value="4" >two part</option>
+              </select>
+
+            </div>
+            <div [ngSwitch]="degre.value">
+              <div class="form-group" *ngSwitchCase="2" >
+                <input type="text" formControlName="first_option" class="form-control" placeholder="first_option">
+              </div>
+              <div class="form-group"*ngSwitchCase="2" >
+                <input type="text" formControlName="second_option" class="form-control" placeholder="second_option">
+              </div>
+              <div class="form-group" *ngSwitchCase="4" >
+                <input type="text" formControlName="first_option" class="form-control" placeholder="first_option">
+              </div>
+              <div class="form-group"*ngSwitchCase="4" >
+                <input type="text" formControlName="second_option" class="form-control" placeholder="second_option">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button (click)="addSubitem()" class="btn btn-primary" style="width: 100%;" type="submit">add item</button>
+              </div>
+            </form> -->
+          <!-- <form [formGroup]="AddSubForm"  (ngSubmit)="onSubmit(AddSubForm.value)">
+            <div>
+              <mat-form-field appearance="outline">
+                <mat-label>Evaluation item name</mat-label>
+                <input matInput formControlName="evaluation_item_name">
+              </mat-form-field>
+            </div>
+
+
+
+            <mat-form-field appearance="outline" >
+              <mat-label >Select</mat-label>
+              <mat-select #degre formControlName="evaluation_item_data_type">
+                <mat-option value="1" >empty</mat-option>
+                <mat-option value="2" >degree</mat-option>
+                <mat-option value="3" >number</mat-option>
+                <mat-option value="4" >two part</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" *ngIf="degre.value==2" >
+
+              <mat-label>max degree</mat-label>
+              <input matInput formControlName="first_option">
+
+              </mat-form-field>
+              <mat-form-field appearance="outline" *ngIf="degre.value==2">
+                <mat-label>element percentage</mat-label>
+                <input matInput formControlName="second_option">
+
+            </mat-form-field>
+            <mat-form-field appearance="outline"*ngIf="degre.value==4">
+
+              <mat-label>frist option</mat-label>
+              <input matInput formControlName="first_option">
+
+
+            </mat-form-field>
+            <mat-form-field appearance="outline"*ngIf="degre.value==4">
+              <mat-label>secont option</mat-label>
+              <input matInput formControlName="second_option">
+            </mat-form-field>
+            <div class="form-group">
+            <button [disabled]="AddSubForm.invalid" class="btn btn-primary" style="width: 100%;" type="submit">add item</button>
+            </div>
+            </form> -->
+        <!-- </div>
+
+      </ng-template> -->
+
+
+
+      <hr>
+
+
+      </div>
+
+        <form class="col-xl-12 row" [formGroup]="dynamicForm" (ngSubmit)="onSubmit(dynamicForm)">
+          <div class="card col-xl-4"*ngFor="let ticket of SubItems; let i = index" >
+
+              <div class="card-body " >
+
+
+              <div  class="list-group list-group-flush">
+                  <div class="list-group-item">
+
+                      <form [formGroup]="ticket" class="form-row"  >
+                          <div class="col-12">
+                            <mat-form-field appearance="outline">
+                              <mat-label>Evaluation item name </mat-label>
+                              <input matInput formControlName="evaluation_item_name">
+                            </mat-form-field>
+
+                          </div>
+                          <div class=" col-12">
+                            <mat-form-field appearance="outline">
+                              <mat-label >Select</mat-label>
+                              <mat-select #degree id="select"  aria-readonly="false"   formControlName="evaluation_item_data_type">
+                                <mat-option *ngIf="degree.value==1" value="1"  >empty</mat-option>
+                                <mat-option *ngIf="degree.value==2"value="2"  >degree</mat-option>
+                                <mat-option *ngIf="degree.value==3" value="3" >number</mat-option>
+                                <mat-option *ngIf="degree.value==4" value="4" >two part</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+
+                          </div>
+                          <div class=" col-12">
+                            <mat-form-field appearance="outline" *ngIf="degree.value==2"  >
+
+                              <mat-label>max degree</mat-label>
+                              <input matInput readonly formControlName="first_option"  >
+
+                              </mat-form-field>
+                              </div>
+                              <div class="col-12">
+                              <mat-form-field appearance="outline" *ngIf="degree.value==2" >
+
+                                <mat-label>element percentage</mat-label>
+                                <input matInput readonly formControlName="second_option"   >
+
+                            </mat-form-field>
+                          </div>
+                          <div class="col-12">
+                            <mat-form-field appearance="outline"*ngIf="degree.value==4">
+
+                              <mat-label>frist option</mat-label>
+                              <input matInput formControlName="first_option">
+
+
+                            </mat-form-field>
+                            </div>
+                            <div class="col-12">
+                            <mat-form-field appearance="outline"*ngIf="degree.value==4">
+                              <mat-label>secont option</mat-label>
+                              <input matInput formControlName="second_option">
+                            </mat-form-field>
+
+                          </div>
+                          <button  (click)=" deleteSubItem(dynamicForm,ticket)">sava</button>
+                      </form>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" [disabled]="dynamicForm.invalid">sava</button>
+      </form>
+      </div>
+    </div>
+  </div>
+
+

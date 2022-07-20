@@ -37,7 +37,7 @@
               color: #2b2b2b;
             }
           }
- 
+
         }
         // in login component
         .show-hide{
@@ -49,9 +49,9 @@
           & > span:before{
             content: "إخفاء";
           }
- 
+
         }
- 
+
         div.errors-container{
           p.error-element{
             font-size: 75%;
@@ -63,11 +63,11 @@
           }
         }
       }
-      
+
       .page-wrapper.compact-wrapper .page-body-wrapper.sidebar-icon .according-menu i{
           transform: rotate(180deg);
       }
-     
+
   }
   .dropzone{
     &.is-invalid{
@@ -104,11 +104,11 @@ border-color:#37B673 !important;
   .show-hide span{
      color: #37B673 !important;
   }
- 
+
   .theme-form{
     color: black;
 }
- 
+
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
@@ -117,7 +117,7 @@ border-color:#37B673 !important;
     padding-left:1.25rem ;
     padding-right:1.25rem ;
   }
-} 
+}
 
 .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical){
   background-color :#d3f9e5
@@ -138,14 +138,14 @@ border-color:#37B673 !important;
 .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button .mat-datepicker-toggle-default-icon, .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button .mat-datepicker-toggle-default-icon{
   color:#37B673;
 }
- 
+
 
 .timepicker {
-   
+
   .timepicker__header {
     background-color:#37B673!important;
   }
-   
+
   .clock-face__clock-hand {
     background-color: #37B673 !important;
 
@@ -168,9 +168,9 @@ border-color:#37B673 !important;
     color: #37B673 !important;
   }
 
- 
+
 }
- 
+
 .cdk-overlay-container{
   z-index:995;
 }
@@ -182,7 +182,18 @@ border-color:#37B673 !important;
 .nav-link{
 color:inherit
 }
- 
+
 .nav-link:hover{
   color:inherit
   }
+
+  .mat-dialog-container{
+    width: 400px !important;
+  }
+.mat-form-field{
+  width: 100%;
+
+}
+.mat-form-field-flex{
+  margin: 10px 0px;
+}

@@ -1,3 +1,8 @@
+import { UpdateSubItemsWithoutMainComponent } from './components/teachers/class-grades/update-sub-items-without-main/update-sub-items-without-main.component';
+import { GradeStudentComponent } from './components/teachers/class-grades/grade-student/grade-student.component';
+import { UpdateMainItemComponent } from './components/teachers/class-grades/update-main-item/update-main-item.component';
+import { GradeDetailsComponent } from './components/teachers/class-grades/grade-details/grade-details.component';
+import { EditGradesComponent } from './components/teachers/class-grades/edit-grades/edit-grades.component';
 import { ClassGradesComponent } from './components/teachers/class-grades/class-grades.component';
 import { AttendanceComponent } from './components/teachers/lessons/attendance/attendance.component';
 import { EditClassComponent } from './components/teachers/class-student/edit-class/edit-class.component';
@@ -25,6 +30,7 @@ import { AddComponent } from './components/teachers/lessons/add/add.component';
 // import { EditComponent } from './components/teachers/lessons/edit/edit.component';
 import { BehaviorComponent } from './components/teachers/class-student/behavior/behavior.component';
 import { BehaviorSettingComponent } from './components/teachers/behavior-setting/behavior-setting.component';
+import { DeleteGradeComponent } from './components/teachers/class-grades/delete-grade/delete-grade.component';
 // import { ChangepasswordComponent } from './components/auth/changepassword/changepassword.component';
 
 const routes: Routes = [
@@ -45,7 +51,10 @@ const routes: Routes = [
           { path: 'class-schedual', component: ClassScheduleComponent },
           { path: 'class-behavior', component: BehaviorComponent },
           { path: 'lesson-attendance', component: AttendanceComponent },
-          { path: 'class-grade', component: ClassGradesComponent },
+          { path: 'class-grade', component: ClassGradesComponent, children:[
+            { path: '', component: GradeDetailsComponent },
+            { path: 'grade-details', component: GradeDetailsComponent },
+          ] },
           { path: ':search', component: ClassDetailsComponent },
         ],
       },
@@ -53,11 +62,17 @@ const routes: Routes = [
       { path: 'class-lesson-add', component: AddComponent },
       { path: 'class-add', component: AddClassComponent },
       { path: 'class-edit', component: EditClassComponent },
+      { path: 'edit-grade', component: EditGradesComponent },
+     { path: 'edit-grade/:id', component: UpdateMainItemComponent},
+     { path: 'edit-subItems-grade', component: UpdateSubItemsWithoutMainComponent},
+     { path: 'grade-students/:id', component: GradeStudentComponent},
+      { path: 'delete-grade', component: DeleteGradeComponent },
       {path : 'behavior-setting' , component:BehaviorSettingComponent},
       { path: 'reports', component: ReportsComponent },
       { path: 'teachers', component: TeachersComponent },
       { path: 'students', component: StudentsComponent },
       { path: 'weekly-schedule', component: WeeklyscheduleComponent },
+
     ],
   },
 ];
