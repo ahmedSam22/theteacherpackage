@@ -29,8 +29,8 @@ export class AuthenticationService {
     formData.append("password", form.password);
     return this.http.post(`${environment.endpoint}/teacher/signin`, formData)
       .pipe(map((user: any) => {
-        if (user && user.data.token) {
-          localStorage.setItem(`${environment.currentUserKey}`, JSON.stringify(user));
+        if ((user && user.data?.access_token )) {
+          localStorage.setItem(`${environment.currentUserKey}`, JSON.stringify(user.data));
           this.currentUserSubject.next(user.data);
             } return user;
         })

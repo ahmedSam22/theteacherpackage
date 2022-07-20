@@ -1,0 +1,79 @@
+$radius : 11px;
+
+form{
+    button{
+        padding: 15px 0 !important;
+        border-radius: $radius ;
+    }
+    .mat-form-field-required-marker { display: none !important; }
+    .mat-form-field-appearance-outline .mat-form-field-infix {
+        padding: 20px 0 11px 0 !important;
+    }
+    .mat-form-field-outline{
+        box-shadow: 0px 0px 10px rgba(194, 194, 194, 0.144) !important;
+        border-radius: $radius;
+    }
+    mat-form-field{
+        width: 100%;
+      
+        
+        // input top label style
+        .mat-form-field-label{
+            color: #b1b1b1 !important;
+        }
+       
+        // input textarea style
+        .mat-form-field-outline-start,.mat-form-field-outline-end,.mat-form-field-outline-gap{
+            border-color: rgba(0, 0, 0, 0.075) !important;
+            border-width: 1px !important;
+        }
+        &.mat-focused{
+            .mat-form-field-outline-start,.mat-form-field-outline-end,.mat-form-field-outline-gap{
+                border-color: #51b775cb !important;
+            }
+        }
+        .mat-form-field-outline-start { border-radius: $radius 0 0 $radius !important; min-width: $radius !important }
+        .mat-form-field-outline-end { border-radius: 0 $radius $radius 0 !important }
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, 
+    .mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label{
+        position: absolute;
+        display: block;
+        top: 45px;
+    }
+}
+
+section.auth{
+    overflow-x: hidden;
+    background: #f9f9f9;
+    .card{
+        border: none;
+        background: #fff;
+        box-shadow: 0px 0px 10px rgba(189, 189, 189, 0.205);
+        width: 70%;
+        margin: 20px auto;
+    }
+    .slider{
+         padding:70px 0;
+        img{
+            width: 350px;
+            margin: 0 auto;
+        }
+        h5{
+            max-width: 50%;
+            margin: 0 auto;
+            margin-bottom: 30px;
+        }
+        .owl-stage{
+            display: flex;
+            align-items: center;
+        }
+        .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
+            background: #fff;
+            width: 23px;
+            transition: .2s ease-in-out;
+        }
+    }
+    
+}
