@@ -28,11 +28,10 @@ export class ResponseInterceptor implements HttpInterceptor {
                 event = event.clone({body: this.modifyBody(event.body)});      
                 console.log(event.body)
                 this.spinner.hide()
-                return of(new HttpResponse({
-                    body: {data: null},
-                    status: 500
-                  }))
-
+                // return of(new HttpResponse({
+                //     body: {data: null},
+                //     status: 500
+                //   }))
             }
             
             return event;
