@@ -180,6 +180,30 @@ export class TeacherService {
     );
   }
 
+  deleteLesson(id: number) {
+    return this.http.delete(
+      `${environment.endpoint}/teacher/lesson/delete?lesson_id=${id}`
+    );
+  }
+  /* ---------- Attendance -----------*/
+
+  getAllAttendanceCases(id: number) {
+    return this.http.get(
+      `${environment.endpoint}/teacher/attendance/cases/all?lesson_id=${id}`
+    );
+  }
+
+  getAllStudentAttendance(id: number) {
+    return this.http.get(
+      `https://elmo3lem.scarksa.com/public/api/teacher/attendances/all?lesson_id=${id}`
+    );
+  }
+
+  getAllAttendanceCount(id: number) {
+    return this.http.get(
+      `${environment.endpoint}/teacher/attendance/count/show?lesson_id=${id}`
+    );
+  }
 
 
 
@@ -343,7 +367,7 @@ export class TeacherService {
     return this.http.post(
       `${environment.endpoint}/teacher/grade/student/create`,
       form
-    );}
+    )}
 
 
   getbehaviorByCourseId(course_id:number){
@@ -352,5 +376,4 @@ export class TeacherService {
   deleteBehaviorStudent(student_behavior_id:number){
     return this.http.delete(`${environment.endpoint}/teacher/behavior/student/delete?student_behavior_id=${student_behavior_id}`);
   }
-
 }

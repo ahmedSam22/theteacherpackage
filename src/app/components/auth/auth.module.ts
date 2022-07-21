@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { NgOtpInputModule } from  'ng-otp-input';
+// import { NgOtpInputModule } from  'ng-otp-input';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -35,7 +35,7 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     ReactiveFormsModule,
     CarouselModule,
-    NgOtpInputModule,
+    // NgOtpInputModule,
     NgxSpinnerModule,
     MatFormFieldModule,
     MatInputModule

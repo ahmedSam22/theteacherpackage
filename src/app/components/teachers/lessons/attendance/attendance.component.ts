@@ -22,24 +22,24 @@ export class AttendanceComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.lessonId = localStorage.getItem('class_id') 
+    this.lessonId = localStorage.getItem('class_id')
     this.service.getLessonById(this.lessonId).subscribe((res:any)=>{
       console.log(res);
       this.lessonData = res.data
-      
+
     })
 
-    this.service.getAllAttendanceCount(this.lessonId).subscribe((res:any)=>{
-      console.log(res);
-      this.allAttendanceCount = res.data
-      
-    })
+    // this.service.getAllAttendanceCount(this.lessonId).subscribe((res:any)=>{
+    //   console.log(res);
+    //   this.allAttendanceCount = res.data
 
-    this.service.getAllAttendanceCases(this.lessonId).subscribe((res:any)=>{
-      console.log(res);
-      this.allAttendanceCases = res.data
-      
-    })
+    // })
+
+    // this.service.getAllAttendanceCases(this.lessonId).subscribe((res:any)=>{
+    //   console.log(res);
+    //   this.allAttendanceCases = res.data
+
+    // })
 
     this.showStudent()
 
@@ -49,7 +49,7 @@ showStudent(){
   this.service.getAllStudentAttendance(this.lessonId).subscribe((res:any)=>{
     console.log(res);
     this.allStudentAttendance = res.data
-    
+
     console.log(this.allStudentAttendance , "testtttttttttt")
   })
 }

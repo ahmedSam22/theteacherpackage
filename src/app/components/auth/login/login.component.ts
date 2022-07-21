@@ -15,11 +15,8 @@ export class LoginComponent implements OnInit {
   public submitted = false;
   public form:FormGroup | any;
   public togglePassword: boolean = false;
-<<<<<<< HEAD
   imageSources:any;
-  constructor(private router: Router,private formbuilder:FormBuilder,private service:AuthenticationService,private spinner: NgxSpinnerService) {
-    // if (this.service.currentUserValue) { this.router.navigate(['/']) }
-=======
+
   public sliderItems = [
     {
       title:'recording the attendance and absence if students',
@@ -47,9 +44,8 @@ export class LoginComponent implements OnInit {
     nav: false
   }
 
-  constructor(private router: Router,private formbuilder:FormBuilder,private service:AuthenticationService,private spinner: NgxSpinnerService) { 
+  constructor(private router: Router,private formbuilder:FormBuilder,private service:AuthenticationService,private spinner: NgxSpinnerService) {
     if (this.service.currentUserValue) { this.router.navigate(['/']) }
->>>>>>> 5d70d547cdf198412df55168cc040ac1a728f122
   }
 
   ngOnInit(): void {
@@ -57,7 +53,6 @@ export class LoginComponent implements OnInit {
       email_or_phone:['',Validators.required],
       password:['',Validators.required]
     })
-<<<<<<< HEAD
     console.log(this.form.value)
     this.imageSources = [
       {path: '../../../../assets/images/logo/login.png'},
@@ -65,8 +60,6 @@ export class LoginComponent implements OnInit {
       {path: '../../../../assets/images/logo/signup2.png'},
 
   ]
-=======
->>>>>>> 5d70d547cdf198412df55168cc040ac1a728f122
   }
 
   get f() {return this.form.controls}
@@ -82,38 +75,23 @@ export class LoginComponent implements OnInit {
       console.log(response)
       console.log(response)
       this.spinner.hide()
-<<<<<<< HEAD
-
-=======
-      // dev.elsawy2@gmail.com
->>>>>>> 5d70d547cdf198412df55168cc040ac1a728f122
         if(response.status === false){
           debugger
-          // Swal.fire({  
+          // Swal.fire({
           //   title: '',
           //   text: response.errors[0],
           //   icon: 'error',
           //   confirmButtonColor: '#4AB673',
           // });
-          
+
             if(response.errors[0] == 'email is not verified'){
               localStorage.setItem("mail",this.form.controls["email_or_phone"].value)
-<<<<<<< HEAD
-              const qq: FormData = new FormData();
-
-              qq.append("email_or_phone", this.form.controls["email_or_phone"].value);
-              this.service.verify(qq).subscribe((e) => {
-              console.log(e, "from verifyyyyyyyyy");
-
-            });
-=======
               const formData: FormData = new FormData();
               formData.append("email_or_phone", this.form.controls["email_or_phone"].value);
 
               this.service.verify(formData).subscribe((e) => {
               });
->>>>>>> 5d70d547cdf198412df55168cc040ac1a728f122
-            this.router.navigate(['/auth/verify/mail'])
+            this.router.navigate(['/verify/mail'])
             }
 
         }else{
@@ -129,24 +107,10 @@ export class LoginComponent implements OnInit {
   }
 
   googleLogin(){
-<<<<<<< HEAD
-    return this.service.GoogleAuth().then(_=>{
-      this.router.navigate(["/home"])
-       });
-
-=======
     return this.service.GoogleAuth().then(_=>{ this.router.navigate(["/home"]) });
->>>>>>> 5d70d547cdf198412df55168cc040ac1a728f122
   }
 
   facebookLogin(){
-<<<<<<< HEAD
-    return this.service.FacebookAuth().then(_=>{
-      this.router.navigate(["/home"])
-       });
-
-=======
     return this.service.FacebookAuth().then(_=>{ this.router.navigate(["/home"]) });
->>>>>>> 5d70d547cdf198412df55168cc040ac1a728f122
   }
 }

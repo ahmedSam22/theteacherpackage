@@ -112,21 +112,7 @@ export class EditComponent implements OnInit {
 
     let editform = {
       ...this.form.value,
-<<<<<<< HEAD
-      date: this.date,
-      lesson_id: this.data.id,
-      course_id: this.data.course.id,
-    };
-    console.log('eeeeeee', editform);
-    this.teacherservice.updateLesson(editform).subscribe((res: any) => {
-      console.log('edit lesson success', res);
-      Swal.fire(`Lesson Updated Successfully `, ``, `success`);
-    });
-    //  this.router.navigate(['../home/class-student/class-schedual']);
-  }
-}
-=======
-      date:this.date, 
+      date:this.date,
       lesson_id:this.data.id,
       course_id:this.data.course.id,
      }
@@ -139,7 +125,7 @@ export class EditComponent implements OnInit {
           text: 'Lesson Updated Successfully '  ,
           icon: 'success',
           confirmButtonColor: '#37B673',
-        }) 
+        })
       }
       else {
         Swal.fire({
@@ -147,12 +133,11 @@ export class EditComponent implements OnInit {
           text:res.errors[0]  ,
           icon: 'error',
           confirmButtonColor: '#37B673',
-        }) 
+        })
       }
-    
+
      })
-   
+
     }
-     
+
   }
->>>>>>> 5d70d547cdf198412df55168cc040ac1a728f122
