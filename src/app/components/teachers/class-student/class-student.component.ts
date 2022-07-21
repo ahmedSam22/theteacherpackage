@@ -76,20 +76,7 @@ export class ClassStudentComponent implements OnInit,OnChanges {
            localStorage.setItem("course_id" , this.courses[0].id)
  
       });
-    //  @HostListener('window:beforeunload') goToPage() {
-    //   this.router.navigate(['/hello']);
-    // }
-
-  //  this.teacherservice.getAllClasses().subscribe((res:any)=>{
-  //   let allClasses;
-  //   allClasses = res['data']
-  //   console.log("classess" , allClasses)
-  //   let courses;
-  //   for(var i=0 ; i<=allClasses.length ; i++){
-  //     courses=allClasses[i].courses
-  //     console.log("courses" , courses)
-  //       }
-  //     })    
+   
  
    if(localStorage.getItem('showstudents')=='first'){
     this.showstudents=true; 

@@ -49,7 +49,8 @@ export class ClassComponent implements OnInit {
   addClass(){
     const dialogRef = this.dialog.open(AddClassComponent, {
       width: '40%',
-      height: "90%"
+      height: "80%",
+      
   })
     dialogRef.afterClosed().subscribe(result => {
       location.reload()
