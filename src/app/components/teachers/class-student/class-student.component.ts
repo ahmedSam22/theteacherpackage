@@ -103,6 +103,8 @@ export class ClassStudentComponent implements OnInit,OnChanges {
         //  console.log(this.studentnum);
         this.courses = this.classStudents.courses;
         console.log('courses', this.courses);
+           localStorage.setItem("course_id" , this.courses[0].id)
+
       });
     //  @HostListener('window:beforeunload') goToPage() {
     //   this.router.navigate(['/hello']);
@@ -246,61 +248,7 @@ export class ClassStudentComponent implements OnInit,OnChanges {
   type(num:any) {
      console.log("nummmm",num)
   }
-  // schedulefunc() {
-  //   this.showstudents = false;
-  //   this.showschedule = true;
-  //   this.showBehavior = false;
-  // }
-  // behaviorfunc() {
-  //   this.showstudents = false;
-  //   this.showschedule = false;
-  //   this.showBehavior = true;
-  // }
-  // SortByName() {
-  //   this.sort = 1;
-  //   this.teacherservice
-  //     .sortStudents(+this.class_id, this.sort, 0, 0)
-  //     .subscribe((res: any) => {
-  //       this.sortedByName = res['data'];
 
-  //       this.teacherservice.sortname = this.sortedByName;
-  //       let name = 'name';
-  //       this.router.navigate(['../class-student', name], {
-  //         relativeTo: this.route,
-  //       });
-  //     });
-  // }
-  // SortByGender() {
-  //   this.sort = 1;
-  //   this.teacherservice
-  //     .sortStudents(+this.class_id, 0, this.sort, 0)
-  //     .subscribe((res: any) => {
-  //       this.sortedByGender = res['data'];
-  //       this.teacherservice.sortgender = this.sortedByGender;
-
-  //       let gender = 'gender';
-  //       this.router.navigate(['../class-student', gender], {
-  //         relativeTo: this.route,
-  //       });
-  //     });
-  // }
-
-  //  () {
-  //   this.searchResult = this.search.nativeElement.value;
-  //   console.log('Search', this.searchResult);
-  //   if (this.searchResult != '') {
-  //     this.router.navigate(['../class-student', this.searchResult], {
-  //       relativeTo: this.route,
-  //     });
-  //   } else {
-  //     this.router.navigate(['../class-student', this.navigate], {
-  //       relativeTo: this.route,
-  //     });
-  //   }
-  // }
-  // type(num: any) {
-  //   console.log('nummmm', num);
-  // }
   select(item: any) {
     this.selected = item;
     console.log('selllllected', this.selected);
@@ -318,6 +266,7 @@ export class ClassStudentComponent implements OnInit,OnChanges {
 
   changeCourse(event: any) {
     localStorage.setItem('course_id', event.target.value);
+    // console.log("ccccc",event.target.value)
   }
 
   // addLesson(){

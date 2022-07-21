@@ -1,23 +1,23 @@
+$theme-colors: (
+  "primary": #37B673,
+  "danger":#FF0000,
+  "blue" : #6BB4CB,
+  "secondary" : #b1b1b1,
+  "facebook" : #3b5998,
+  "google" : #dd4b3a,
+);
+
+
+@import "node_modules/bootstrap/scss/bootstrap";
 @import '~ngx-toastr/toastr';
 
-@font-face {
-    font-family: 'Noto Sans Kufi Arabic';
-    font-style: normal;
-    font-weight: 400;
-    src: url(/assets/fonts/custom/ArbFONTS-NotoKufiArabic-Regular.ttf);
-  }
-  @font-face {
-    font-family: 'Noto Sans Kufi Arabic';
-    font-style: normal;
-    font-weight: 700;
-    src: url(/assets/fonts/custom/ArbFONTS-NotoKufiArabic-Bold.ttf);
-  }
+  //
+
   html:lang(ar){
     body,html,mat-form-field{
-        font-family: 'Noto Sans Kufi Arabic', Courier, monospace !important;
         direction: ltr;
-        // text-align: right ;
       }
+
       .toast-error{
         background-color: #f04d64 !important;
         color: #fff !important;
@@ -197,3 +197,12 @@ color:inherit
 .mat-form-field-flex{
   margin: 10px 0px;
 }
+
+  body{
+    background-color: #f9f9f9;
+
+  }
+
+  .btn{
+    font-size: .8rem;
+  }

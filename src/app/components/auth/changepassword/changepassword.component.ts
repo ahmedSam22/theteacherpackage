@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import Swal from 'sweetalert2'
+import { OwlOptions } from 'ngx-owl-carousel-o';
  
 @Component({
   selector: 'app-changepassword',
@@ -11,7 +12,34 @@ import Swal from 'sweetalert2'
   styleUrls: ['./changepassword.component.scss']
 })
 export class ChangepasswordComponent implements OnInit {
-
+  customOptions: OwlOptions = {
+    items : 1,
+    loop: false,
+    mouseDrag: false,
+    touchDrag: false,
+    center : true,
+    slideBy : 1,
+    dots : true,
+    pullDrag: false,
+    // dots: false,
+    navSpeed: 700,
+    // navText : ["hide"],
+    responsive: {
+      0: {
+        // items: 1
+      },
+      400: {
+        // items: 2
+      },
+      740: {
+        // items: 3
+      },
+      940: {
+        // items: 4
+      }
+    },
+    nav: true
+  }
   public submitted = false;
   public form:FormGroup | any;
   public togglePassword: boolean = false;

@@ -3,17 +3,17 @@
       <div class="row d-flex justify-content-center align-items-center h-100">
          <div class="col-xl-12">
            <div class="card ">
-            <a class="text-right mx-3 my-2" (click)="send()" style="color:#37B673"> done </a>
+            <a *ngIf="doneLink" class="text-right mx-3 my-2" (click)="send()" style="color:#37B673"> done </a>
               <span class="card-header text-center d-inline">{{student_name}}</span>
              
             <div class="card-body"> 
               <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>   -->
                <div class="infoButtons row pt-4 pb-3">
                 <div class="row justify-content-center" >  
-                  <div class="col-xl-12 d-flex mx-auto"  >  
-                     <button style="background-color:#37B673 ; border:none ; padding:10px " type="button" class="col-xl-4 my-1 active" #positive id="positive" (click)="select(positive.id);filter(0)" [ngClass]="{active: isActive(positive.id)}"> Positive </button>
-                    <button style="background-color:#FF0000 ; border:none ; padding:10px  " type="button" class="col-xl-4 my-1" #negative id="negative" (click)="select(negative.id);filter(1)" [ngClass]="{active: isActive(negative.id)}"> Negative </button>
-                    <button  style="background-color:#6BB4CB ; border:none ; padding:10px " type="button" class="col-xl-4 my-1  " #records id="records" (click)="select(records.id);filter(2)" [ngClass]="{active: isActive(records.id)}"> Records </button>
+                  <div class="col-xl-12 d-flex mx-auto"  style="border:1px solid #E9EAEC ; border-radius: 10px;">  
+                    <button [style.background-color]="hexacolor1" style="border:none ; border-bottom-left-radius :10px ;   border-top-left-radius :10px ; padding:10px " type="button" class="col-xl-4 my-1 active" #positive id="positive" (click)="select(positive.id);filter(0)" [ngClass]="{active: isActive(positive.id)}"> Positive </button>
+                    <button [style.background-color]="hexacolor2" style="border:none ; padding:10px " type="button" class="col-xl-4 my-1" #negative id="negative" (click)="select(negative.id);filter(1)" [ngClass]="{active: isActive(negative.id)}"> Negative </button>
+                    <button  [style.background-color]="hexacolor3"style="border:none ; border-bottom-right-radius :10px ;  border-top-right-radius :10px ; padding:10px " type="button" class="col-xl-4 my-1  " #records id="records" (click)="select(records.id);filter(2)" [ngClass]="{active: isActive(records.id)}"> Records </button>
                   </div>
                   </div>
                </div>

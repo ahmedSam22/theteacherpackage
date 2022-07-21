@@ -20,7 +20,7 @@
             </div>
               <div class="col header-info" *ngIf="hideCoursesAndBags">
                 <span>Course </span><br>
-                <select class="form-control"  (change)="changeCourse($event)" style="border: none;margin-top:-2px">
+                <select class="form-control" (change)="changeCourse($event)" style="border: none;margin-top:-2px">
                   <option *ngFor="let course of courses"  [value]="course.id">{{course.name}} </option>
                </select>
               </div>
@@ -89,9 +89,9 @@
          </nav>
 
         </div>
-        <div class="col-xl-5 d-flex justify-content-end">
+        <div class="col-xl-5 d-flex justify-content-center">
           <form class="form-inline " *ngIf="showstudents">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #search (blur)="studentFilter()">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #search (keyup)="studentFilter()">
 
              <div class="dropdown mx-2">
                <button class="btn">

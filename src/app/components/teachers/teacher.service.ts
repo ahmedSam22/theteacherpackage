@@ -173,43 +173,35 @@ export class TeacherService {
     return this.http.get(`${environment.endpoint}/teacher/weekly/schedule`);
   }
 
+
   getLessonsByDate(course_id: number, date: string) {
     return this.http.get(
       `${environment.endpoint}/teacher/lessons/all?course_id=${course_id}&date=${date}`
     );
   }
 
-  deleteLesson(id: number) {
-    return this.http.delete(
-      `${environment.endpoint}/teacher/lesson/delete?lesson_id=${id}`
-    );
-  }
-  /* ---------- Attendance -----------*/
 
-  getAllAttendanceCases(id: number) {
-    return this.http.get(
-      `${environment.endpoint}/teacher/attendance/cases/all?lesson_id=${id}`
-    );
-  }
 
-  getAllStudentAttendance(id: number) {
-    return this.http.get(
-      `https://elmo3lem.scarksa.com/public/api/teacher/attendances/all?lesson_id=${id}`
-    );
-  }
 
-  getAllAttendanceCount(id: number) {
-    return this.http.get(
-      `${environment.endpoint}/teacher/attendance/count/show?lesson_id=${id}`
-    );
-  }
+      assignAttendance(form:any){
+        return this.http.post(`${environment.endpoint}/teacher/attendance/create`,form);
+      }
 
-  assignAttendance(form: any) {
-    return this.http.post(
-      `${environment.endpoint}/teacher/attendance/create`,
-      form
-    );
-  }
+      assignAllStudentAttendance(lesson_id:any,case_id:any){
+        return this.http.get(`${environment.endpoint}/teacher/attendance/add/students/all?lesson_id=${lesson_id}&attendance_case_id=${case_id}`);
+      }
+
+      createAttendance(form:any){
+        return this.http.post(`${environment.endpoint}/teacher/attendance/case/create`,form);
+      }
+
+      deleteAttendanceCase(id:any){
+        return this.http.delete(`${environment.endpoint}/teacher/attendance/case/delete?attendance_case_id=${id}`);
+      }
+
+      updateAttendance(form:any){
+        return this.http.post(`${environment.endpoint}/teacher/attendance/case/update`,form);
+      }
 
   /* ---------- Behavior -----------*/
   getAllBehaviors() {
@@ -351,6 +343,14 @@ export class TeacherService {
     return this.http.post(
       `${environment.endpoint}/teacher/grade/student/create`,
       form
-    );
+    );}
+
+
+  getbehaviorByCourseId(course_id:number){
+    return this.http.get(`${environment.endpoint}/teacher/students/behaviors?course_id=${course_id}`);
   }
+  deleteBehaviorStudent(student_behavior_id:number){
+    return this.http.delete(`${environment.endpoint}/teacher/behavior/student/delete?student_behavior_id=${student_behavior_id}`);
+  }
+
 }

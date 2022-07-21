@@ -1,0 +1,40 @@
+.report-card {
+  width: 100%;
+  height: 100%;
+}
+
+.settings {
+  &__btn {
+    cursor: pointer;
+    width: max-content;
+    &__forIcon {
+      background-color: #e2e2e2;
+      padding: 7px;
+      border-radius: 50%;
+    }
+  }
+  &__colors {
+    padding-top: 50px;
+    &__show {
+      padding: 15px;
+      background-color: #ffffff;
+      &__item {
+        display: flex;
+        background-color: #fafafa;
+        padding: 10px;
+        &__left {
+          display: flex;
+          gap: 10px;
+          align-items: baseline;
+
+          &__color {
+            height: 18px;
+            width: 18px;
+            border-radius: 5px;
+          }
+        }
+        &__right {}
+      }
+    }
+  }
+}

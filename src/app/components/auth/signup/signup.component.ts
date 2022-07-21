@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import Swal from 'sweetalert2';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-signup',
@@ -16,6 +17,35 @@ import Swal from 'sweetalert2';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
+  customOptions: OwlOptions = {
+    items : 1,
+    loop: false,
+    mouseDrag: false,
+    touchDrag: false,
+    center : true,
+    slideBy : 1,
+    dots : true,
+    pullDrag: false,
+    // dots: false,
+    navSpeed: 700,
+    // navText : ["hide"],
+    responsive: {
+      0: {
+        // items: 1
+      },
+      400: {
+        // items: 2
+      },
+      740: {
+        // items: 3
+      },
+      940: {
+        // items: 4
+      }
+    },
+    nav: true
+  }
+  
   public submitted = false;
   public form: FormGroup | any;
   public togglePassword: boolean = false;
@@ -65,9 +95,9 @@ export class SignupComponent implements OnInit {
     }
     this.spinner.show();
     this.service.signUp(this.form.value).subscribe((response: any) => {
-      console.log(response, 'test response');
+      console.log('==================####=================')
+      console.log(response)
       this.spinner.hide();
-
       if (response.status === false) {
         Swal.fire({
           title: '',
@@ -78,12 +108,10 @@ export class SignupComponent implements OnInit {
       } else {
         Swal.fire(`signup success`, `signup success`, `success`);
         const qq: FormData = new FormData();
-        console.log(country + ' ' + number, 'henaaaaaaaa?');
-
         qq.append('email_or_phone', `${country} ${number}`);
-        this.service.verify(qq).subscribe((e) => {
-          console.log(e, 'from verifyyyyyyyyy');
-        });
+        // this.service.verify(qq).subscribe((e) => {
+        //   console.log(e, 'from verifyyyyyyyyy');
+        // });
         this.router.navigate(['/auth/verify/signup']);
       }
 

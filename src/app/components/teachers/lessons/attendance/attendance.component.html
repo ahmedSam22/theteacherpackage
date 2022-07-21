@@ -14,21 +14,21 @@
           <div class="col-md-6 col-sm-12 d-flex justify-content-between">
             <div class="head__left__name mr-2 col-md-6 col-sm-12">
               <span>
-                {{ lessonData.name }}
+                {{ lessonData?.name }}
               </span>
             </div>
             <div class="head__left__date col-md-6 col-sm-12">
               <span>
-                {{ lessonData.date }} | {{ lessonData.start_time }}
-                {{ lessonData.end_time }}
+                {{ lessonData?.date }} | {{ lessonData?.start_time }}
+                {{ lessonData?.end_time }}
               </span>
             </div>
           </div>
           <div class="col-md-6 col-sm-6 d-flex justify-content-end">
-            <button class="btn btn-light">
+            <button class="btn btn-light" (click)="forPrint()">
               <i class="fas fa-print"></i> Print
             </button>
-            <button class="btn btn-success ml-2">
+            <button class="btn btn-success ml-2" routerLink="/home/attendance-setting">
               <i class="fas fa-cog"></i> settings
             </button>
           </div>
@@ -65,7 +65,7 @@
           </div> -->
       </div>
     </div>
-    <div class="row cases mt-5">
+    <div class="row cases mt-5 align-items-center">
       <span
         class="col"
         *ngFor="let case of allAttendanceCases"
@@ -73,7 +73,7 @@
         [style.color]="case.color"
         ><h3>40</h3>
         <p>{{ case.name }}</p>
-      </span>
+      </span> <button class="btn btn-outline-success w-auto h-50" (click)="addAllStudentsAttendance()"> <i class="far fa-check-circle"></i> Select All Students</button>
     </div>
     <div class="row students mt-5">
       <div

@@ -18,18 +18,22 @@ export class BehaviorComponent implements OnInit {
 
   negative:any=[];
   n_sum:any;
-  
+  course_id:any;
+  evaluate!:boolean ;
   constructor(public dialog: MatDialog ,private teacherservice:TeacherService , private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-     
+   
     this.class_id =localStorage.getItem('class_id');
-    this.teacherservice.searchStudent(+this.class_id).subscribe((res:any)=>{
+    this.course_id = localStorage.getItem('course_id');
+    // this.teacherservice.searchStudent(+this.class_id).subscribe((res:any)=>{
+      this.teacherservice.getbehaviorByCourseId(+this.course_id).subscribe((res:any)=>{
       this.students=res['data']
     
     console.log("oooooooooo",this.students)
     for(let i=0 ; i<=this.students.length ; i++){
-     
+     if (this.students[i].behavior_scores){
+       
       this.positive.push(this.students[i].behavior_scores.positive_behavior_score);
       // console.log("PPPPPPPPPPPPP",this.positive)
       this.p_sum = this.positive.reduce((acc:number, cur:number) => acc + cur, 0);
@@ -39,7 +43,12 @@ export class BehaviorComponent implements OnInit {
         // console.log("PPPPPPPPPPPPP",this.positive)
         this.n_sum = this.negative.reduce((acc:number, cur:number) => acc + cur, 0);
           console.log("nnnnnnnnn",this.n_sum)
+     }
+    else {
+      console.log("not found")
+      
     }
+  }
    
     // .is_negative_behaviors_limit_exceeded
      })
@@ -65,7 +74,7 @@ export class BehaviorComponent implements OnInit {
   addStudentBehavior(student:any){
     const dialogRef = this.dialog.open(AddStudentBehaviorComponent, {
       data:student,
-       
+       width:'50%'
     });
     dialogRef.afterClosed().subscribe(result => {
       location.reload()

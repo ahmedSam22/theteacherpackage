@@ -1,0 +1,24 @@
+<div class="w-100">
+    <div class="w-100 d-flex justify-content-between col-md-9 offset-3 mb-2">
+        <span>Choose Attendance To All Students</span>
+        <span>
+            <button class="btn btn-outline-success" (click)="setatt()">DONE</button>
+
+        </span>
+    </div>
+<ul class="pl-0">
+    <li *ngFor="let case of allAttendanceCases"
+      (click)="setColor(case.id)"
+
+        [value]="case.id"
+    class="d-flex align-items-center mb-1"
+    
+    >
+        <div
+        class="color"
+        [style.background]="case.color"
+        ></div>
+        {{case.name}}
+    </li>
+</ul>
+</div>
