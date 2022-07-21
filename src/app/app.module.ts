@@ -48,6 +48,7 @@ import { SettingsComponent } from './components/teachers/lessons/attendance/sett
 import { AddAttendanceComponent } from './components/teachers/lessons/attendance/add-attendance/add-attendance.component';
 import { EditAttendanceComponent } from './components/teachers/lessons/attendance/edit-attendance/edit-attendance.component';
 import { AssignAllAttendanceComponent } from './components/teachers/lessons/attendance/assign-all-attendance/assign-all-attendance.component';
+import { ResponseInterceptor } from './helpers/response.interceptor';
  
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { AssignAllAttendanceComponent } from './components/teachers/lessons/atte
     // AuthModule
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],

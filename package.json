@@ -27,6 +27,7 @@
     "@syncfusion/ej2-angular-calendars": "^20.1.58",
     "@syncfusion/ej2-calendars": "^20.1.58",
     "angular-responsive-carousel": "^2.1.2",
+    "animate.css": "^4.1.1",
     "bootstrap": "^5.1.3",
     "firebase": "^9.8.3",
     "jquery": "^3.6.0",

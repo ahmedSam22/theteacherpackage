@@ -18,6 +18,7 @@ export class TeacherService {
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
 
+
   constructor(private router: Router, private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<any>(
       JSON.parse(localStorage.getItem(`${environment.currentUserKey}`) || '{}')

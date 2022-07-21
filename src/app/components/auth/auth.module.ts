@@ -14,6 +14,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgOtpInputModule } from  'ng-otp-input';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -34,8 +36,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ReactiveFormsModule,
     CarouselModule,
     NgOtpInputModule,
-    NgxSpinnerModule
-
+    NgxSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers:[]
 })

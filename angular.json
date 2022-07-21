@@ -40,6 +40,8 @@
               "node_modules/ngx-spinner/animations/ball-scale-multiple.css" ,
               "node_modules/ngx-spinner/animations/ball-circus.css",
 
+              "node_modules/animate.css/animate.min.css",
+              "src/assets/sass/form.scss",
               "src/styles.scss"
             ],
             "scripts": [
