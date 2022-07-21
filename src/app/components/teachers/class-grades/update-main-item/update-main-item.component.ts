@@ -135,8 +135,8 @@ export class UpdateMainItemComponent implements OnInit {
     console.log(forms );
     this.teacher.updateMianItem(forms).subscribe((data: any) => {
       console.log(data);
+      this.ngOnInit()
     });
-
   }
   back() {
     this.router.navigate(['./../../../home/class-student/class-grade']);

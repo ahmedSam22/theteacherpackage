@@ -117,7 +117,7 @@ export class UpdateSubItemsWithoutMainComponent implements OnInit {
     console.log(val.value.subItems);
     let forms = {
       grade_id: this.grade_id,
-      grade_main_item_id: this.mainId,
+      // grade_main_item_id: this.mainId,
       grade_sub_items: val.value.subItems,
     };
     console.log(forms );

@@ -10,7 +10,7 @@
             <path id="Arrow_-_Left_2" data-name="Arrow - Left 2" d="M13.108,14.217,8.5,9.608,13.108,5" transform="translate(208.786 164.83)" fill="none" stroke="#2c2738" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
           </g>
         </svg>
-  Edit Grades</h5>
+  Edit {{main.title}}</h5>
       </div>
     </div>
     <div class="col-xl-6 d-flex justify-content-end">
@@ -160,8 +160,8 @@
     </div>
 
       <form class="col-xl-12 row" [formGroup]="dynamicForm" (ngSubmit)="onSubmit(dynamicForm)">
-        <div class="card col-xl-4"*ngFor="let ticket of SubItems; let i = index" >
-
+        <div class=" col-xl-4"*ngFor="let ticket of SubItems; let i = index" >
+<div class="card">
             <div class="card-body " >
 
 
@@ -226,7 +226,7 @@
             </div>
           </div>
         </div>
-
+      </div>
 
           <div class="col-12 d-flex  justify-content-end mt-3 ">
             <button class="btn btn-primary" type="submit" [disabled]="dynamicForm.invalid">sava</button>

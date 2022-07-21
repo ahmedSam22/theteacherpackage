@@ -296,6 +296,18 @@ export class TeacherService {
     );
   }
   updategrade(form: any) {
+    const formData:FormData = new FormData();
+    formData?.append("image" ,form.image )
+    formData.append("grade_id" ,form.grade_id )
+    formData.append(`titles` , form.titles )
+    for (let index = 0; index < form.titles.length; index++) {
+      formData.append(`titles[${index}]` , form.titles[index] )
+    }
+
+    return this.http.post(`${environment.endpoint}/teacher/grade/update`, formData);
+  }
+  updategradeMain(form: any) {
+
     return this.http.post(`${environment.endpoint}/teacher/grade/update`, form);
   }
   updateMianItem(form: any) {

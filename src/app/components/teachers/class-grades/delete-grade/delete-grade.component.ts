@@ -52,17 +52,7 @@ titles_list:any[]=[];
 // }
 
   }
-// select(event:any) {
-//     this.file= event.target.files;
-//     const reader = new FileReader();
-//     reader.readAsDataURL(this.file[0]);
-//     reader.onload = () => {
-//     this.base64Image = reader.result;
-//     this.url= this.file[0];
 
-//     };
-
-//   }
 deleteTitles(item:any){
 console.log(item);
 const indexOfObject = this.titles_list.findIndex(object => {
@@ -76,10 +66,9 @@ this.titles_list.splice(indexOfObject, 1);
 console.log(this.titles_list);
 let forms={
   titles:this.titles_list,
-   // imagePath:this.url.name,
    grade_id:localStorage.getItem("grade_id")
    }
-   this.TeacherService.updategrade(forms).subscribe(data=>{
+   this.TeacherService.updategradeMain(forms).subscribe(data=>{
      console.log(data);
      this.alert=data;
      if (this.alert.status === false) {
@@ -99,14 +88,7 @@ let forms={
          showConfirmButton: false,
          timer: 1500
        })
-       this.TeacherService.showGradeDetailsbyClassId(this.course_id).subscribe(data=>{
-        console.log(data);
-
-
-        this.titles_list=data.data.titles_list
-
-
-      })
+     this.ngOnInit()
      }
 
    })

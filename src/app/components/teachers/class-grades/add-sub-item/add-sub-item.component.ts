@@ -20,6 +20,7 @@ getMainItem:any;
   course_id:any=localStorage.getItem("course_id");
   selectedDay: any;
 alart:any;
+ids:any[]=[];
   constructor( public dialogRef: MatDialogRef<DialogComponent>,
      private TeacherService:TeacherService  , private FormBuilder:FormBuilder , private router:Router) { }
 
@@ -31,8 +32,8 @@ alart:any;
 
       evaluation_item_data_type: ['',Validators.required],
 
-      first_option: ['',Validators.required],
-      second_option: ['',Validators.required ],
+      first_option: [''],
+      second_option: [''],
     });
 
   }
@@ -53,6 +54,28 @@ getmainitem(value:any) {
 this.getMainItem=value;
   console.log(this.GradesList[0].grade_id , this.getMainItem.id);
 }
+// change(){
+//   this.AddSubForm.controls["evaluation_item_data_type"].valueChanges.subscribe((value: any) => {
+//     if (value=='2'||value=='4') {
+//       this.AddSubForm.get("first_option")?.setValidators([Validators.required,]);
+//       console.log("2||4");
+
+//     } else {
+//       this.AddSubForm.get("first_option")?.setValidators([Validators.nullValidator,]);
+//       console.log("1||3");
+//     }
+//     this.AddSubForm.updateValueAndValidity();
+//   })
+// if(this.AddSubForm.controls["evaluation_item_data_type"].value=="2"||this.AddSubForm.controls["evaluation_item_data_type"].value=="4"){
+// console.log("value");
+// this.AddSubForm.get("first_option")?.setValidators(Validators.required)
+// this.AddSubForm.get("second_option")?.setValidators(Validators.required)
+// }else if (this.AddSubForm.controls["evaluation_item_data_type"].value=="1"||this.AddSubForm.controls["evaluation_item_data_type"].value=="3"){
+//   this.AddSubForm.get("first_option")?.setValidators(Validators.nullValidator)
+//   this.AddSubForm.get("second_option")?.setValidators(Validators.nullValidator)
+//   console.log("no value");
+// }
+// }
 onSubmit(form: any) {
 
   console.log(form);
@@ -72,7 +95,9 @@ onSubmit(form: any) {
  }
   this.TeacherService.AddSubItem(forms).subscribe((data) => {
     console.log(data );
+
 this.alart=data;
+
       if (this.alart.status === false) {
         console.log("data falsee");
 
@@ -92,6 +117,9 @@ this.alart=data;
           showConfirmButton: false,
           timer: 1500
         })
+        this.ids.push(this.alart.data.id);
+        console.log(this.ids);
+
         this.router
         .navigate(['./../../../home/class-student/class-grade/grade-details'])
         .then(() => {

@@ -29,10 +29,13 @@ form{
 }
 ::ng-deep .mat-select-panel:not([class*=mat-elevation-z]) {
   box-shadow: 0 6px 20px rgba(0,0,0,3%);
-  background: #fff;
+  background: #fff !important;
+  margin-top: 30px;
 }
 ::ng-deep .mat-select-panel .mat-option {
   text-align: center;
+  background: #fff !important;
+  border-bottom: 1px solid #ddd;
 }
 
 :host ::ng-deep div.mat-form-field-outline-start{
@@ -52,3 +55,13 @@ form{
 :host ::ng-deep .mat-input-element.mat-form-field-autofill-control.ng-tns-c104-2 .ng-valid {
 background: none !important;
 }
+:host ::ng-deep .mat-select-arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid;
+  margin: 0 4px;
+  color: green;
+}
+

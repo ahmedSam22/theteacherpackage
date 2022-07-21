@@ -56,6 +56,7 @@ const routes: Routes = [
             { path: 'grade-details', component: GradeDetailsComponent },
           ] },
           { path: ':search', component: ClassDetailsComponent },
+          { path: 'grade-students/:id', component: GradeStudentComponent},
         ],
       },
       { path: 'class-student-add', component: AddStudentComponent },
@@ -65,7 +66,7 @@ const routes: Routes = [
       { path: 'edit-grade', component: EditGradesComponent },
      { path: 'edit-grade/:id', component: UpdateMainItemComponent},
      { path: 'edit-subItems-grade', component: UpdateSubItemsWithoutMainComponent},
-     { path: 'grade-students/:id', component: GradeStudentComponent},
+
       { path: 'delete-grade', component: DeleteGradeComponent },
       {path : 'behavior-setting' , component:BehaviorSettingComponent},
       { path: 'reports', component: ReportsComponent },

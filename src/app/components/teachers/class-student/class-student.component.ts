@@ -69,7 +69,7 @@ export class ClassStudentComponent implements OnInit,OnChanges {
 
     localStorage.setItem("grade_id" , data.data.id)
 
-    if(this.GradesList.length>0){
+    if(this.GradesList.length>0 || this.outSiding.length>0){
       this.show=false;
       this.hide=true;
 

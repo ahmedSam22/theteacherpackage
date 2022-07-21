@@ -22,22 +22,16 @@ Edit Grades</h5>
       <div class="avatar-upload mb-3">
         <div class="avatar-edit">
           <input type="file" #fileInput class="form-control" id="imageUpload"
-          (change)="select($event) ;selectImg($event)"
+          (change)="select($event) "
            formControlName="image" accept=".png, .jpg, .jpeg" />
           <label for="imageUpload"></label>
         </div>
-        <div class="avatar-preview">
+        <div class="avatar-preview" >
+
+          <div id="imagePreview" style="background-image: url({{url}});">
+            <!-- -->
 
 
-            <!-- style="background-image: url({{url}});" -->
-            <ng-container *ngIf=" true;else second">
-              <div  id="imagePreview" style="background-image: url({{imagePath}});"></div>
-            </ng-container>
-<ng-template #second>
-    <ng-container >
-      <div  id="imagePreview" style="background-image: url({{url}});"></div>
-    </ng-container>
-</ng-template>
           </div>
         </div>
       </div>

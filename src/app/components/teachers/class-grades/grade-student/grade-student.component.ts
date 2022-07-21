@@ -36,6 +36,13 @@ export class GradeStudentComponent implements OnInit {
       this.main = data.data.grade_sub_items;
       this.student=data.data.grade_sub_items[0].students;
       console.log(data , this.main , this.title);
+    //  if(this.main.length){
+    //   for (let index = 0; index < this.main.length; index++) {
+    //     this.totalGrade.push({id:this.main[index].id , studentsIds:[] , grades:[]})
+    //    }
+    //    console.log("total grades:" , this.totalGrade);
+    //  }
+
     });
   }
   getstudent(item:any){
@@ -76,10 +83,11 @@ let isnum = /^\d+$/.test($event.target.innerText );
 
 if(!isnum && $event.target.innerText !=='-'){
   $event.target.innerHTML="-"
-  this.degree= $event.target.innerText
+  this.degree= 0;
   alert("must be number")
-}else{
+}else if(isnum){
   this.degree= $event.target.innerText
+  this.save()
 }
 
   }
@@ -90,6 +98,8 @@ if(!isnum && $event.target.innerText !=='-'){
    console.log(this.subId , this.studentId ,this.degree );
       this.totalGrade.push({id:this.subId , students:[this.studentId ] , grades:[this.degree]})
       console.log(this.totalGrade);
+
+      console.log("total grades:" , this.totalGrade);
   }
   savedegree(){
     console.log(this.totalGrade);

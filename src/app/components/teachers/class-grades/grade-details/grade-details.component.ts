@@ -26,8 +26,7 @@ MainItems:any[]=[];
       }
       item(itrm:any){
         console.log(itrm.id);
-        this.router.navigate(['./../../../home/grade-students', itrm.id]);
-
+        this.router.navigate(['../../../home/class-student/grade-students', itrm.id]);
       }
       getAllGrades(){
         this.TeacherService.showGradeDetailsbyClassId(this.course_id).subscribe(data=>{

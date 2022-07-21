@@ -26,8 +26,8 @@
               <td class="first-col">{{item.first_name}}</td>
               <td  *ngFor="let car of main">
                 <span *ngIf="car.students[i].grade , else elseBlock">
-               <span (blur)="getDgree($event);save()"(click)="getsubItem(car); getstudent(car.students[i])"  contentEditable="true"> {{car.students[i].grade.grade_value}}</span>/{{car.first_option}}</span>
-                <ng-template #elseBlock> <span  (blur)=" getDgree($event);save()"(click)="getsubItem(car); getstudent(car.students[i])" contentEditable="true">-</span>/{{car.first_option}}</ng-template>
+               <span (focusout)="getDgree($event)"(click)="getsubItem(car); getstudent(car.students[i])"  contentEditable="true"> {{car.students[i].grade.grade_value}}</span>/{{car.first_option}}</span>
+                <ng-template #elseBlock> <span  (focusout)=" getDgree($event)"(click)="getsubItem(car); getstudent(car.students[i])" contentEditable="true">-</span>/{{car.first_option}}</ng-template>
               </td>
             </tr>
             </ng-container>

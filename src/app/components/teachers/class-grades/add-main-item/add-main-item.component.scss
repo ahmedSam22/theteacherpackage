@@ -16,8 +16,14 @@
     font-size: 12px;
 }
 ::ng-deep .mat-select-panel:not([class*=mat-elevation-z]) {
-  box-shadow: unset!important;
-  background: transparent;
+  box-shadow: 0 6px 20px rgba(0,0,0,3%);
+  background: #fff !important;
+  margin-top: 30px;
+}
+::ng-deep .mat-select-panel .mat-option {
+  text-align: center;
+  background: #fff !important;
+  border-bottom: 1px solid #ddd;
 }
 .mat-option.mat-active {
   background: rgba(0,0,0,.04);
@@ -64,4 +70,13 @@ input , input:focus , select{
 .mat-option.mat-active {
   background: transparent;
   color: rgba(0,0,0,.87);
+}
+:host ::ng-deep .mat-select-arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid;
+  margin: 0 4px;
+  color: green;
 }
