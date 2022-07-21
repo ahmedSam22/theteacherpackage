@@ -28,14 +28,7 @@
         border-color: #b1b1b1;
         color: #b1b1b1;
       }
-      // div:nth-of-type(1) button {
-      //     border-color: #37B673;
-      //     color:#37B673
-      //   }
-      //   div:nth-of-type(2) button{
-      //     border-color: #B1B1B1;
-      //     color: #B1B1B1;
-      //   }
+
     }
   }
 }
@@ -55,3 +48,10 @@
   }
 }
 
+.btn-custom{
+  border: 1px solid green;
+  &:hover{
+    background-color: green;
+    color: white !important;
+  }
+}

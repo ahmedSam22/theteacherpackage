@@ -1,3 +1,4 @@
+import { AddClassComponent } from './../teachers/class-student/add-class/add-class.component';
 import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import { TeacherService } from './../teachers/teacher.service';
 import { Component, OnInit } from '@angular/core';
@@ -45,6 +46,15 @@ export class ClassComponent implements OnInit {
     });
   }
 
+  addClass(){
+    const dialogRef = this.dialog.open(AddClassComponent, {
+      width: '40%',
+      height: "90%"
+  })
+    dialogRef.afterClosed().subscribe(result => {
+      location.reload()
+    });
+  }
 
   editClass(lesson:any): void {
     const dialogRef = this.dialog.open(EditClassComponent, {
