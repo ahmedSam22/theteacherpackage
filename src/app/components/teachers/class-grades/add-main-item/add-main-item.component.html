@@ -5,17 +5,20 @@
     <div class="btn-close_popup_wrapper">
       <button class="btn close btn-close_popup" mat-button mat-dialog-close>
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-x"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
-          />
-        </svg>
+        xmlns="http://www.w3.org/2000/svg"
+        width="25"
+        height="25"
+        fill="currentColor"
+        class="bi bi-x"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+        />
+      </svg>
+
+
+
       </button>
     </div>
   </div>
@@ -23,30 +26,32 @@
   <div class="row">
     <div class="col-12">
       <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" [ngClass]="{'is-invalid':form.get('title')?.touched }">
           <mat-label>Title</mat-label>
-          <input matInput formControlName="title">
-          <div  class="form-text text-danger mt-4" *ngIf="form.get('title')?.invalid &&form.get('title')?.touched ">
-            <p *ngIf="form.get('title')?.errors "> title is required</p>
-          </div>
-        </mat-form-field>
+          <input matInput formControlName="title" >
 
+        </mat-form-field>
+        <div  class="form-text text-danger " *ngIf="form.get('title')?.invalid &&form.get('title')?.touched ">
+          <p *ngIf="form.get('title')?.errors "> title is required</p>
+        </div>
         <mat-form-field appearance="outline" >
-          <mat-label >The method of calculating the degree</mat-label>
+          <mat-label >The method of calculating </mat-label>
           <mat-select #degree  formControlName="calculating_method">
             <mat-option selected value="1">Precent</mat-option>
           </mat-select>
-          <div  class="form-text text-danger mt-4" *ngIf="form.get('calculating_method')?.invalid &&form.get('calculating_method')?.touched ">
-            <p *ngIf="form.get('calculating_method')?.errors "> calculating_method is required</p>
-          </div>
+
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <div  class="form-text text-danger " *ngIf="form.get('calculating_method')?.invalid &&form.get('calculating_method')?.touched ">
+          <p *ngIf="form.get('calculating_method')?.errors "> calculating_method is required</p>
+        </div>
+        <mat-form-field appearance="outline" class="precent">
           <mat-label>Total</mat-label>
           <input matInput  formControlName="total">
-          <div  class="form-text text-danger mt-4" *ngIf="form.get('total')?.invalid &&form.get('total')?.touched ">
-            <p *ngIf="form.get('total')?.errors "> total is required</p>
-          </div>
+<span class=" span-primary text-primary">%</span>
         </mat-form-field>
+        <div  class="form-text text-danger " *ngIf="form.get('total')?.invalid &&form.get('total')?.touched ">
+          <p *ngIf="form.get('total')?.errors "> total is required</p>
+        </div>
         <!-- <div class="mb-3 form-group">
           <label class="form-label">Title</label>
           <input type="text" class="form-control" formControlName="title" />
@@ -94,7 +99,7 @@
           />
         </div> -->
 
-        <button [disabled]="form.invalid" type="submit" class="btn bg-primary">
+        <button [disabled]="form.invalid" type="submit" class="btn text-navbar  bg-primary">
           Add Main Item
         </button>
       </form>

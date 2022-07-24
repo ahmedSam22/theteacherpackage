@@ -29,7 +29,7 @@ padding: 0;
  background-color: #FFFFFF;
   width: 100%;
   padding: 5px 0px;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(139, 139, 139);
 }
 .avatar-upload {
   position: relative;
@@ -99,4 +99,19 @@ font-size: 1.2rem;
 }
 :host ::ng-deep .mat-form-field-wrapper {
   padding-bottom: 0.34375em;
+}
+@media(max-width:400px){
+  .card-body .add-input{
+    font-size: 70%;
+  }
+  :host ::ng-deep .mat-form-field-wrapper {
+   font-size: 90%;
+ width: 100%;
+
+  }
+  :host ::ng-deep  .mat-form-field-label-wrapper .mat-empty{
+font-size: 80%;
+margin-bottom: 15px;
+
+  }
 }

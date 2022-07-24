@@ -6,15 +6,12 @@
   border-radius: 10px;
   border: 1px solid #eee;
 }
-:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex:hover,
-:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex{
-    background-color:#FAFAFA!important;
-    border-radius:8px;
-    border: 1px solid #E9EAEC;
-    box-shadow: 0 6px 20px rgba(0,0,0,3%);
-    height: 56px;
-    font-size: 12px;
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline{
+  background-color: #fafafa;
+  border: 1px solid #E9EAEC;
+
 }
+
 ::ng-deep .mat-select-panel:not([class*=mat-elevation-z]) {
   box-shadow: 0 6px 20px rgba(0,0,0,3%);
   background: #fff !important;
@@ -29,29 +26,14 @@
   background: rgba(0,0,0,.04);
   color: rgba(0,0,0,.87);
 }
-:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
-  margin: 0;
-}
-:host ::ng-deep div.mat-form-field-outline-start{
-  border-color: 0 !important;
-  border-width: 0px !important;
-}
-
-:host ::ng-deep .mat-form-field-outline-gap{
-  border-color: 0 !important;
-  border-width: 0px !important;
-}
-
-:host ::ng-deep .mat-form-field-outline-end{
-  border-color: 0 !important;
-  border-width: 0px !important;
-}
-:host ::ng-deep .mat-input-element.mat-form-field-autofill-control.ng-tns-c104-2 .ng-valid {
-background: none !important;
-}
 
 
-input , input:focus , select{
+
+
+
+
+
+input , input:focus , select , .btn , .btn:focus{
   border: none;
   outline: none;
   box-shadow: none;
@@ -66,10 +48,15 @@ input , input:focus , select{
   width: 27px;
   height: 27px;
   border-radius:50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.mat-option.mat-active {
-  background: transparent;
-  color: rgba(0,0,0,.87);
+.btn-close_popup_wrapper button {
+  display: flex;
+}
+:host ::ng-deep .mat-form-field-wrapper{
+  padding-bottom: .5rem;
 }
 :host ::ng-deep .mat-select-arrow {
   width: 0;
@@ -79,4 +66,12 @@ input , input:focus , select{
   border-top: 5px solid;
   margin: 0 4px;
   color: green;
+}
+.precent{
+  position: relative;
+}
+.span-primary{
+  position: absolute;
+  top: 12px;
+  right: 2px;
 }

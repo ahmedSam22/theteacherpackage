@@ -8,7 +8,7 @@
     .card-footer{
       border: none;
     color: #37b673;
-      background-color: #37b67338;
+      background-color: #D3F9E5;
       border-radius: 0px 0px 10px 10px;
     }
     .card-header  , .card-body ,.card-footer{
@@ -24,4 +24,24 @@ p{
 .media-body h5:not(:first-child) {
   color: #9B9B9B;
   font-size: 12px;
+}
+.media{
+  display: flex;
+  gap: 20px;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 5px;
+}
+ul li p{
+  font-size: .9rem;
+}
+ul li p::before {
+  content: "\2022";
+  color: #37B673;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: 0em;
 }

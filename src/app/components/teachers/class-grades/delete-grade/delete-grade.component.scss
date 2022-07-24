@@ -1,5 +1,5 @@
 .edit-grade{
-  padding: 80px 0px;
+  padding: 120px 0px 80px ;
 }
 
 .card{
@@ -11,7 +11,7 @@
 .card-footer{
   border: none;
 color: #37b673;
-  background-color: #37b67338;
+  background-color: #D3F9E5;
   border-radius: 0px 0px 10px 10px;
 }
 .card-header  , .card-body ,.card-footer{
@@ -43,7 +43,9 @@ padding: 0;
       input {
           display: none;
           + label {
-              display: inline-block;
+              display: flex;
+              justify-content: center;
+              align-items: center;
               width: 34px;
               height: 34px;
               margin-bottom: 0;
@@ -59,7 +61,7 @@ padding: 0;
                   border-color: #d6d6d6;
               }
               &:after {
-                  content: "\f014";
+
                   font-family: 'FontAwesome';
                   color: #ff0202;
                   position: absolute;

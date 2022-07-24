@@ -22,10 +22,10 @@
   </div>
   <form [formGroup]="AddSubForm"  (ngSubmit)="onSubmit(AddSubForm.value)">
 <div>
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline"[ngClass]="{'is-invalid': AddSubForm.get('evaluation_item_name')?.invalid &&AddSubForm.get('evaluation_item_name')?.touched  }">
     <mat-label>Evaluation item name</mat-label>
     <input matInput formControlName="evaluation_item_name">
-    <div  class="form-text text-danger mt-4" *ngIf="AddSubForm.get('evaluation_item_name')?.invalid &&AddSubForm.get('evaluation_item_name')?.touched ">
+    <div  class="form-text text-danger " *ngIf="AddSubForm.get('evaluation_item_name')?.invalid &&AddSubForm.get('evaluation_item_name')?.touched ">
       <p *ngIf="AddSubForm.get('evaluation_item_name')?.errors "> evaluation_item_name is required</p>
     </div>
   </mat-form-field>
@@ -54,7 +54,7 @@
     <mat-option value="3" >number</mat-option>
     <mat-option value="4" >two part</mat-option>
   </mat-select>
-  <div  class="form-text text-danger mt-4" *ngIf="AddSubForm.get('evaluation_item_data_type')?.invalid &&AddSubForm.get('evaluation_item_data_type')?.touched ">
+  <div  class="form-text text-danger " *ngIf="AddSubForm.get('evaluation_item_data_type')?.invalid &&AddSubForm.get('evaluation_item_data_type')?.touched ">
     <p *ngIf="AddSubForm.get('evaluation_item_data_type')?.errors "> evaluation_item_data_type is required</p>
   </div>
 </mat-form-field>
@@ -62,7 +62,7 @@
 
   <mat-label>max degree percentage</mat-label>
   <input matInput formControlName="first_option">
-  <div  class="form-text text-danger mt-4" *ngIf="AddSubForm.get('first_option')?.invalid &&AddSubForm.get('first_option')?.touched ">
+  <div  class="form-text text-danger " *ngIf="AddSubForm.get('first_option')?.invalid &&AddSubForm.get('first_option')?.touched ">
     <p *ngIf="AddSubForm.get('first_option')?.errors "> max degree percentage is required</p>
   </div>
   </mat-form-field>

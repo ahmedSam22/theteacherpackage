@@ -26,16 +26,16 @@
   </div>
  </div>
 </div>
-  <div class="col-xl-3 col-6" *ngFor="let MainItem of GradesList " >
+  <div class="col-xl-3 col-md-6 col-12" *ngFor="let MainItem of GradesList " >
     <div class="card  mb-3 mt-2" style="width: 100%;" >
       <div class="card-header d-flex justify-content-between align-items-center btn btn-primary"  (click)="item(MainItem)">
-        <p class="grades-card-header-title">{{MainItem.title}}</p>
+        <p class="grades-card-header-title text-white">{{MainItem.title}}</p>
         <span class="grades-card-header-degree" style="color: #fff"> {{MainItem.total}}%</span>
       </div>
       <div class="card-body ">
         <div class="grades-card-degree-details">
-          <ul style="padding-left:10px ;" >
-            <li [ngSwitch]="item.evaluation_item_data_type" class="mt-2 mp-2 d-flex justify-content-between align-items-center" *ngFor="let item of MainItem.grade_sub_items">
+          <ul   >
+            <li [ngSwitch]="item.evaluation_item_data_type" class="mt-2 mp-2 d-flex justify-content-between align-items-center" *ngFor="let item of MainItem.grade_sub_items" >
                 <p class="card-text">{{item.evaluation_item_name}} </p>
                 <span *ngSwitchCase="2" style="color: rgb(156, 156, 156)">{{item.first_option}}</span>
                 <span *ngSwitchCase="1 " style="color: rgb(156, 156, 156)">-</span>
@@ -59,7 +59,7 @@
   <div class="col-xl-12 " *ngIf="outSiding.length">
     <div class="card  mb-3 mt-2" style="width: 100%;" >
       <div class="card-header d-flex justify-content-between align-items-center btn btn-primary">
-        <p class="grades-card-header-title">rating out side main items</p>
+        <p class="grades-card-header-title text-white">rating out side main items</p>
       </div>
       <div class="card-body ">
         <div class="grades-card-degree-details">

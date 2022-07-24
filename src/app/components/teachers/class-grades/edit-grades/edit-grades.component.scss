@@ -1,5 +1,5 @@
 .edit-grade{
-  padding: 80px 0px;
+  padding: 120px 0px 80px;
 }
 
 .card{
@@ -11,7 +11,7 @@
 .card-footer{
   border: none;
 color: #37b673;
-  background-color: #37b67338;
+background-color: #D3F9E5;
   border-radius: 0px 0px 10px 10px;
 }
 .card-header  , .card-body ,.card-footer{
@@ -44,7 +44,9 @@ padding: 0;
       input {
           display: none;
           + label {
-              display: inline-block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
               width: 34px;
               height: 34px;
               margin-bottom: 0;
@@ -60,7 +62,7 @@ padding: 0;
                   border-color: #d6d6d6;
               }
               &:after {
-                  content: "\f030";
+
                   font-family: 'FontAwesome';
                   color: #37B673;
                   position: absolute;
@@ -90,31 +92,20 @@ padding: 0;
       }
   }
 }
-:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex:hover,
-:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex{
-    background-color:#FAFAFA!important;
-    border-radius:8px;
-    border: 1px solid #E9EAEC;
-    box-shadow: 0 6px 20px rgba(0,0,0,3%);
-    height: 50px;
-    font-size: 12px;
-    padding-top: 6px ;
-}
-:host ::ng-deep div.mat-form-field-outline-start{
-  border-color: 0 !important;
-  border-width: 0px !important;
-}
 
-:host ::ng-deep .mat-form-field-outline-gap{
-  border-color: 0 !important;
-  border-width: 0px !important;
+ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 5px;
 }
-
-:host ::ng-deep .mat-form-field-outline-end{
-  border-color: 0 !important;
-  border-width: 0px !important;
+ul li p{
+  font-size: .9rem;
 }
-:host ::ng-deep .mat-input-element.mat-form-field-autofill-control.ng-tns-c104-2 .ng-valid {
-background: none !important;
+ul li p::before {
+  content: "\2022";
+  color: #37B673;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: 0em;
 }
-
