@@ -3,9 +3,9 @@
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="studentsIcons col-xl-12">
 
-        <h2>ATTENDANCE</h2>
+        <h3>ATTENDANCE</h3>
         <div class="d-flex justify-content-between row">
-          <div class="col-md-6 col-sm-12 d-flex justify-content-between">
+          <div class="col-md-6 col-sm-12 d-flex justify-content-between gap-2">
             <div class="head__left__name mr-2 col-md-6 col-sm-12">
               <span>
                 {{ lessonData?.name }}
@@ -22,7 +22,7 @@
             <button class="btn btn-light" (click)="forPrint()">
               <i class="fas fa-print"></i> Print
             </button>
-            <button class="btn btn-success ml-2" routerLink="/home/attendance-setting">
+            <button class="btn btn-primary text-white ml-2" routerLink="/home/attendance-setting">
               <i class="fas fa-cog"></i> settings
             </button>
           </div>
@@ -30,7 +30,7 @@
       
       </div>
     </div>
-    <div class="row cases mt-5 align-items-center">
+    <div class="row cases mt-5 align-items-center justify-content-around">
       <span
         class="col"
         *ngFor="let case of allAttendanceCases"

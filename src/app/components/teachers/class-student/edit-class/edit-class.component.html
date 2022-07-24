@@ -1,23 +1,8 @@
 <section>
     <div class="container">
       <div class="row d-flex justify-content-center align-items-center h-75">
-        <a class="my-5" (click)="back()">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            fill="currentColor"
-            class="bi bi-arrow-left-circle"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"
-            />
-          </svg>
-          Back
-        </a>
-        <div class="col-xl-10">
+   
+        <div class="col-xl-12">
           <div class="card">
             <h4 class="card-header text-left">Edit a Classroom</h4>
             <div class="card-body">
@@ -25,12 +10,11 @@
                 <div class="form-group row justify-content-start py-2">
                   <div class="col-md-12">
                     <label for="">About Class</label>
-                    <input
-                      type="text"
-                      class="form-control form-control-lg"
-                      placeholder="Classroom Name"
-                      formControlName="name"
-                    />
+    
+                    <mat-form-field appearance="outline">
+                      <mat-label>Name</mat-label>
+                      <input matInput placeholder="Classroom Name" formControlName="name" />
+                    </mat-form-field>
                     <!-- <span class="text-danger" *ngIf="f_name_error" >*This data is required.</span>  -->
   
                
@@ -44,12 +28,11 @@
   
                 <div class="form-group row justify-content-start py-1">
                   <div class="col-md-12">
-                    <input
-                      type="text"
-                      class="form-control form-control-lg"
-                      placeholder="Classroom Code"
-                      formControlName="code"
-                    />
+      
+                    <mat-form-field appearance="outline">
+                      <mat-label>Code</mat-label>
+                      <input matInput placeholder="Classroom Code" formControlName="code" />
+                    </mat-form-field>
                  <!-- <span class="text-danger" *ngIf="email_error">*This data is required.</span> -->
                   </div>
                 </div>
@@ -57,12 +40,11 @@
                 <div class="form-group row justify-content-start py-1">
                     <label for="">Course</label>
                   <div formArrayName="courses" class="col-md-12" *ngFor="let item of getCourses.controls; let i = index">
-                    <input
-                      type="text"
-                      class="form-control form-control-lg mt-1"
-                      placeholder="Course Name"
-                      [formControlName]="i"
-                      />
+
+                      <mat-form-field appearance="outline">
+                        <mat-label>Code</mat-label>
+                        <input matInput placeholder="Course Name" [formControlName]="i" />
+                      </mat-form-field>
                    <!-- <span class="text-danger" *ngIf="email_error">*This data is required.</span> -->
                   </div>
                 </div>
@@ -70,7 +52,7 @@
                   <div class="py-4">
                     <button
                       (click)="addCourse()"
-                      class="col-md-12 btn btn-outline-success btn-lg"
+                      class="w-100 btn btn-custom text-success btn-lg"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -90,38 +72,48 @@
                 </div>
                 <div class="form-group row justify-content-start py-1">
                   <label for="">Date Of Class</label>
-                  <div class="col-md-12 d-flex justify-content-around">
+                  <div class="col-md-12 p-0 d-flex justify-content-around">
                     <mat-form-field class="example-full-width" appearance="fill">
-                      <mat-label>Choose a date</mat-label>
-                      <input
-                        matInput
-                        [matDatepicker]="picker"
-                        formControlName="start_date"
-                      />
-                      <mat-datepicker-toggle
-                        matSuffix
-                        [for]="picker"
-                      ></mat-datepicker-toggle>
+                      <!-- <mat-label>Start Date</mat-label> -->
+  
+                      <mat-form-field appearance="outline">
+                        <input
+                          matInput
+                          [matDatepicker]="picker"
+                          formControlName="start_date"
+                          placeholder="Start Date"
+                        />
+                        <mat-datepicker-toggle
+                          matSuffix
+                          [for]="picker"
+                        ></mat-datepicker-toggle>
+                      </mat-form-field>
+  
                       <mat-datepicker touchUi #picker></mat-datepicker>
                     </mat-form-field>
                     <mat-form-field class="example-full-width" appearance="fill">
-                      <mat-label>Choose a date</mat-label>
-                      <input
-                        matInput
-                        [matDatepicker]="picker2"
-                        formControlName="end_date"
-                      />
-                      <mat-datepicker-toggle
-                        matSuffix
-                        [for]="picker2"
-                      ></mat-datepicker-toggle>
+                      <!-- <mat-label>Start Date</mat-label> -->
+  
+                      <mat-form-field appearance="outline">
+                        <input
+                          matInput
+                          [matDatepicker]="picker2"
+                          formControlName="end_date"
+                          placeholder="End Date"
+                        />
+                        <mat-datepicker-toggle
+                          matSuffix
+                          [for]="picker2"
+                        ></mat-datepicker-toggle>
+                      </mat-form-field>
+  
                       <mat-datepicker touchUi #picker2></mat-datepicker>
                     </mat-form-field>
                     <!-- <span class="text-danger" *ngIf="email_error">*This data is required.</span> -->
                   </div>
                 </div>
   
-                <div class="form-group row justify-content-start py-1">
+                <div class="form-group row justify-content-start py-1 col-md-12 m-auto">
                   <div
                     class="col-md-12 d-flex justify-content-around p-2 colorContainer"
                   >
@@ -138,7 +130,7 @@
                 <div class="py-4">
                   <button
                     type="submit"
-                    class="col-md-12 btn btn-primary btn-lg"
+                    class="col-md-12 btn btn-primary btn-lg text-white"
                     (click)="onSubmit()"
                   >
                     Add

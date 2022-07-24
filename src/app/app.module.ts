@@ -77,7 +77,8 @@ import { ResponseInterceptor } from './helpers/response.interceptor';
     SettingsComponent,
     AddAttendanceComponent,
     EditAttendanceComponent,
-    AssignAllAttendanceComponent
+    AssignAllAttendanceComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -99,6 +100,7 @@ import { ResponseInterceptor } from './helpers/response.interceptor';
     MatCheckboxModule,
     TimePickerModule,
     NgxMaterialTimepickerModule,
+  
     // AuthModule
   ],
   providers: [

@@ -55,4 +55,13 @@
     }
   }
   
-  
+  .btn-custom{
+    border: 1px solid green;
+    &:hover{
+      background-color: green;
+      color: white !important;
+    }
+  }
+::ng-deep.mat-form-field-underline{
+  width: 0px;
+}

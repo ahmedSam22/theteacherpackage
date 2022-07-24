@@ -55,6 +55,8 @@ showStudent(){
 }
   addStudentAttendance(student:any){
     const dialogRef = this.dialog.open(AssignAttendanceComponent, {
+      width: '40%',
+      height: "80%",
       data:student,
      });
     dialogRef.afterClosed().subscribe(() => this.showStudent());
@@ -62,6 +64,8 @@ showStudent(){
 
   addAllStudentsAttendance(){
     const dialogRef = this.dialog.open(AssignAllAttendanceComponent, {
+      width: '40%',
+      height: "80%",
      });
     dialogRef.afterClosed().subscribe(() => this.showStudent());
   }

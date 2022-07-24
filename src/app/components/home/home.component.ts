@@ -60,6 +60,8 @@ export class ClassComponent implements OnInit {
   editClass(lesson:any): void {
     const dialogRef = this.dialog.open(EditClassComponent, {
       data:lesson,
+      width: '40%',
+      height: "80%",
     })
     dialogRef.afterClosed().subscribe(result => {
       location.reload()

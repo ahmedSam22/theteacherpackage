@@ -34,6 +34,8 @@ export class ClassScheduleComponent implements OnInit {
   editLesson(lesson:any): void {
     const dialogRef = this.dialog.open(EditComponent, {
       data:lesson,
+      width: '40%',
+      height: "80%",
     });
     
     // dialogRef.afterClosed().subscribe(result => {

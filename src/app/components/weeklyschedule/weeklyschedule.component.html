@@ -36,10 +36,10 @@
             <div class="col-xl-10">
               <div class="d-flex my-3" style=" min-height:40px"  *ngFor="let lesson of lessons"> 
                   <div class="col-xl-2 mr-4"style="width:100% ;  ">
-                      <p class="py-1"> {{lesson.date}} <span> {{lesson.lesson_day}} </span> </p>
+                      <p class="py-1"> {{lesson.date}} <span class="h-100 bg-white" [style.border-left]="'5px solid '+lesson.course.class.color.hexcode"> {{lesson.lesson_day}} </span> </p>
                   </div>
 
-                  <div class="col-xl-7 mr-4 d-flex" [style.border-left]="'5px solid '+lesson.course.class.color.hexcode" style="width:100% ; background-color:white;"> 
+                  <div class="col-xl-7 mr-4 d-flex"  [style.border-left]="'5px solid '+lesson.course.class.color.hexcode" style="width:100% ; background-color:white;"> 
                       <p class="py-1 mr-2">{{lesson.course.class.name}}</p>
                       <p class="py-1"> {{lesson.name}} </p> 
                   </div>

@@ -24,12 +24,11 @@
               <form [formGroup]="form" novalidate>
                 <div class="form-group row justify-content-start py-2">
                   <div class="col-md-12">
-                    <input
-                      type="text"
-                      class="form-control form-control-lg"
-                      placeholder="Name Of Attendance"
-                      formControlName="name"
-                    />
+           
+                    <mat-form-field appearance="outline">
+                      <mat-label>Name Of Attendance</mat-label>
+                      <input matInput formControlName="name" />
+                    </mat-form-field>
                     <!-- <span class="text-danger" *ngIf="f_name_error" >*This data is required.</span>  -->
   
                     <div *ngIf="submitted && f?.['name']?.errors  ">
@@ -71,7 +70,7 @@
                 <div class="py-4">
                   <button
                     type="submit"
-                    class="col-md-12 btn btn-primary btn-lg"
+                    class="col-md-12 btn btn-primary text-white btn-lg"
                     (click)="onSubmit()"
                   >
                     Save
