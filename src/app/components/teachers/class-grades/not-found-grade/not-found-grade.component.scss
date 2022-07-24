@@ -1,0 +1,19 @@
+h3.text-center{
+  color:#B1B1B1
+}
+.btn{
+  color: #ffffff;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 1rem;
+
+}
+@media (max-width:320px){
+  .btn{
+    color: #ffffff;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 1rem;
+
+  }
+}

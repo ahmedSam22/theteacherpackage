@@ -114,21 +114,21 @@
 // }
 
 // }
+
 .class-student {
   position: relative;
   top:50px;
   margin: 100px 0px 50px;
+
 .header{
- background-color:#E9EAEC;
- width: 100%;
- min-height: 80px;
- border-radius: 20px;
+  border-radius: 5px;
+margin: 10px 0px;
 
  .header-info{
   background-color: white;
-  float: left;
-  margin:3% 1%;
-  padding:0px 10px;
+
+  margin:20px 0px ;
+  padding:0px 10px ;
   height: 60px;
 
   span {
@@ -140,7 +140,12 @@
   }
  }
 }
+.header-info select , .header-info select:focus{
+  border: none !important;
+  outline: none !important;
+  box-shadow: none;
 
+}
 
 // nav {
 //   margin-bottom: 100px ;
@@ -279,7 +284,7 @@ z-index: 1;
 position: absolute;
     inset: 0px  auto auto 0px!important;
     margin: 0px;
-    transform: translate3d(-150px, 40px, 0px) !important;
+    transform: translate3d(-170px, 40px, 0px) !important;
     min-width: 270px;
   }
   .btn-primary , .btn-outline-primary , .card-header{
@@ -302,3 +307,23 @@ position: absolute;
       .show-hide span{
          color: #37B673 !important;
       }
+     .navbar-nav{
+  padding: 0 !important;
+  margin:0 !important;
+border-bottom: 1px solid #e4e4e4;
+}
+.nav-item {
+  padding-right: 40px;
+}
+.nav-item:last-of-type {
+  padding-right: 0px;
+}
+.nav-item .nav-link{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.btns-box{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
